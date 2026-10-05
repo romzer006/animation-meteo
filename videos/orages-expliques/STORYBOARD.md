@@ -94,7 +94,7 @@ Scene 4 (4.3–7.24s): on "coup de pouce" card 03 lands at y≈1160–1500: h2 "
 - voiceover: "L'air chaud monte comme une montgolfière. Il refroidit, sa vapeur se condense, et le nuage explose vers le ciel : plus de dix kilomètres de haut ! C'est le cumulonimbus."
 - duration: 8.968s
 - transition_in: push-slide UP
-- status: outline
+- status: animated
 - src: compositions/frames/04-cumulonimbus.html
 - type: feature_showcase
 - persuasion: Analogy (montgolfière) + Demonstration + Causal chain
@@ -117,7 +117,7 @@ Scene 4 (7.4–8.97s): on "cumulonimbus" the anvil spreads flat at the top (scal
 - voiceover: "Au sommet, grêlons et cristaux de glace s'entrechoquent. Ça sépare les charges électriques… et boum ! L'éclair, puis le tonnerre."
 - duration: 6.771s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - src: compositions/frames/05-eclair.html
 - type: feature_showcase
 - persuasion: Causal chain (collision → charges → décharge) + Callback (éclair du hook)
@@ -231,7 +231,7 @@ Scene 4 (5.7–8.09s): on "rafales folles" ink chevrons shoot left from the base
 - voiceover: "Et en France ? Surtout des orages mono et multicellulaires, l'été. Mais des supercellules frappent aussi, surtout dans le Sud-Ouest et l'Est. Et en août 2022, un derecho a balayé la Corse à plus de deux cents kilomètres-heure."
 - duration: 12.317s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/10-france.html
 - type: social_proof
 - persuasion: Anchoring (carte de France) + Statistical proof (Corse 2022)
