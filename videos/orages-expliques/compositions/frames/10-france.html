@@ -354,20 +354,10 @@
         tl.fromTo(g, { x: -620, opacity: 0 }, { x: 0, opacity: 1, duration: 1.1, ease: "power3.out" }, 10.08 + i * 0.08);
       });
       // "deux cents" (10.87s): value-scaled counter
+      // value written by the tween itself (snap = round), so it holds even when the seek suppresses callbacks
       var num = el("num");
-      var count = { value: 0 };
       var COUNT_AT = 10.8, COUNT_DUR = 0.9, START_SCALE = 0.5;
-      tl.fromTo(
-        count,
-        { value: 0 },
-        {
-          value: 200,
-          duration: COUNT_DUR,
-          ease: "power3.out",
-          onUpdate: function () { num.textContent = String(Math.round(count.value)); }
-        },
-        COUNT_AT
-      );
+      tl.fromTo(num, { innerText: 0 }, { innerText: 200, snap: { innerText: 1 }, duration: COUNT_DUR, ease: "power3.out" }, COUNT_AT);
       tl.fromTo(num, { scale: START_SCALE, opacity: 0 }, { scale: 1, opacity: 1, duration: COUNT_DUR, ease: "power3.out" }, COUNT_AT);
       tl.fromTo(el("unit"), { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 10.95);
       tl.fromTo(el("plus"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 11.6);

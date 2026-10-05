@@ -1,0 +1,361 @@
+<template>
+  <style>
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-800.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-900.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: block; }
+    @font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: block; }
+
+    /* Frame root — styled by #root only. No ground here: the ground is the bg clip below. */
+    #root {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Barlow";
+      color: #F0ECE5;
+    }
+
+    /* Full-bleed ground — DARK register (ink-black), a full-duration clip on the lowest track */
+    [class~="04-cumulonimbus-bg"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #111111;
+      z-index: 0;
+    }
+
+    /* Stage — the container every frame-relative unit resolves against (container law).
+       --u = one canvas pixel of the 1080×1920 frame, expressed in cqw. */
+    [class~="04-cumulonimbus-stage"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      container-type: size;
+      --u: calc(100cqw / 1080);
+      z-index: 1;
+    }
+
+    /* The section-of-sky diagram: one SVG in canvas coordinates (viewBox = 1080×1920) */
+    [class~="04-cumulonimbus-svg"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    [class~="04-cumulonimbus-hair"] { shape-rendering: crispEdges; }
+
+    /* Mono chrome — IBM Plex Mono, uppercase, 0.14em */
+    [class~="04-cumulonimbus-mono"] {
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    [class~="04-cumulonimbus-ticklabel"] { font-size: 24px; fill: #888880; }
+    [class~="04-cumulonimbus-tagtext"] { font-size: 28px; }
+
+    /* Altitude counter — stat-value: Barlow 900, tabular, fire-orange (supporting) */
+    [class~="04-cumulonimbus-counterblock"] {
+      position: absolute;
+      right: calc(59 * var(--u));
+      top: calc(752 * var(--u));
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      color: #E85D26;
+    }
+    [class~="04-cumulonimbus-counterrow"] {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      font-family: "Barlow";
+      font-weight: 900;
+      font-size: calc(112 * var(--u));
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    [class~="04-cumulonimbus-counter"] {
+      display: inline-block;
+      width: 1.3em; /* fixed box: no layout shift as 1 digit becomes 2 */
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      transform-origin: 100% 85%;
+    }
+    [class~="04-cumulonimbus-suffix"] { display: inline-block; }
+    [class~="04-cumulonimbus-unit"] {
+      display: block;
+      margin-top: calc(6 * var(--u));
+      font-family: "Barlow";
+      font-weight: 800;
+      font-size: calc(56 * var(--u));
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: lowercase;
+    }
+
+    /* Rule stub — 36×2 fire-orange, the system's only ornament */
+    [class~="04-cumulonimbus-stub"] {
+      position: absolute;
+      right: calc(59 * var(--u));
+      top: calc(176 * var(--u));
+      width: calc(36 * var(--u));
+      height: calc(2 * var(--u));
+      background: #E85D26;
+      transform-origin: 100% 50%;
+    }
+
+    /* h2 label — Barlow lowercase 800, negative tracking, cream; rises from a mask */
+    [class~="04-cumulonimbus-titlemask"] {
+      position: absolute;
+      right: calc(59 * var(--u));
+      top: calc(196 * var(--u));
+      overflow: hidden;
+      padding: calc(10 * var(--u)) 0 calc(14 * var(--u)) calc(6 * var(--u));
+    }
+    [class~="04-cumulonimbus-title"] {
+      display: block;
+      font-family: "Barlow";
+      font-weight: 800;
+      font-size: calc(120 * var(--u));
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-cumulonimbus" data-start="0" data-duration="8.968" data-width="1080" data-height="1920">
+    <!-- background: full-bleed ink-black ground, full duration, lowest track -->
+    <div id="04-cumulonimbus-bg" class="clip 04-cumulonimbus-bg" data-start="0" data-duration="8.968" data-track-index="0"></div>
+
+    <div class="04-cumulonimbus-stage">
+      <svg class="04-cumulonimbus-svg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+        <!-- background: left altitude axis + ticks (0 / 5 / 10 KM at 108 px per km) -->
+        <rect class="04-cumulonimbus-axis 04-cumulonimbus-hair" x="170" y="400" width="1" height="1141" fill="#505048" />
+        <g class="04-cumulonimbus-tick">
+          <rect class="04-cumulonimbus-hair" x="170" y="1540" width="16" height="1" fill="#888880" />
+          <text class="04-cumulonimbus-mono 04-cumulonimbus-ticklabel" x="150" y="1541" text-anchor="end" dominant-baseline="central">0 KM</text>
+        </g>
+        <g class="04-cumulonimbus-tick">
+          <rect class="04-cumulonimbus-hair" x="170" y="1000" width="16" height="1" fill="#888880" />
+          <text class="04-cumulonimbus-mono 04-cumulonimbus-ticklabel" x="150" y="1001" text-anchor="end" dominant-baseline="central">5 KM</text>
+        </g>
+        <g class="04-cumulonimbus-tick">
+          <rect class="04-cumulonimbus-hair" x="170" y="460" width="16" height="1" fill="#888880" />
+          <text class="04-cumulonimbus-mono 04-cumulonimbus-ticklabel" x="150" y="461" text-anchor="end" dominant-baseline="central">10 KM</text>
+        </g>
+
+        <!-- background: ground hairline -->
+        <rect class="04-cumulonimbus-groundline 04-cumulonimbus-hair" x="59" y="1540" width="962" height="1" fill="#888880" />
+
+        <!-- supporting: altitude marker that climbs the axis (outer = climb, inner = fade) -->
+        <g class="04-cumulonimbus-markerclimb">
+          <g class="04-cumulonimbus-marker">
+            <rect class="04-cumulonimbus-hair" x="194" y="1540" width="246" height="1" fill="#E85D26" opacity="0.55" />
+            <rect x="146" y="1538" width="48" height="4" fill="#E85D26" />
+          </g>
+        </g>
+
+        <!-- foreground subject (Scenes 1–2): hot-air balloon = bubble of warm air (outer = rise, inner = entrance) -->
+        <g class="04-cumulonimbus-balloonrise">
+          <g class="04-cumulonimbus-balloon">
+            <line class="04-cumulonimbus-rope" x1="590" y1="1222" x2="590" y2="1240" stroke="#E85D26" stroke-width="2" />
+            <line class="04-cumulonimbus-rope" x1="610" y1="1222" x2="610" y2="1240" stroke="#E85D26" stroke-width="2" />
+            <polygon class="04-cumulonimbus-bpart" points="572,1192 628,1192 614,1222 586,1222" fill="#E85D26" stroke="#E85D26" stroke-width="3" stroke-linejoin="miter" />
+            <circle class="04-cumulonimbus-bpart" cx="600" cy="1146" r="64" fill="#E85D26" stroke="#E85D26" stroke-width="3" />
+            <rect class="04-cumulonimbus-bpart" x="584" y="1240" width="32" height="22" fill="#E85D26" stroke="#E85D26" stroke-width="3" stroke-linejoin="miter" />
+            <g class="04-cumulonimbus-tag">
+              <line class="04-cumulonimbus-leader" x1="672" y1="1150.5" x2="826" y2="1150.5" stroke="#E85D26" stroke-width="1" />
+              <text class="04-cumulonimbus-mono 04-cumulonimbus-tagtext" x="838" y="1151" dominant-baseline="central" fill="#E85D26">AIR CHAUD</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- foreground subject: the anvil (outer = fade, inner = spread) -->
+        <g class="04-cumulonimbus-anvilwrap">
+          <path class="04-cumulonimbus-anvil" d="M282,478 L332,432 L952,432 L1004,470 Q850,482 715,540 L500,540 Q390,492 282,478 Z" fill="#F0ECE5" />
+        </g>
+
+        <!-- foreground subject (focal): the tower — body grows from its base, cap rides its top -->
+        <g class="04-cumulonimbus-tower">
+          <g class="04-cumulonimbus-towerbody">
+            <rect x="505" y="600" width="190" height="668" fill="#F0ECE5" />
+            <circle cx="505" cy="720" r="44" fill="#F0ECE5" />
+            <circle cx="505" cy="850" r="48" fill="#F0ECE5" />
+            <circle cx="505" cy="980" r="42" fill="#F0ECE5" />
+            <circle cx="505" cy="1100" r="46" fill="#F0ECE5" />
+            <circle cx="695" cy="760" r="46" fill="#F0ECE5" />
+            <circle cx="695" cy="890" r="42" fill="#F0ECE5" />
+            <circle cx="695" cy="1010" r="48" fill="#F0ECE5" />
+            <circle cx="695" cy="1130" r="44" fill="#F0ECE5" />
+          </g>
+          <g class="04-cumulonimbus-cap">
+            <circle cx="600" cy="537" r="75" fill="#F0ECE5" />
+            <circle cx="528" cy="585" r="64" fill="#F0ECE5" />
+            <circle cx="674" cy="580" r="68" fill="#F0ECE5" />
+            <circle cx="468" cy="640" r="48" fill="#F0ECE5" />
+            <circle cx="735" cy="636" r="50" fill="#F0ECE5" />
+          </g>
+        </g>
+
+        <!-- foreground subject: the cumulus — puffs share one origin (the balloon centre 600,1146)
+             and expand outward to their offsets (center-outward-expansion), then the flat base merges them -->
+        <g class="04-cumulonimbus-cumulus">
+          <rect class="04-cumulonimbus-cubase" x="430" y="1180" width="340" height="88" fill="#F0ECE5" />
+          <circle class="04-cumulonimbus-puff" cx="600" cy="1146" r="95" fill="#F0ECE5" data-target-x="0" data-target-y="-36" />
+          <circle class="04-cumulonimbus-puff" cx="600" cy="1146" r="72" fill="#F0ECE5" data-target-x="-70" data-target-y="-6" />
+          <circle class="04-cumulonimbus-puff" cx="600" cy="1146" r="70" fill="#F0ECE5" data-target-x="65" data-target-y="-21" />
+          <circle class="04-cumulonimbus-puff" cx="600" cy="1146" r="80" fill="#F0ECE5" data-target-x="-110" data-target-y="24" />
+          <circle class="04-cumulonimbus-puff" cx="600" cy="1146" r="85" fill="#F0ECE5" data-target-x="110" data-target-y="19" />
+          <circle class="04-cumulonimbus-puff" cx="600" cy="1146" r="54" fill="#F0ECE5" data-target-x="-170" data-target-y="68" />
+          <circle class="04-cumulonimbus-puff" cx="600" cy="1146" r="56" fill="#F0ECE5" data-target-x="170" data-target-y="66" />
+        </g>
+      </svg>
+
+      <!-- supporting: altitude counter (counting-dynamic-scale) — lands "10+ km" -->
+      <div class="04-cumulonimbus-counterblock">
+        <div class="04-cumulonimbus-counterrow"><span class="04-cumulonimbus-counter">0</span><span class="04-cumulonimbus-suffix">+</span></div>
+        <div class="04-cumulonimbus-unit">km</div>
+      </div>
+
+      <!-- foreground label: h2 "cumulonimbus", upper-right -->
+      <div class="04-cumulonimbus-stub"></div>
+      <div class="04-cumulonimbus-titlemask"><span class="04-cumulonimbus-title">cumulonimbus</span></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var D = document;
+      var one = function (name) { return D.querySelector('[class~="04-cumulonimbus-' + name + '"]'); };
+      var all = function (name) { return Array.prototype.slice.call(D.querySelectorAll('[class~="04-cumulonimbus-' + name + '"]')); };
+
+      var ORANGE = "#E85D26";
+      var CREAM = "#F0ECE5";
+      var INK = "#111111";
+      var MUTED = "#888880";
+
+      var axis = one("axis");
+      var ticks = all("tick");
+      var groundLine = one("groundline");
+      var markerClimb = one("markerclimb");
+      var marker = one("marker");
+      var balloonRise = one("balloonrise");
+      var balloon = one("balloon");
+      var bParts = all("bpart");
+      var ropes = all("rope");
+      var tag = one("tag");
+      var leader = one("leader");
+      var tagText = one("tagtext");
+      var puffs = all("puff");
+      var cuBase = one("cubase");
+      var tower = one("tower");
+      var towerBody = one("towerbody");
+      var cap = one("cap");
+      var anvilWrap = one("anvilwrap");
+      var anvil = one("anvil");
+      var counterBlock = one("counterblock");
+      var counter = one("counter");
+      var suffix = one("suffix");
+      var unit = one("unit");
+      var stub = one("stub");
+      var title = one("title");
+
+      // SVG pivots in absolute user space (no bbox measurement).
+      gsap.set(groundLine, { svgOrigin: "59 1540" });
+      gsap.set(axis, { svgOrigin: "170 1540" });
+      gsap.set(balloon, { svgOrigin: "600 1146" });
+      puffs.forEach(function (p) { gsap.set(p, { svgOrigin: "600 1146" }); });
+      gsap.set(cuBase, { svgOrigin: "600 1268" });
+      gsap.set(towerBody, { svgOrigin: "600 1268" });
+      gsap.set(anvil, { svgOrigin: "600 486" });
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ── Scene 1 (0.0–2.0s) — the section of sky; the warm-air balloon rises ("monte comme une montgolfière")
+      tl.fromTo(groundLine, { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 0);
+      tl.fromTo(axis, { scaleY: 0 }, { scaleY: 1, duration: 0.9, ease: "power3.out" }, 0.1);
+      ticks.forEach(function (t, i) {
+        tl.fromTo(t, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.35 + i * 0.12);
+      });
+      tl.fromTo(balloon, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 0.05);
+      tl.fromTo(tag, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.4);
+      // from the ground (basket resting at y≈1538) up to y≈1150, smooth long-tail settle
+      tl.fromTo(balloonRise, { y: 276 }, { y: 0, duration: 2.0, ease: "power3.out" }, 0.45);
+
+      // ── Scene 2 (2.0–4.2s) — "refroidit": the fill softens from orange to a cream outline (one tween)
+      tl.fromTo(bParts, { fill: ORANGE, stroke: ORANGE }, { fill: INK, stroke: CREAM, duration: 0.8, ease: "power2.out" }, 2.25);
+      tl.fromTo(ropes, { stroke: ORANGE }, { stroke: CREAM, duration: 0.8, ease: "power2.out" }, 2.25);
+      tl.fromTo(leader, { stroke: ORANGE }, { stroke: MUTED, duration: 0.8, ease: "power2.out" }, 2.25);
+      tl.fromTo(tagText, { fill: ORANGE }, { fill: MUTED, duration: 0.8, ease: "power2.out" }, 2.25);
+
+      // "condense" (3.7s) — center-outward-expansion: cream puffs burst from the balloon centre to their offsets
+      var EXPAND_AT = 3.7, EXPAND_DUR = 0.9, STAGGER = 0.05;
+      puffs.forEach(function (p, i) {
+        tl.fromTo(
+          p,
+          { x: 0, y: 0, scale: 0.6, opacity: 0 },
+          {
+            x: Number(p.getAttribute("data-target-x")),
+            y: Number(p.getAttribute("data-target-y")),
+            scale: 1,
+            opacity: 1,
+            duration: EXPAND_DUR,
+            ease: "power3.out",
+          },
+          EXPAND_AT + i * STAGGER
+        );
+      });
+      // the puffs merge into one flat-bottomed cumulus
+      tl.fromTo(cuBase, { scaleX: 0.4, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 3.95);
+
+      // ── Scene 3 (4.2–7.4s) — "explose vers le ciel": tower grows from its base; marker climbs; counter 0 → 10
+      var GROW_AT = 4.25, GROW_DUR = 2.35, GROW_EASE = "power3.out";
+      var S0 = 0.15;                       // tower starts tucked inside the cumulus
+      var CAP_DY = 668 * (1 - S0);         // keeps the cap glued to the column top at every frame
+      tl.fromTo(tower, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12, ease: "none" }, 4.2);
+      tl.fromTo(towerBody, { scaleY: S0 }, { scaleY: 1, duration: GROW_DUR, ease: GROW_EASE }, GROW_AT);
+      tl.fromTo(cap, { y: CAP_DY }, { y: 0, duration: GROW_DUR, ease: GROW_EASE }, GROW_AT);
+
+      tl.fromTo(marker, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 4.1);
+      tl.fromTo(markerClimb, { y: 0 }, { y: -1080, duration: GROW_DUR, ease: GROW_EASE }, GROW_AT); // 0 KM → 10 KM
+
+      // counting-dynamic-scale: value + scale share position, duration and ease
+      tl.fromTo(counterBlock, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 4.1);
+      tl.fromTo(
+        counter,
+        { innerText: "0", scale: 0.5 },
+        { innerText: 10, snap: { innerText: 1 }, scale: 1, duration: GROW_DUR, ease: GROW_EASE },
+        GROW_AT
+      );
+      // unit label arrives early (before the count peaks)
+      tl.fromTo(unit, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 4.55);
+      // suffix lands after the count completes — "10+ km" on "dix kilomètres" (6.6s)
+      tl.fromTo(suffix, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, GROW_AT + GROW_DUR);
+
+      // ── Scene 4 (7.4–8.97s) — "cumulonimbus": the anvil spreads flat at the top, h2 lands, then hold
+      tl.fromTo(anvilWrap, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "none" }, 7.4);
+      tl.fromTo(anvil, { scaleX: 0.15 }, { scaleX: 1, duration: 1.0, ease: "power3.out" }, 7.4);
+      tl.fromTo(stub, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 7.5);
+      tl.fromTo(title, { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out" }, 7.55);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["04-cumulonimbus"] = tl;
+    })();
+  </script>
+</template>

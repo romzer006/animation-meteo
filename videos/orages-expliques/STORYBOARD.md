@@ -23,7 +23,7 @@ music: dark cinematic storm pulse, driving percussion, tense
 - voiceover: "Un éclair chauffe l'air à trente mille degrés. Cinq fois plus que la surface du Soleil !"
 - duration: 4.765s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-hook.html
 - type: hook
 - persuasion: Shocking statistic + Anchoring on a familiar referent (le Soleil)
@@ -47,7 +47,7 @@ Scene 4 (3.3–4.77s): on "surface du Soleil", two horizontal **bars** (`stat-ba
 - voiceover: "Mais comment naît un orage ? Et lesquels peuvent frapper la France ? On décode tout."
 - duration: 4.104s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - src: compositions/frames/02-question.html
 - type: pain_point
 - persuasion: Question→answer pairing + Signposting
@@ -70,7 +70,7 @@ Scene 3 (3.1–4.1s): on "on décode tout", a mono label "ON DÉCODE TOUT ▸" t
 - voiceover: "Il faut trois ingrédients. De l'humidité. De l'air chaud en bas, de l'air froid en haut. Et un coup de pouce : un relief, un front, ou le soleil."
 - duration: 7.24s
 - transition_in: push-slide UP
-- status: outline
+- status: animated
 - src: compositions/frames/03-ingredients.html
 - type: product_intro
 - persuasion: Rule of three + Frame-then-fill
@@ -140,7 +140,7 @@ Scene 4 (5.0–6.77s): h1 "éclair" (cream) lands at y≈1350 on "L'éclair" (5.
 - voiceover: "Premier type : l'orage monocellulaire. Une seule cellule, moins d'une heure de vie. L'orage de chaleur des soirs d'été."
 - duration: 6.152s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/06-monocellulaire.html
 - type: feature_showcase
 - persuasion: Numbered enumeration + Concretization
@@ -163,7 +163,7 @@ Scene 4 (4.2–6.15s): on "orage de chaleur" a mono tag "ORAGE DE CHALEUR" + a s
 - voiceover: "Deux : le multicellulaire. Plusieurs cellules se relaient pendant des heures. Grêle et grosses averses."
 - duration: 5.171s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/07-multicellulaire.html
 - type: feature_showcase
 - persuasion: Numbered enumeration + Build-up (une cellule → plusieurs)
@@ -185,7 +185,7 @@ Scene 3 (3.7–5.17s): on "grêle" cream hail circles drop from the cells (stagg
 - voiceover: "Trois : la ligne de grains. Des orages alignés sur des centaines de kilomètres, avec des rafales dévastatrices."
 - duration: 5.939s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/08-ligne-de-grains.html
 - type: feature_showcase
 - persuasion: Numbered enumeration + Concretization (vue radar)
@@ -207,7 +207,7 @@ Scene 3 (4.0–5.94s): on "rafales" five orange chevron arrows shoot out ahead o
 - voiceover: "Et le roi : la supercellule. Son courant ascendant tourne sur lui-même. Grêlons gros comme des pamplemousses, rafales folles… et parfois, des tornades."
 - duration: 8.093s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - src: compositions/frames/09-supercellule.html
 - type: benefit_highlight
 - persuasion: Build-up (climax de la liste) + Concretization (pamplemousse)
@@ -254,7 +254,7 @@ Scene 4 (7.4–12.32s): on "août 2022" the camera **zooms to target** on Corsic
 - voiceover: "Et toi, c'était quoi ton pire orage ? Raconte en commentaire, et abonne-toi pour ne rien rater !"
 - duration: 5.872s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - src: compositions/frames/11-cta.html
 - type: cta
 - persuasion: Direct address + Question→answer pairing (engagement)
