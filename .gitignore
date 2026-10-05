@@ -10,3 +10,5 @@ node_modules/
 videos/*/renders/*.log
 videos/*/.hyperframes/check.log
 videos/*/.hyperframes/render.log
+videos/*/renders/work-*/
+videos/*/renders/.*
