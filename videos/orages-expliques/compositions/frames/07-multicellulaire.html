@@ -1,0 +1,394 @@
+<template>
+  <style>
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-800.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-900.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: block; }
+    @font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: block; }
+
+    /* Frame root — styled via #root only (never a class on the composition root). */
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      color: #F0ECE5;
+      font-family: "Barlow";
+    }
+
+    /* Full-bleed ink-black ground — its own clip, not painted on #root. */
+    .\30 7-multicellulaire-bg {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+
+    /* ---- Listicle chrome (shared spot across Frames 6–9) ---- */
+    .\30 7-multicellulaire-type {
+      position: absolute;
+      left: 64px;
+      top: 120px;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+    .\30 7-multicellulaire-dots {
+      position: absolute;
+      left: 64px;
+      top: 170px;
+      display: flex;
+      gap: 14px;
+    }
+    .\30 7-multicellulaire-dot {
+      position: relative;
+      display: block;
+      width: 16px;
+      height: 16px;
+      box-sizing: border-box;
+      border: 1px solid #F0ECE5;
+      border-radius: 50%;
+    }
+    .\30 7-multicellulaire-dot-on {
+      border-color: #E85D26;
+    }
+    .\30 7-multicellulaire-dot-fill {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #E85D26;
+    }
+
+    /* ---- h1 hero: "multi" + "cellulaire", masked per chunk ---- */
+    .\30 7-multicellulaire-h1 {
+      position: absolute;
+      left: 58px;
+      top: 254px;
+      display: flex;
+      font-family: "Barlow";
+      font-weight: 800;
+      font-size: 140px;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      color: #F0ECE5;
+    }
+    .\30 7-multicellulaire-mask {
+      display: block;
+      overflow: hidden;
+      padding: 0.06em 0 0.04em;
+    }
+    .\30 7-multicellulaire-chunk {
+      display: block;
+    }
+    .\30 7-multicellulaire-multi {
+      color: #E85D26;
+    }
+
+    /* ---- Stage: three relaying cells + precipitation ---- */
+    .\30 7-multicellulaire-stage {
+      position: absolute;
+      inset: 0;
+    }
+    .\30 7-multicellulaire-cell {
+      position: absolute;
+      top: 490px;
+      width: 300px;
+      height: 680px;
+    }
+    .\30 7-multicellulaire-cell svg {
+      display: block;
+      width: 300px;
+      height: 680px;
+    }
+    .\30 7-multicellulaire-hail {
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      background: #F0ECE5;
+    }
+    .\30 7-multicellulaire-rain {
+      position: absolute;
+      display: block;
+      width: 3px;
+      background: #F0ECE5;
+    }
+
+    /* ---- Ground + precipitation labels ---- */
+    .\30 7-multicellulaire-ground {
+      position: absolute;
+      left: 0;
+      top: 1480px;
+      width: 1080px;
+      height: 1px;
+      background: #888880;
+    }
+    .\30 7-multicellulaire-label {
+      position: absolute;
+      top: 1494px;
+      width: 200px;
+      padding-left: 0.14em;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+
+    /* ---- Time track under the ground ---- */
+    .\30 7-multicellulaire-track-line {
+      position: absolute;
+      left: 64px;
+      top: 1548px;
+      width: 952px;
+      height: 1px;
+      background: #505048;
+    }
+    .\30 7-multicellulaire-tick {
+      position: absolute;
+      top: 1541px;
+      width: 1px;
+      height: 14px;
+      background: #888880;
+    }
+    .\30 7-multicellulaire-track-fill {
+      position: absolute;
+      left: 64px;
+      top: 1547px;
+      width: 952px;
+      height: 3px;
+      background: #E85D26;
+    }
+    .\30 7-multicellulaire-track-head {
+      position: absolute;
+      left: 59px;
+      top: 1543px;
+      width: 10px;
+      height: 10px;
+      background: #E85D26;
+    }
+    .\30 7-multicellulaire-hours {
+      position: absolute;
+      right: 64px;
+      top: 1566px;
+      margin-right: -0.14em;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #E85D26;
+      white-space: nowrap;
+    }
+  </style>
+
+  <div id="root" data-composition-id="07-multicellulaire" data-width="1080" data-height="1920">
+    <!-- full-bleed ground, lowest track -->
+    <div class="clip 07-multicellulaire-bg" data-start="0" data-duration="5.171" data-track-index="0"></div>
+
+    <!-- listicle chrome: TYPE 2 / 4 + nav dots (second filled) -->
+    <div class="07-multicellulaire-type">TYPE 2 / 4</div>
+    <div class="07-multicellulaire-dots">
+      <span class="07-multicellulaire-dot"></span>
+      <span class="07-multicellulaire-dot 07-multicellulaire-dot-on"><span class="07-multicellulaire-dot-fill"></span></span>
+      <span class="07-multicellulaire-dot"></span>
+      <span class="07-multicellulaire-dot"></span>
+    </div>
+
+    <!-- h1 hero -->
+    <div class="07-multicellulaire-h1">
+      <span class="07-multicellulaire-mask"><span class="07-multicellulaire-chunk 07-multicellulaire-multi">multi</span></span><span class="07-multicellulaire-mask"><span class="07-multicellulaire-chunk">cellulaire</span></span>
+    </div>
+
+    <!-- stage: precipitation sits behind the three cells; the whole stage pushes in from the ground -->
+    <div class="07-multicellulaire-stage">
+      <div class="07-multicellulaire-precip">
+        <!-- hail under the mature cell (C) -->
+        <i class="07-multicellulaire-hail" data-d="0.045" style="left:782px; top:1207px; width:16px; height:16px"></i>
+        <i class="07-multicellulaire-hail" data-d="0" style="left:841px; top:1217px; width:18px; height:18px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.09" style="left:905px; top:1205px; width:14px; height:14px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.18" style="left:805px; top:1281px; width:14px; height:14px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.135" style="left:862px; top:1284px; width:20px; height:20px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.225" style="left:926px; top:1274px; width:16px; height:16px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.315" style="left:774px; top:1343px; width:18px; height:18px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.27" style="left:839px; top:1357px; width:14px; height:14px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.36" style="left:898px; top:1338px; width:16px; height:16px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.45" style="left:808px; top:1416px; width:16px; height:16px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.405" style="left:869px; top:1411px; width:14px; height:14px"></i>
+        <i class="07-multicellulaire-hail" data-d="0.495" style="left:929px; top:1423px; width:18px; height:18px"></i>
+        <!-- dense rain streaks under the relaying cells (A, B) -->
+          <i class="07-multicellulaire-rain" data-d="0" style="left:156px; top:1188px; height:96px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.12" style="left:156px; top:1316px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.063" style="left:173px; top:1192px; height:76px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.183" style="left:173px; top:1296px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.126" style="left:190px; top:1194px; height:90px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.246" style="left:190px; top:1324px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.009" style="left:207px; top:1202px; height:100px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.129" style="left:207px; top:1352px; height:117px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.072" style="left:224px; top:1206px; height:108px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.192" style="left:224px; top:1338px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.135" style="left:241px; top:1218px; height:88px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.255" style="left:241px; top:1344px; height:115px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.018" style="left:258px; top:1222px; height:84px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.138" style="left:258px; top:1352px; height:115px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.081" style="left:275px; top:1196px; height:110px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.201" style="left:275px; top:1332px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.144" style="left:292px; top:1200px; height:92px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.264" style="left:292px; top:1326px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.027" style="left:460px; top:1210px; height:80px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.147" style="left:460px; top:1334px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.09" style="left:477px; top:1214px; height:104px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.21" style="left:477px; top:1360px; height:112px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.153" style="left:494px; top:1188px; height:96px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.273" style="left:494px; top:1316px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.036" style="left:511px; top:1192px; height:76px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.156" style="left:511px; top:1296px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.099" style="left:528px; top:1194px; height:90px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.219" style="left:528px; top:1324px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.162" style="left:545px; top:1202px; height:100px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.282" style="left:545px; top:1352px; height:117px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.045" style="left:562px; top:1206px; height:108px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.165" style="left:562px; top:1338px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.108" style="left:579px; top:1218px; height:88px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.228" style="left:579px; top:1344px; height:115px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.171" style="left:596px; top:1222px; height:84px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.291" style="left:596px; top:1352px; height:115px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.054" style="left:613px; top:1196px; height:110px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.174" style="left:613px; top:1332px; height:118px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.117" style="left:630px; top:1200px; height:92px"></i>
+          <i class="07-multicellulaire-rain" data-d="0.237" style="left:630px; top:1326px; height:118px"></i>
+      </div>
+
+      <!-- three flat cream cumulonimbus cells (tower + flat anvil), base on y=1170 -->
+      <div class="07-multicellulaire-cell" style="left:70px">
+        <svg viewBox="0 0 300 680" width="300" height="680" aria-hidden="true"><path fill="#F0ECE5" d="M50,680 L250,680 C290,680 295,609.1 262,585.4 C295,561.8 290,479 245,473.1 C275,443.5 265,372.6 225,372.6 C250,337.1 240,278 210,266.1 C222,224.8 212,165.6 195,136.1 C225,100.6 265,74.6 300,62.8 L272,6 L28,6 L0,62.8 C35,74.6 75,100.6 105,136.1 C88,165.6 78,224.8 90,266.1 C60,278 50,337.1 75,372.6 C35,372.6 25,443.5 55,473.1 C10,479 5,561.8 38,585.4 C5,609.1 10,680 50,680 Z"/></svg>
+      </div>
+      <div class="07-multicellulaire-cell" style="left:390px">
+        <svg viewBox="0 0 300 680" width="300" height="680" aria-hidden="true"><path fill="#F0ECE5" d="M50,680 L250,680 C290,680 295,609.1 262,585.4 C295,561.8 290,479 245,473.1 C275,443.5 265,372.6 225,372.6 C250,337.1 240,278 210,266.1 C222,224.8 212,165.6 195,136.1 C225,100.6 265,74.6 300,62.8 L272,6 L28,6 L0,62.8 C35,74.6 75,100.6 105,136.1 C88,165.6 78,224.8 90,266.1 C60,278 50,337.1 75,372.6 C35,372.6 25,443.5 55,473.1 C10,479 5,561.8 38,585.4 C5,609.1 10,680 50,680 Z"/></svg>
+      </div>
+      <div class="07-multicellulaire-cell" style="left:710px">
+        <svg viewBox="0 0 300 680" width="300" height="680" aria-hidden="true"><path fill="#F0ECE5" d="M50,680 L250,680 C290,680 295,609.1 262,585.4 C295,561.8 290,479 245,473.1 C275,443.5 265,372.6 225,372.6 C250,337.1 240,278 210,266.1 C222,224.8 212,165.6 195,136.1 C225,100.6 265,74.6 300,62.8 L272,6 L28,6 L0,62.8 C35,74.6 75,100.6 105,136.1 C88,165.6 78,224.8 90,266.1 C60,278 50,337.1 75,372.6 C35,372.6 25,443.5 55,473.1 C10,479 5,561.8 38,585.4 C5,609.1 10,680 50,680 Z"/></svg>
+      </div>
+    </div>
+
+    <!-- ground hairline + precipitation labels -->
+    <div class="07-multicellulaire-ground"></div>
+    <div class="07-multicellulaire-label 07-multicellulaire-label-averses" style="left:282px">AVERSES</div>
+    <div class="07-multicellulaire-label 07-multicellulaire-label-grele" style="left:760px">GRÊLE</div>
+
+    <!-- time track: hairline + hour ticks + orange fill + playhead -->
+    <div class="07-multicellulaire-track-line"></div>
+    <i class="07-multicellulaire-tick" style="left:64px"></i>
+    <i class="07-multicellulaire-tick" style="left:183px"></i>
+    <i class="07-multicellulaire-tick" style="left:302px"></i>
+    <i class="07-multicellulaire-tick" style="left:421px"></i>
+    <i class="07-multicellulaire-tick" style="left:540px"></i>
+    <i class="07-multicellulaire-tick" style="left:658px"></i>
+    <i class="07-multicellulaire-tick" style="left:777px"></i>
+    <i class="07-multicellulaire-tick" style="left:896px"></i>
+    <i class="07-multicellulaire-tick" style="left:1015px"></i>
+    <div class="07-multicellulaire-track-fill"></div>
+    <div class="07-multicellulaire-track-head"></div>
+    <div class="07-multicellulaire-hours">PLUSIEURS HEURES</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var ID = "07-multicellulaire";
+      var root = document.querySelector('[data-composition-id="07-multicellulaire"]') || document;
+      function all(name) {
+        return Array.prototype.slice.call(root.getElementsByClassName(ID + "-" + name));
+      }
+      function one(name) {
+        return all(name)[0];
+      }
+
+      var dotFill = one("dot-fill");
+      var chunks = all("chunk");
+      var stage = one("stage");
+      var cells = all("cell");
+      var hail = all("hail");
+      var rain = all("rain");
+      var trackLine = one("track-line");
+      var ticks = all("tick");
+      var fill = one("track-fill");
+      var head = one("track-head");
+      var hours = one("hours");
+      var labelGrele = one("label-grele");
+      var labelAverses = one("label-averses");
+
+      gsap.set(cells, { transformOrigin: "50% 100%" });
+      gsap.set([trackLine, fill], { transformOrigin: "0% 50%" });
+      gsap.set(ticks, { transformOrigin: "50% 50%" });
+      gsap.set(stage, { transformOrigin: "540px 1480px" });
+      gsap.set(rain, { rotation: 12, transformOrigin: "50% 0%" });
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0–1.6s) — same stage as Frame 6: chrome + ground present from the cut.
+      // Dot 2 fills, then h1 per-chunk: "multi" (0.38s) + "cellulaire" (0.58s).
+      tl.fromTo(dotFill, { scale: 0 }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0.08);
+      tl.fromTo(chunks[0], { yPercent: 112 }, { yPercent: 0, duration: 0.75, ease: "power3.out" }, 0.38);
+      tl.fromTo(chunks[1], { yPercent: 112 }, { yPercent: 0, duration: 0.75, ease: "power3.out" }, 0.58);
+      // Time-track hairline draws in under the ground, anticipating the relay.
+      tl.fromTo(trackLine, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 1.1);
+
+      // Scene 2 (1.6–3.6s) — "plusieurs cellules": three cells rise in relay, left → right.
+      // Each new cell rises as the previous one collapses to half (and dims).
+      tl.fromTo(cells[0], { scaleX: 0.6, scaleY: 0.04, opacity: 0 }, { scaleX: 1, scaleY: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.6);
+      tl.fromTo(cells[1], { scaleX: 0.6, scaleY: 0.04, opacity: 0 }, { scaleX: 1, scaleY: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 2.2);
+      tl.fromTo(cells[0], { scaleX: 1, scaleY: 1, opacity: 1 }, { scaleX: 0.78, scaleY: 0.5, opacity: 0.55, duration: 0.55, ease: "power3.inOut", immediateRender: false }, 2.2);
+      tl.fromTo(cells[2], { scaleX: 0.6, scaleY: 0.04, opacity: 0 }, { scaleX: 1, scaleY: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 2.8);
+      tl.fromTo(cells[1], { scaleX: 1, scaleY: 1, opacity: 1 }, { scaleX: 0.78, scaleY: 0.5, opacity: 0.55, duration: 0.55, ease: "power3.inOut", immediateRender: false }, 2.8);
+      tl.fromTo(cells[0], { scaleX: 0.78, scaleY: 0.5, opacity: 0.55 }, { scaleX: 0.62, scaleY: 0.3, opacity: 0.35, duration: 0.55, ease: "power3.inOut", immediateRender: false }, 2.8);
+
+      // Slow push on the storm row from the ground line (macro move under the relay + hold).
+      tl.fromTo(stage, { scale: 1 }, { scale: 1.03, duration: 3.55, ease: "none" }, 1.6);
+
+      // Time track fills orange left → right; hour ticks land as the playhead passes them.
+      var TRACK_START = 1.6;
+      var TRACK_DUR = 1.9;
+      tl.fromTo(head, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power1.out" }, 1.45);
+      tl.fromTo(fill, { scaleX: 0 }, { scaleX: 1, duration: TRACK_DUR, ease: "none" }, TRACK_START);
+      tl.fromTo(head, { x: 0 }, { x: 952, duration: TRACK_DUR, ease: "none" }, TRACK_START);
+      ticks.forEach(function (tick, i) {
+        tl.fromTo(tick, { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "power3.out" }, TRACK_START + i * (TRACK_DUR / (ticks.length - 1)));
+      });
+      // "PLUSIEURS HEURES" lands on "heures".
+      tl.fromTo(hours, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 3.2);
+
+      // Scene 3 (3.7–5.17s) — "grêle": hail drops from the mature cell, staggered per index (finite).
+      hail.forEach(function (stone) {
+        var d = parseFloat(stone.getAttribute("data-d")) || 0;
+        tl.fromTo(stone, { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 3.7 + d);
+      });
+      tl.fromTo(labelGrele, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 3.8);
+
+      // "averses" (4.4s): dense rain streaks draw down from the relaying cells, staggered per index.
+      rain.forEach(function (streak) {
+        var d = parseFloat(streak.getAttribute("data-d")) || 0;
+        tl.fromTo(streak, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.4, ease: "power3.out" }, 4.4 + d);
+      });
+      tl.fromTo(labelAverses, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 4.45);
+      // Hold to 5.171s — no exit (the root transition is the exit).
+
+      window.__timelines["07-multicellulaire"] = tl;
+    })();
+  </script>
+</template>

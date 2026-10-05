@@ -382,7 +382,7 @@
         return document.getElementById(FID + "-" + name);
       }
 
-      /* ── rain sheet: deterministic streak field (seeded PRNG, no Math.random) ──
+      /* ── rain sheet: deterministic streak field (seeded PRNG) ──
          The sheet falls linearly from the cloud base; streak density tapers toward
          its tail so the shower thins out as the cell dies. */
       var RAIN_W = 220;
@@ -441,7 +441,7 @@
         arcLen = 0;
       }
       if (!arcLen || !isFinite(arcLen)) arcLen = 86 * ((300 * Math.PI) / 180);
-      arcLen = arcLen * 1.02;
+      arcLen = arcLen + 1;
       arc.style.strokeDasharray = String(arcLen);
       arc.style.strokeDashoffset = String(arcLen);
 
@@ -487,7 +487,7 @@
       );
       tl.fromTo(
         el("cloud-anvil"),
-        { scaleX: 0.25 },
+        { scaleX: 0.25, svgOrigin: "250 66" },
         { scaleX: 1, svgOrigin: "250 66", duration: 0.65, ease: "power3.out" },
         2.48
       );
@@ -514,7 +514,7 @@
       );
       tl.fromTo(
         el("clock-hand"),
-        { rotation: 0 },
+        { rotation: 0, svgOrigin: "100 120" },
         { rotation: 300, svgOrigin: "100 120", duration: 0.75, ease: "power2.out" },
         3.05
       );
@@ -546,7 +546,7 @@
       );
       tl.fromTo(
         el("cloud-anvil"),
-        { scaleX: 1, scaleY: 1, y: 0 },
+        { scaleX: 1, scaleY: 1, y: 0, svgOrigin: "250 66" },
         {
           scaleX: 1.12,
           scaleY: 0.62,
@@ -560,7 +560,7 @@
       );
       tl.fromTo(
         el("cloud-upper"),
-        { scale: 1 },
+        { scale: 1, svgOrigin: "240 250" },
         { scale: 0.86, svgOrigin: "240 250", duration: 0.9, ease: "power3.out", immediateRender: false },
         5.2
       );
