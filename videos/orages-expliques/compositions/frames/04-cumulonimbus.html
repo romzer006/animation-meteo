@@ -339,8 +339,8 @@
       tl.fromTo(counterBlock, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 4.1);
       tl.fromTo(
         counter,
-        { innerText: "0", scale: 0.5 },
-        { innerText: 10, snap: { innerText: 1 }, scale: 1, duration: GROW_DUR, ease: GROW_EASE },
+        { textContent: "0", scale: 0.5 },
+        { textContent: 10, snap: { textContent: 1 }, scale: 1, duration: GROW_DUR, ease: GROW_EASE },
         GROW_AT
       );
       // unit label arrives early (before the count peaks)
