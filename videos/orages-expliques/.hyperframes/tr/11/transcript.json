@@ -1,0 +1,98 @@
+[
+  {
+    "text": "Et",
+    "start": 0.03,
+    "end": 0.11,
+    "id": "w0"
+  },
+  {
+    "text": "toi,",
+    "start": 0.11,
+    "end": 0.38,
+    "id": "w1"
+  },
+  {
+    "text": "c'était",
+    "start": 0.38,
+    "end": 0.71,
+    "id": "w2"
+  },
+  {
+    "text": "quoi",
+    "start": 0.77,
+    "end": 0.97,
+    "id": "w3"
+  },
+  {
+    "text": "ton",
+    "start": 0.97,
+    "end": 1.13,
+    "id": "w4"
+  },
+  {
+    "text": "pire",
+    "start": 1.13,
+    "end": 1.34,
+    "id": "w5"
+  },
+  {
+    "text": "orage?",
+    "start": 1.34,
+    "end": 1.75,
+    "id": "w6"
+  },
+  {
+    "text": "Racontes",
+    "start": 1.9,
+    "end": 2.3,
+    "id": "w7"
+  },
+  {
+    "text": "en",
+    "start": 2.3,
+    "end": 2.42,
+    "id": "w8"
+  },
+  {
+    "text": "commentaire",
+    "start": 2.42,
+    "end": 2.94,
+    "id": "w9"
+  },
+  {
+    "text": "et",
+    "start": 3.17,
+    "end": 3.19,
+    "id": "w10"
+  },
+  {
+    "text": "abonne-toi",
+    "start": 3.19,
+    "end": 3.68,
+    "id": "w11"
+  },
+  {
+    "text": "pour",
+    "start": 3.68,
+    "end": 3.88,
+    "id": "w12"
+  },
+  {
+    "text": "ne",
+    "start": 3.88,
+    "end": 3.98,
+    "id": "w13"
+  },
+  {
+    "text": "rien",
+    "start": 3.98,
+    "end": 4.2,
+    "id": "w14"
+  },
+  {
+    "text": "rater.",
+    "start": 4.2,
+    "end": 4.56,
+    "id": "w15"
+  }
+]

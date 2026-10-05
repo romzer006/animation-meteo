@@ -1,0 +1,86 @@
+[
+  {
+    "text": "Deux,",
+    "start": 0.12,
+    "end": 0.36,
+    "id": "w0"
+  },
+  {
+    "text": "le",
+    "start": 0.36,
+    "end": 0.48,
+    "id": "w1"
+  },
+  {
+    "text": "multicellulaire.",
+    "start": 0.48,
+    "end": 1.57,
+    "id": "w2"
+  },
+  {
+    "text": "Plusieurs",
+    "start": 1.57,
+    "end": 1.88,
+    "id": "w3"
+  },
+  {
+    "text": "cellules",
+    "start": 1.96,
+    "end": 2.23,
+    "id": "w4"
+  },
+  {
+    "text": "se",
+    "start": 2.3,
+    "end": 2.38,
+    "id": "w5"
+  },
+  {
+    "text": "relaient",
+    "start": 2.38,
+    "end": 2.64,
+    "id": "w6"
+  },
+  {
+    "text": "pendant",
+    "start": 2.73,
+    "end": 3.04,
+    "id": "w7"
+  },
+  {
+    "text": "des",
+    "start": 3.04,
+    "end": 3.17,
+    "id": "w8"
+  },
+  {
+    "text": "heures.",
+    "start": 3.17,
+    "end": 3.64,
+    "id": "w9"
+  },
+  {
+    "text": "Grêlent",
+    "start": 3.7,
+    "end": 3.95,
+    "id": "w10"
+  },
+  {
+    "text": "et",
+    "start": 3.95,
+    "end": 4.04,
+    "id": "w11"
+  },
+  {
+    "text": "grosses",
+    "start": 4.04,
+    "end": 4.37,
+    "id": "w12"
+  },
+  {
+    "text": "averses.",
+    "start": 4.37,
+    "end": 4.85,
+    "id": "w13"
+  }
+]

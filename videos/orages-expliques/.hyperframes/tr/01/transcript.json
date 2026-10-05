@@ -1,0 +1,98 @@
+[
+  {
+    "text": "Un",
+    "start": 0.04,
+    "end": 0.09,
+    "id": "w0"
+  },
+  {
+    "text": "éclair",
+    "start": 0.09,
+    "end": 0.37,
+    "id": "w1"
+  },
+  {
+    "text": "chauffe",
+    "start": 0.37,
+    "end": 0.69,
+    "id": "w2"
+  },
+  {
+    "text": "l'air",
+    "start": 0.69,
+    "end": 0.91,
+    "id": "w3"
+  },
+  {
+    "text": "à",
+    "start": 0.91,
+    "end": 0.95,
+    "id": "w4"
+  },
+  {
+    "text": "30",
+    "start": 0.95,
+    "end": 1.23,
+    "id": "w5"
+  },
+  {
+    "text": "000",
+    "start": 1.23,
+    "end": 1.65,
+    "id": "w6"
+  },
+  {
+    "text": "degrés,",
+    "start": 1.65,
+    "end": 2.16,
+    "id": "w7"
+  },
+  {
+    "text": "5",
+    "start": 2.46,
+    "end": 2.53,
+    "id": "w8"
+  },
+  {
+    "text": "fois",
+    "start": 2.56,
+    "end": 2.73,
+    "id": "w9"
+  },
+  {
+    "text": "plus",
+    "start": 2.89,
+    "end": 3,
+    "id": "w10"
+  },
+  {
+    "text": "que",
+    "start": 3.12,
+    "end": 3.3,
+    "id": "w11"
+  },
+  {
+    "text": "la",
+    "start": 3.3,
+    "end": 3.44,
+    "id": "w12"
+  },
+  {
+    "text": "surface",
+    "start": 3.44,
+    "end": 3.93,
+    "id": "w13"
+  },
+  {
+    "text": "du",
+    "start": 3.93,
+    "end": 4.07,
+    "id": "w14"
+  },
+  {
+    "text": "soleil.",
+    "start": 4.07,
+    "end": 4.52,
+    "id": "w15"
+  }
+]

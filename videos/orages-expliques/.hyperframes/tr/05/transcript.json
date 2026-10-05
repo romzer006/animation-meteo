@@ -1,0 +1,116 @@
+[
+  {
+    "text": "Au",
+    "start": 0.05,
+    "end": 0.11,
+    "id": "w0"
+  },
+  {
+    "text": "sommet,",
+    "start": 0.11,
+    "end": 0.52,
+    "id": "w1"
+  },
+  {
+    "text": "Grélonze",
+    "start": 0.64,
+    "end": 1,
+    "id": "w2"
+  },
+  {
+    "text": "et",
+    "start": 1,
+    "end": 1.11,
+    "id": "w3"
+  },
+  {
+    "text": "Christo",
+    "start": 1.11,
+    "end": 1.5,
+    "id": "w4"
+  },
+  {
+    "text": "de",
+    "start": 1.51,
+    "end": 1.61,
+    "id": "w5"
+  },
+  {
+    "text": "glace",
+    "start": 1.61,
+    "end": 1.87,
+    "id": "w6"
+  },
+  {
+    "text": "s'entrechoquent,",
+    "start": 1.94,
+    "end": 2.84,
+    "id": "w7"
+  },
+  {
+    "text": "ça",
+    "start": 2.89,
+    "end": 2.95,
+    "id": "w8"
+  },
+  {
+    "text": "sépare",
+    "start": 2.95,
+    "end": 3.28,
+    "id": "w9"
+  },
+  {
+    "text": "les",
+    "start": 3.28,
+    "end": 3.36,
+    "id": "w10"
+  },
+  {
+    "text": "charges",
+    "start": 3.52,
+    "end": 3.86,
+    "id": "w11"
+  },
+  {
+    "text": "électriques",
+    "start": 3.86,
+    "end": 4.54,
+    "id": "w12"
+  },
+  {
+    "text": "et",
+    "start": 4.54,
+    "end": 4.65,
+    "id": "w13"
+  },
+  {
+    "text": "boument",
+    "start": 4.65,
+    "end": 5.04,
+    "id": "w14"
+  },
+  {
+    "text": "l'éclair",
+    "start": 5.04,
+    "end": 5.48,
+    "id": "w15"
+  },
+  {
+    "text": "puis",
+    "start": 5.8,
+    "end": 5.89,
+    "id": "w16"
+  },
+  {
+    "text": "le",
+    "start": 5.89,
+    "end": 5.96,
+    "id": "w17"
+  },
+  {
+    "text": "tonnerre.",
+    "start": 5.99,
+    "end": 6.47,
+    "id": "w18"
+  }
+]

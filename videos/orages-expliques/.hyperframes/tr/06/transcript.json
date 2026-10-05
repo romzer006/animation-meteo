@@ -1,0 +1,110 @@
+[
+  {
+    "text": "Premier",
+    "start": 0.05,
+    "end": 0.41,
+    "id": "w0"
+  },
+  {
+    "text": "type,",
+    "start": 0.41,
+    "end": 0.78,
+    "id": "w1"
+  },
+  {
+    "text": "l'orage",
+    "start": 0.78,
+    "end": 1.2,
+    "id": "w2"
+  },
+  {
+    "text": "monocélulaire,",
+    "start": 1.2,
+    "end": 2.12,
+    "id": "w3"
+  },
+  {
+    "text": "une",
+    "start": 2.19,
+    "end": 2.29,
+    "id": "w4"
+  },
+  {
+    "text": "seule",
+    "start": 2.29,
+    "end": 2.58,
+    "id": "w5"
+  },
+  {
+    "text": "cellule",
+    "start": 2.58,
+    "end": 3,
+    "id": "w6"
+  },
+  {
+    "text": "moins",
+    "start": 3,
+    "end": 3.2,
+    "id": "w7"
+  },
+  {
+    "text": "d'une",
+    "start": 3.2,
+    "end": 3.45,
+    "id": "w8"
+  },
+  {
+    "text": "heure",
+    "start": 3.45,
+    "end": 3.71,
+    "id": "w9"
+  },
+  {
+    "text": "de",
+    "start": 3.71,
+    "end": 3.81,
+    "id": "w10"
+  },
+  {
+    "text": "vie,",
+    "start": 3.81,
+    "end": 4.14,
+    "id": "w11"
+  },
+  {
+    "text": "l'orage",
+    "start": 4.17,
+    "end": 4.55,
+    "id": "w12"
+  },
+  {
+    "text": "de",
+    "start": 4.63,
+    "end": 4.72,
+    "id": "w13"
+  },
+  {
+    "text": "chaleur",
+    "start": 4.72,
+    "end": 5.04,
+    "id": "w14"
+  },
+  {
+    "text": "des",
+    "start": 5.04,
+    "end": 5.26,
+    "id": "w15"
+  },
+  {
+    "text": "soirs",
+    "start": 5.26,
+    "end": 5.6,
+    "id": "w16"
+  },
+  {
+    "text": "d'été.",
+    "start": 5.69,
+    "end": 5.95,
+    "id": "w17"
+  }
+]

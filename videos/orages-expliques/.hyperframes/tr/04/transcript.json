@@ -1,0 +1,188 @@
+[
+  {
+    "text": "L'air",
+    "start": 0.05,
+    "end": 0.26,
+    "id": "w0"
+  },
+  {
+    "text": "chaud",
+    "start": 0.26,
+    "end": 0.51,
+    "id": "w1"
+  },
+  {
+    "text": "monte",
+    "start": 0.53,
+    "end": 0.8,
+    "id": "w2"
+  },
+  {
+    "text": "comme",
+    "start": 0.8,
+    "end": 1.07,
+    "id": "w3"
+  },
+  {
+    "text": "une",
+    "start": 1.07,
+    "end": 1.23,
+    "id": "w4"
+  },
+  {
+    "text": "monte",
+    "start": 1.23,
+    "end": 1.5,
+    "id": "w5"
+  },
+  {
+    "text": "col",
+    "start": 1.52,
+    "end": 1.64,
+    "id": "w6"
+  },
+  {
+    "text": "fière.",
+    "start": 1.71,
+    "end": 2.02,
+    "id": "w7"
+  },
+  {
+    "text": "Il",
+    "start": 2.02,
+    "end": 2.28,
+    "id": "w8"
+  },
+  {
+    "text": "refroidit,",
+    "start": 2.28,
+    "end": 3,
+    "id": "w9"
+  },
+  {
+    "text": "sa",
+    "start": 3,
+    "end": 3.14,
+    "id": "w10"
+  },
+  {
+    "text": "vapeur",
+    "start": 3.21,
+    "end": 3.56,
+    "id": "w11"
+  },
+  {
+    "text": "se",
+    "start": 3.56,
+    "end": 3.7,
+    "id": "w12"
+  },
+  {
+    "text": "condense",
+    "start": 3.7,
+    "end": 4.16,
+    "id": "w13"
+  },
+  {
+    "text": "et",
+    "start": 4.16,
+    "end": 4.48,
+    "id": "w14"
+  },
+  {
+    "text": "le",
+    "start": 4.48,
+    "end": 4.6,
+    "id": "w15"
+  },
+  {
+    "text": "nuage",
+    "start": 4.6,
+    "end": 4.95,
+    "id": "w16"
+  },
+  {
+    "text": "explose",
+    "start": 4.95,
+    "end": 5.44,
+    "id": "w17"
+  },
+  {
+    "text": "vers",
+    "start": 5.44,
+    "end": 5.71,
+    "id": "w18"
+  },
+  {
+    "text": "le",
+    "start": 5.72,
+    "end": 5.86,
+    "id": "w19"
+  },
+  {
+    "text": "ciel.",
+    "start": 5.86,
+    "end": 6.2,
+    "id": "w20"
+  },
+  {
+    "text": "Plus",
+    "start": 6.32,
+    "end": 6.43,
+    "id": "w21"
+  },
+  {
+    "text": "de",
+    "start": 6.43,
+    "end": 6.53,
+    "id": "w22"
+  },
+  {
+    "text": "10",
+    "start": 6.6,
+    "end": 6.89,
+    "id": "w23"
+  },
+  {
+    "text": "km",
+    "start": 6.89,
+    "end": 7,
+    "id": "w24"
+  },
+  {
+    "text": "de",
+    "start": 7,
+    "end": 7.05,
+    "id": "w25"
+  },
+  {
+    "text": "haut,",
+    "start": 7.13,
+    "end": 7.45,
+    "id": "w26"
+  },
+  {
+    "text": "c'est",
+    "start": 7.45,
+    "end": 7.62,
+    "id": "w27"
+  },
+  {
+    "text": "le",
+    "start": 7.72,
+    "end": 7.83,
+    "id": "w28"
+  },
+  {
+    "text": "cumulon",
+    "start": 7.83,
+    "end": 8.2,
+    "id": "w29"
+  },
+  {
+    "text": "imbu.",
+    "start": 8.21,
+    "end": 8.72,
+    "id": "w30"
+  }
+]

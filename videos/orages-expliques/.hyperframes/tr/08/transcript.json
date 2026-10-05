@@ -1,0 +1,104 @@
+[
+  {
+    "text": "Trois,",
+    "start": 0.13,
+    "end": 0.42,
+    "id": "w0"
+  },
+  {
+    "text": "la",
+    "start": 0.42,
+    "end": 0.54,
+    "id": "w1"
+  },
+  {
+    "text": "ligne",
+    "start": 0.54,
+    "end": 0.83,
+    "id": "w2"
+  },
+  {
+    "text": "de",
+    "start": 0.88,
+    "end": 0.97,
+    "id": "w3"
+  },
+  {
+    "text": "grain,",
+    "start": 0.97,
+    "end": 1.38,
+    "id": "w4"
+  },
+  {
+    "text": "des",
+    "start": 1.47,
+    "end": 1.57,
+    "id": "w5"
+  },
+  {
+    "text": "orages",
+    "start": 1.57,
+    "end": 1.96,
+    "id": "w6"
+  },
+  {
+    "text": "alignés",
+    "start": 1.96,
+    "end": 2.43,
+    "id": "w7"
+  },
+  {
+    "text": "sur",
+    "start": 2.43,
+    "end": 2.6,
+    "id": "w8"
+  },
+  {
+    "text": "des",
+    "start": 2.6,
+    "end": 2.72,
+    "id": "w9"
+  },
+  {
+    "text": "centaines",
+    "start": 2.72,
+    "end": 3.08,
+    "id": "w10"
+  },
+  {
+    "text": "de",
+    "start": 3.08,
+    "end": 3.21,
+    "id": "w11"
+  },
+  {
+    "text": "kilomètres",
+    "start": 3.31,
+    "end": 3.85,
+    "id": "w12"
+  },
+  {
+    "text": "avec",
+    "start": 4.05,
+    "end": 4.19,
+    "id": "w13"
+  },
+  {
+    "text": "des",
+    "start": 4.19,
+    "end": 4.38,
+    "id": "w14"
+  },
+  {
+    "text": "rafales",
+    "start": 4.38,
+    "end": 4.76,
+    "id": "w15"
+  },
+  {
+    "text": "dévastatrices.",
+    "start": 4.76,
+    "end": 5.6,
+    "id": "w16"
+  }
+]
