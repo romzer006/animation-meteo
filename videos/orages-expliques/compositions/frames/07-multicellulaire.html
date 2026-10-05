@@ -392,7 +392,7 @@
         tl.fromTo(streak, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.4, ease: "power3.out" }, 4.4 + d);
       });
       tl.fromTo(labelAverses, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 4.45);
-      // Hold to 5.171s — no exit (the root transition is the exit).
+      // Hold to 5.171s — no exit tween (the root cut handles the exit).
 
       window.__timelines["07-multicellulaire"] = tl;
     })();
