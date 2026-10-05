@@ -1,0 +1,399 @@
+<template id="11-cta-template">
+  <style>
+    @font-face { font-family: "Barlow"; font-weight: 400; font-style: normal; font-display: block; src: url("assets/fonts/Barlow-400.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow"; font-weight: 600; font-style: normal; font-display: block; src: url("assets/fonts/Barlow-600.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow"; font-weight: 700; font-style: normal; font-display: block; src: url("assets/fonts/Barlow-700.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow"; font-weight: 800; font-style: normal; font-display: block; src: url("assets/fonts/Barlow-800.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow"; font-weight: 900; font-style: normal; font-display: block; src: url("assets/fonts/Barlow-900.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-style: normal; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+
+    /* frame root — styled by #root only; the ground lives on its own clip below */
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Barlow", sans-serif;
+      color: #111111;
+    }
+
+    /* ORANGE register — full-bleed fire-orange ground (lowest track) */
+    [id="11-cta-ground"] {
+      position: absolute;
+      inset: 0;
+      background: #E85D26;
+    }
+
+    /* content stage — the container every cqw resolves against (1cqw = 10.8px) */
+    [id="11-cta-stage"] {
+      position: absolute;
+      inset: 0;
+      container-type: size;
+    }
+
+    /* ── tap-ripple rings (behind the button) ── */
+    [id="11-cta-rings"] {
+      position: absolute;
+      left: 0;
+      top: 900px;
+      width: 1080px;
+      height: 480px;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    /* ── the speech bubble = the morph card (shot-1 geometry 880×380) ── */
+    [id="11-cta-bubble"] {
+      position: absolute;
+      left: 100px;
+      top: 380px;
+      width: 880px;
+      height: 380px;
+      box-sizing: border-box;
+      border: 6px solid #111111;
+      border-radius: 0;
+      background-color: rgba(17, 17, 17, 0);
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+    [id="11-cta-tail"] {
+      position: absolute;
+      left: 74px;   /* outer x = 100 + 6 + 74 = 180 */
+      top: 368px;   /* outer y = 380 + 6 + 368 = 754 → the bottom border band */
+      width: 140px;
+      height: 100px;
+      overflow: visible;
+    }
+
+    /* ── the CTA button (shot-2 geometry 720×184, pixel-identical to the card's landed state) ── */
+    [id="11-cta-btn"] {
+      position: absolute;
+      left: 180px;
+      top: 1048px;
+      width: 720px;
+      height: 184px;
+      background-color: rgba(17, 17, 17, 0);
+      border-radius: 0;
+      overflow: hidden;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+    [id="11-cta-lbl-a"],
+    [id="11-cta-lbl-b"] {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.08em;
+      box-sizing: border-box;
+      font-family: "Barlow", sans-serif;
+      font-weight: 900;
+      font-size: 9.26cqw;          /* 100px */
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: #E85D26;
+      white-space: nowrap;
+    }
+    [id="11-cta-check"] {
+      position: relative;
+      top: 0.04em;
+      width: 64px;
+      height: 52px;
+      margin-left: 26px;
+      flex: none;
+      overflow: visible;
+      transform-origin: 50% 50%;
+    }
+
+    /* ── the question, built per word inside the bubble ── */
+    [id="11-cta-q"] {
+      position: absolute;
+      left: 166px;
+      top: 424px;
+      font-family: "Barlow", sans-serif;
+      font-weight: 900;
+      font-size: 13.89cqw;         /* 150px */
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+      color: #111111;
+      white-space: nowrap;
+    }
+    [id="11-cta-q"] [data-line] {
+      display: block;
+    }
+    [id="11-cta-q"] [data-w] {
+      display: inline-block;
+      will-change: transform;
+    }
+    [id="11-cta-q"] [data-mark] {
+      margin-left: 0.16em;
+    }
+
+    /* ── lightning glyph striking into the bubble's top-right corner ── */
+    [id="11-cta-bolt"] {
+      position: absolute;
+      left: 852px;
+      top: 312px;
+      width: 110px;
+      height: 170px;
+      overflow: visible;
+      transform-origin: 50% 100%;
+    }
+
+    /* ── mono hint under the bubble ── */
+    [id="11-cta-hint"] {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 806px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 3.7cqw;           /* 40px */
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #111111;
+      white-space: nowrap;
+    }
+    [id="11-cta-arrow"] {
+      width: 26px;
+      height: 40px;
+      margin-right: 20px;
+      flex: none;
+      overflow: visible;
+    }
+    [id="11-cta-hint"] [data-ch] {
+      display: inline-block;
+    }
+
+    /* ── mono sign-off ── */
+    [id="11-cta-signoff"] {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 1376px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    [id="11-cta-stub"] {
+      width: 56px;
+      height: 4px;
+      background: #111111;
+      transform-origin: 50% 50%;
+    }
+    [id="11-cta-sign"] {
+      margin-top: 20px;
+      padding-left: 0.14em;        /* optically re-centre the trailing tracking */
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 2.963cqw;         /* 32px */
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 17, 0.75);
+      white-space: nowrap;
+    }
+  </style>
+
+  <div id="root" data-composition-id="11-cta" data-start="0" data-duration="5.872" data-width="1080" data-height="1920">
+
+    <div id="11-cta-ground" class="clip" data-start="0" data-duration="5.872" data-track-index="0"></div>
+
+    <div id="11-cta-stage" class="clip" data-start="0" data-duration="5.872" data-track-index="1">
+
+      <!-- DOM order = stacking: rings < bubble/morph card < button < type -->
+      <svg id="11-cta-rings" viewBox="0 0 1080 480" aria-hidden="true">
+        <rect id="11-cta-ring-1" x="180" y="148" width="720" height="184" fill="none" stroke="#111111" stroke-width="4" vector-effect="non-scaling-stroke" style="opacity:0"></rect>
+        <rect id="11-cta-ring-2" x="180" y="148" width="720" height="184" fill="none" stroke="#111111" stroke-width="3" vector-effect="non-scaling-stroke" style="opacity:0"></rect>
+      </svg>
+
+      <div id="11-cta-bubble" data-layout-ignore>
+        <svg id="11-cta-tail" viewBox="0 0 140 100" aria-hidden="true">
+          <polygon points="40,0 120,0 14,92" fill="#E85D26"></polygon>
+          <path d="M40,0 L14,92 L120,0" fill="none" stroke="#111111" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="10"></path>
+        </svg>
+      </div>
+
+      <div id="11-cta-btn">
+        <div id="11-cta-lbl-a">s’abonner</div>
+        <div id="11-cta-lbl-b">abonné<svg id="11-cta-check" viewBox="0 0 64 52" aria-hidden="true"><polyline points="6,26 24,44 58,8" fill="none" stroke="#E85D26" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"></polyline></svg></div>
+      </div>
+
+      <div id="11-cta-q">
+        <span data-line><span data-w>ton</span> <span data-w>pire</span></span>
+        <span data-line><span data-w>orage</span><span data-w data-mark>?</span></span>
+      </div>
+
+      <svg id="11-cta-bolt" viewBox="0 0 110 170" aria-hidden="true">
+        <path d="M64,0 L12,98 L50,98 L30,170 L104,62 L64,62 L86,0 Z" fill="#111111"></path>
+      </svg>
+
+      <div id="11-cta-hint">
+        <svg id="11-cta-arrow" viewBox="0 0 26 40" aria-hidden="true">
+          <rect x="10.5" y="0" width="5" height="27" fill="#111111"></rect>
+          <polygon points="0,22 26,22 13,40" fill="#111111"></polygon>
+        </svg><span data-ch>E</span><span data-ch>N</span><span data-ch>&nbsp;</span><span data-ch>C</span><span data-ch>O</span><span data-ch>M</span><span data-ch>M</span><span data-ch>E</span><span data-ch>N</span><span data-ch>T</span><span data-ch>A</span><span data-ch>I</span><span data-ch>R</span><span data-ch>E</span>
+      </div>
+
+      <div id="11-cta-signoff">
+        <div id="11-cta-stub"></div>
+        <div id="11-cta-sign">MÉTÉO · CLIMAT</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var P = "11-cta-";
+      function el(id) { return document.getElementById(P + id); }
+
+      var bubble = el("bubble");
+      var tail = el("tail");
+      var words = el("q").querySelectorAll("[data-w]");
+      var bolt = el("bolt");
+      var arrow = el("arrow");
+      var chars = el("hint").querySelectorAll("[data-ch]");
+      var btn = el("btn");
+      var lblA = el("lbl-a");
+      var lblB = el("lbl-b");
+      var check = el("check");
+      var ring1 = el("ring-1");
+      var ring2 = el("ring-2");
+      var stub = el("stub");
+      var sign = el("sign");
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ── Scene 1 (0.0–1.9s): bubble pops, question builds per word, bolt strikes ──
+      // spring-pop-entrance — smooth power3 settle, no overshoot; hero visible by t ≤ 0.5s
+      tl.fromTo(bubble,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" },
+        0.1);
+
+      // "ton pire orage ?" — per-word build on 0.8–1.3s
+      for (var i = 0; i < words.length; i++) {
+        tl.fromTo(words[i],
+          { opacity: 0, y: 48 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+          0.8 + i * 0.12);
+      }
+
+      // lightning glyph strikes into the top-right corner (accelerating drop, stretched → lands)
+      tl.fromTo(bolt,
+        { opacity: 0, y: -120, scaleY: 1.35 },
+        { opacity: 1, y: 0, scaleY: 1, duration: 0.18, ease: "power3.in" },
+        1.4);
+
+      // ── Scene 2 (1.9–3.2s): "↓ EN COMMENTAIRE" types on under the bubble ──
+      tl.fromTo(arrow,
+        { opacity: 0, y: -22 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+        1.98);
+      for (var c = 0; c < chars.length; c++) {
+        tl.fromTo(chars[c],
+          { opacity: 0 },
+          { opacity: 1, duration: 0.04, ease: "none" },
+          2.08 + c * 0.034);
+      }
+
+      // ── Scene 3 (3.2–5.87s): the bubble condenses into the ink button ──
+      // card-morph-anchor (landing-on-a-non-centred-target variation): scale stands in for
+      // size, y carries it to the button slot, background fills paint-only.
+      var M0 = 3.2;
+      var MD = 0.8;
+      tl.fromTo(bubble,
+        { y: 0, scaleX: 1, scaleY: 1 },
+        { y: 570, scaleX: 720 / 880, scaleY: 184 / 380, duration: MD, ease: "power3.inOut", immediateRender: false },
+        M0);
+      // old content (the tail) fades in the first ~35%
+      tl.fromTo(tail,
+        { opacity: 1 },
+        { opacity: 0, duration: MD * 0.35, ease: "power1.in", immediateRender: false },
+        M0);
+      // surface fills to solid ink across the back half
+      tl.fromTo(bubble,
+        { backgroundColor: "rgba(17,17,17,0)" },
+        { backgroundColor: "rgba(17,17,17,1)", duration: MD * 0.55, ease: "power3.inOut", immediateRender: false },
+        M0 + MD * 0.45);
+      // new content ("s'abonner") fades in over the last ~30%
+      tl.fromTo(lblA,
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: MD * 0.32, ease: "power1.out" },
+        M0 + MD * 0.7);
+
+      // handoff — the card's landed state is pixel-identical to the button (720×184 solid ink)
+      tl.set(btn, { backgroundColor: "#111111" }, M0 + MD);
+      tl.set(bubble, { visibility: "hidden" }, M0 + MD);
+
+      // press-release-spring — linear-ish press, smooth expo release (no bounce)
+      var PRESS = 4.2;
+      var PRESS_DUR = 0.12;
+      var REL = PRESS + PRESS_DUR;
+      tl.fromTo(btn,
+        { scale: 1 },
+        { scale: 0.92, duration: PRESS_DUR, ease: "power1.in", immediateRender: false },
+        PRESS);
+      tl.fromTo(btn,
+        { scale: 0.92 },
+        { scale: 1, duration: 0.6, ease: "expo.out", immediateRender: false },
+        REL);
+
+      // two thin ink ripple rings emerge from behind the button (equal-margin growth, constant stroke)
+      tl.fromTo(ring1,
+        { scaleX: 1, scaleY: 1, transformOrigin: "50% 50%" },
+        { scaleX: 808 / 720, scaleY: 272 / 184, duration: 0.7, ease: "power3.out", immediateRender: false },
+        REL);
+      tl.fromTo(ring1,
+        { opacity: 1 },
+        { opacity: 0, duration: 0.7, ease: "power2.in", immediateRender: false },
+        REL);
+      tl.fromTo(ring2,
+        { scaleX: 1, scaleY: 1, transformOrigin: "50% 50%" },
+        { scaleX: 912 / 720, scaleY: 376 / 184, duration: 0.85, ease: "power3.out", immediateRender: false },
+        REL + 0.1);
+      tl.fromTo(ring2,
+        { opacity: 0.85 },
+        { opacity: 0, duration: 0.85, ease: "power2.in", immediateRender: false },
+        REL + 0.1);
+
+      // state change at release — "s'abonner" rolls out, "abonné ✓" rolls in (4.5s)
+      tl.fromTo(lblA,
+        { y: 0 },
+        { y: -150, duration: 0.22, ease: "power2.in", immediateRender: false },
+        4.48);
+      tl.fromTo(lblB,
+        { opacity: 0, y: 170 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        4.6);
+      tl.fromTo(check,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" },
+        4.76);
+
+      // mono sign-off "MÉTÉO · CLIMAT"
+      tl.fromTo(stub,
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.5, ease: "expo.out" },
+        4.98);
+      tl.fromTo(sign,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" },
+        5.04);
+      // final frame: everything has landed by ~5.6s and holds to the end
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["11-cta"] = tl;
+    })();
+  </script>
+</template>

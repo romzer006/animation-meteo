@@ -1,0 +1,670 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-400.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-600.woff2") format("woff2");
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-700.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-800.woff2") format("woff2");
+      font-weight: 800;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-900.woff2") format("woff2");
+      font-weight: 900;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Barlow", sans-serif;
+      color: #f0ece5;
+    }
+
+    /* full-bleed ink-black ground (dark register) */
+    [id="05-eclair-bg"] {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+    [id="05-eclair-scene"],
+    [id="05-eclair-shake"],
+    [id="05-eclair-cam"],
+    [id="05-eclair-particles"],
+    [id="05-eclair-charges"] {
+      position: absolute;
+      inset: 0;
+    }
+    [id="05-eclair-cam"] {
+      transform-origin: 540px 1000px;
+    }
+
+    /* cloud interior — one flat cream silhouette at ~12% */
+    [id="05-eclair-cloud"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: visible;
+    }
+    [id="05-eclair-cloud"] g {
+      fill: #f0ece5;
+    }
+
+    /* hailstones + ice crystals */
+    [class~="05-eclair-p"],
+    [class~="05-eclair-sign"] {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+    }
+    [class~="05-eclair-jit"] {
+      width: 48px;
+      height: 48px;
+    }
+    [class~="05-eclair-p"] svg,
+    [class~="05-eclair-sign"] svg {
+      display: block;
+      width: 48px;
+      height: 48px;
+    }
+    [class~="05-eclair-p"] svg {
+      fill: #f0ece5;
+    }
+    /* charges: orange "+" (top band), cream "–" (bottom band) */
+    [class~="05-eclair-plus"] svg {
+      fill: #e85d26;
+    }
+    [class~="05-eclair-minus"] svg {
+      fill: #f0ece5;
+    }
+
+    /* chrome: rule stub + mono kicker */
+    [id="05-eclair-rule"] {
+      position: absolute;
+      left: 60px;
+      top: 166px;
+      width: 40px;
+      height: 3px;
+      background: #e85d26;
+    }
+    [id="05-eclair-kicker"] {
+      position: absolute;
+      left: 60px;
+      top: 188px;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e85d26;
+      white-space: nowrap;
+    }
+
+    /* TENSION progress fill (stat-bars-and-fills, bar form) */
+    [id="05-eclair-tension"] {
+      position: absolute;
+      left: 60px;
+      top: 1160px;
+      width: 560px;
+      height: 64px;
+    }
+    [id="05-eclair-tension-label"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888880;
+      white-space: nowrap;
+    }
+    [id="05-eclair-track"] {
+      position: absolute;
+      left: 0;
+      top: 48px;
+      width: 560px;
+      height: 14px;
+      background: #282826;
+      overflow: hidden;
+    }
+    [id="05-eclair-fill"] {
+      width: 100%;
+      height: 100%;
+      background: #e85d26;
+      transform-origin: left center;
+    }
+
+    /* ground hairline + strike mark */
+    [id="05-eclair-ground"] {
+      position: absolute;
+      left: 60px;
+      top: 1520px;
+      width: 960px;
+      height: 1px;
+      background: #888880;
+      transform-origin: left center;
+    }
+    [id="05-eclair-impact"] {
+      position: absolute;
+      left: 764px;
+      top: 1518px;
+      width: 96px;
+      height: 4px;
+      background: #e85d26;
+      transform-origin: center center;
+    }
+
+    /* lightning bolt + thunder arcs (full-frame SVG overlays, frame coordinates) */
+    [id="05-eclair-bolt"],
+    [id="05-eclair-thunder"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: visible;
+    }
+    [id="05-eclair-bolt"] polyline {
+      fill: none;
+      stroke: #e85d26;
+      stroke-linejoin: miter;
+      stroke-miterlimit: 4;
+      stroke-linecap: butt;
+    }
+    [id="05-eclair-bolt-main"] {
+      stroke-width: 16;
+    }
+    [id="05-eclair-bolt-b1"],
+    [id="05-eclair-bolt-b2"] {
+      stroke-width: 7;
+    }
+    [id="05-eclair-thunder"] path {
+      fill: none;
+      stroke: #e85d26;
+      stroke-width: 6;
+      stroke-linecap: butt;
+    }
+
+    /* h1 "éclair" — masked rise */
+    [id="05-eclair-h1mask"] {
+      position: absolute;
+      left: 40px;
+      top: 1260px;
+      width: 560px;
+      height: 210px;
+      overflow: hidden;
+    }
+    [id="05-eclair-h1"] {
+      position: absolute;
+      left: 20px;
+      top: 25px;
+      margin: 0;
+      font-family: "Barlow", sans-serif;
+      font-weight: 800;
+      font-size: 190px;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: #f0ece5;
+      white-space: nowrap;
+    }
+    [id="05-eclair-thunder-label"] {
+      position: absolute;
+      left: 612px;
+      top: 1540px;
+      width: 400px;
+      text-align: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f0ece5;
+      white-space: nowrap;
+    }
+
+    /* one-shot cream full-frame flash */
+    [id="05-eclair-flash"] {
+      position: absolute;
+      inset: 0;
+      background: #f0ece5;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-eclair" data-width="1080" data-height="1920">
+    <div
+      id="05-eclair-bg"
+      class="clip"
+      data-start="0"
+      data-duration="6.771"
+      data-track-index="0"
+    ></div>
+
+    <div
+      id="05-eclair-scene"
+      class="clip"
+      data-start="0"
+      data-duration="6.771"
+      data-track-index="1"
+    >
+      <div id="05-eclair-shake">
+        <div id="05-eclair-cam">
+          <svg id="05-eclair-cloud" viewBox="0 0 1080 1920" width="1080" height="1920">
+            <g opacity="0.12">
+              <rect x="-60" y="330" width="1200" height="620" />
+              <circle cx="40" cy="360" r="160" />
+              <circle cx="250" cy="330" r="180" />
+              <circle cx="500" cy="350" r="170" />
+              <circle cx="740" cy="320" r="170" />
+              <circle cx="960" cy="350" r="180" />
+              <circle cx="1120" cy="380" r="150" />
+              <circle cx="100" cy="940" r="160" />
+              <circle cx="360" cy="960" r="140" />
+              <circle cx="600" cy="945" r="155" />
+              <circle cx="850" cy="960" r="140" />
+              <circle cx="1060" cy="940" r="160" />
+            </g>
+          </svg>
+
+          <div id="05-eclair-particles">
+          <div class="05-eclair-p 05-eclair-hail" style="left: 218px; top: 465px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="19" /></svg></div>
+          <div class="05-eclair-p 05-eclair-hail" style="left: 447px; top: 457px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="22" /></svg></div>
+          <div class="05-eclair-p 05-eclair-hail" style="left: 654px; top: 516px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="16" /></svg></div>
+          <div class="05-eclair-p 05-eclair-hail" style="left: 844px; top: 434px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="20" /></svg></div>
+          <div class="05-eclair-p 05-eclair-hail" style="left: 87px; top: 670px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="21" /></svg></div>
+          <div class="05-eclair-p 05-eclair-hail" style="left: 382px; top: 703px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="17" /></svg></div>
+          <div class="05-eclair-p 05-eclair-hail" style="left: 665px; top: 629px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="19" /></svg></div>
+          <div class="05-eclair-p 05-eclair-hail" style="left: 930px; top: 736px"><svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="23" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 114px; top: 427px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,3.0 29.2,14.9 42.2,13.5 34.5,24.0 42.2,34.5 29.2,33.1 24.0,45.0 18.8,33.1 5.8,34.5 13.5,24.0 5.8,13.5 18.7,14.9" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 405px; top: 355px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,6.0 28.5,16.2 39.6,15.0 33.0,24.0 39.6,33.0 28.5,31.8 24.0,42.0 19.5,31.8 8.4,33.0 15.0,24.0 8.4,15.0 19.5,16.2" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 698px; top: 416px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,1.0 29.8,14.0 43.9,12.5 35.5,24.0 43.9,35.5 29.8,34.0 24.0,47.0 18.3,34.0 4.1,35.5 12.5,24.0 4.1,12.5 18.2,14.0" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 948px; top: 398px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,4.0 29.0,15.3 41.3,14.0 34.0,24.0 41.3,34.0 29.0,32.7 24.0,44.0 19.0,32.7 6.7,34.0 14.0,24.0 6.7,14.0 19.0,15.3" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 185px; top: 722px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,5.0 28.8,15.8 40.5,14.5 33.5,24.0 40.5,33.5 28.8,32.2 24.0,43.0 19.2,32.2 7.5,33.5 14.5,24.0 7.5,14.5 19.2,15.8" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 410px; top: 809px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,2.0 29.5,14.5 43.1,13.0 35.0,24.0 43.1,35.0 29.5,33.5 24.0,46.0 18.5,33.5 4.9,35.0 13.0,24.0 4.9,13.0 18.5,14.5" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 607px; top: 723px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,4.0 29.0,15.3 41.3,14.0 34.0,24.0 41.3,34.0 29.0,32.7 24.0,44.0 19.0,32.7 6.7,34.0 14.0,24.0 6.7,14.0 19.0,15.3" /></svg></div>
+          <div class="05-eclair-p 05-eclair-crystal" style="left: 822px; top: 756px"><svg viewBox="0 0 48 48" width="48" height="48"><polygon points="24.0,6.0 28.5,16.2 39.6,15.0 33.0,24.0 39.6,33.0 28.5,31.8 24.0,42.0 19.5,31.8 8.4,33.0 15.0,24.0 8.4,15.0 19.5,16.2" /></svg></div>
+          </div>
+
+          <div id="05-eclair-charges">
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 146px; top: 326px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 376px; top: 326px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 606px; top: 326px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 836px; top: 326px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 261px; top: 426px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 491px; top: 426px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 721px; top: 426px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-plus" style="left: 951px; top: 426px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /><rect x="19" y="0" width="10" height="48" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 146px; top: 886px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 376px; top: 886px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 606px; top: 886px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 836px; top: 886px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 261px; top: 976px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 491px; top: 976px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 721px; top: 976px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          <div class="05-eclair-sign 05-eclair-minus" style="left: 951px; top: 976px"><div class="05-eclair-jit"><svg viewBox="0 0 48 48" width="48" height="48"><rect x="0" y="19" width="48" height="10" /></svg></div></div>
+          </div>
+        </div>
+
+        <div id="05-eclair-rule"></div>
+        <div id="05-eclair-kicker">AU SOMMET DU NUAGE</div>
+
+        <div id="05-eclair-tension">
+          <div id="05-eclair-tension-label">TENSION</div>
+          <div id="05-eclair-track"><div id="05-eclair-fill"></div></div>
+        </div>
+
+        <div id="05-eclair-ground"></div>
+
+        <svg id="05-eclair-thunder" viewBox="0 0 1080 1920" width="1080" height="1920">
+          <g class="05-eclair-arc" data-op="1">
+            <path class="05-eclair-arcpath" data-r="70" d="M 812 1450 A 70 70 0 0 0 742 1520" />
+            <path class="05-eclair-arcpath" data-r="70" d="M 812 1450 A 70 70 0 0 1 882 1520" />
+          </g>
+          <g class="05-eclair-arc" data-op="0.62">
+            <path class="05-eclair-arcpath" data-r="135" d="M 812 1385 A 135 135 0 0 0 677 1520" />
+            <path class="05-eclair-arcpath" data-r="135" d="M 812 1385 A 135 135 0 0 1 947 1520" />
+          </g>
+          <g class="05-eclair-arc" data-op="0.32">
+            <path class="05-eclair-arcpath" data-r="200" d="M 812 1320 A 200 200 0 0 0 612 1520" />
+            <path class="05-eclair-arcpath" data-r="200" d="M 812 1320 A 200 200 0 0 1 1012 1520" />
+          </g>
+        </svg>
+
+        <svg id="05-eclair-bolt" viewBox="0 0 1080 1920" width="1080" height="1920">
+          <g id="05-eclair-bolt-g">
+            <polyline id="05-eclair-bolt-b1" points="781,1146 842,1188 826,1236 874,1282" />
+            <polyline id="05-eclair-bolt-b2" points="806,1302 866,1346 850,1392" />
+            <polyline id="05-eclair-bolt-main" points="753,1004 714,1108 781,1146 737,1268 806,1302 768,1418 812,1520" />
+          </g>
+        </svg>
+
+        <div id="05-eclair-impact"></div>
+
+        <div id="05-eclair-h1mask"><h1 id="05-eclair-h1">éclair</h1></div>
+        <div id="05-eclair-thunder-label">TONNERRE</div>
+      </div>
+
+      <div id="05-eclair-flash"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+    (function () {
+      var P = "05-eclair-";
+      var byId = function (s) {
+        return document.getElementById(P + s);
+      };
+      var byCls = function (s) {
+        return Array.prototype.slice.call(
+          document.querySelectorAll('[class~="' + P + s + '"]'),
+        );
+      };
+
+      // Deterministic, index-based geometry (precomputed): ha = hail approach offset,
+      // hb = hail rebound offset (crystal = negated), rot = crystal spin on impact,
+      // ps / ms = start offset of each "+" / "–" (its particle) from its band slot.
+      var DATA = [{"ha":[-32.9,-12.0],"hb":[18.8,6.8],"rot":48,"ps":[-50.5,94.3],"ms":[90.5,-414.3]},{"ha":[-13.7,-32.2],"hb":[7.8,18.4],"rot":-36,"ps":[20.7,11.0],"ms":[79.3,-411.0]},{"ha":[14.2,-32.0],"hb":[-8.1,18.3],"rot":54,"ps":[100.5,71.5],"ms":[39.5,-351.5]},{"ha":[33.1,-11.4],"hb":[-18.9,6.5],"rot":-42,"ps":[130.9,65.6],"ms":[-10.9,-445.6]},{"ha":[30.9,16.4],"hb":[-17.7,-9.4],"rot":38,"ps":[-58.8,305.2],"ms":[-191.2,-315.2]},{"ha":[9.1,33.8],"hb":[-5.2,-19.3],"rot":-50,"ps":[-75.6,402.4],"ms":[-114.4,-292.4]},{"ha":[-18.5,29.7],"hb":[10.6,-17.0],"rot":44,"ps":[-124.7,313.6],"ms":[-45.3,-363.6]},{"ha":[-34.4,6.7],"hb":[19.6,-3.8],"rot":-32,"ps":[-148.6,334.3],"ms":[-1.4,-244.3]}];
+      var BOLT = [[753, 1004], [714, 1108], [781, 1146], [737, 1268], [806, 1302], [768, 1418], [812, 1520]];
+      var B1 = [[781, 1146], [842, 1188], [826, 1236], [874, 1282]];
+      var B2 = [[806, 1302], [866, 1346], [850, 1392]];
+      var GX = 812;
+      var GY = 1520;
+
+      var polyLen = function (pts) {
+        var L = 0;
+        for (var i = 1; i < pts.length; i++) {
+          L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+        }
+        return L;
+      };
+      // svg-path-draw setup: measure, dash = length, offset = length (hidden)
+      var prepDash = function (el, fallback) {
+        var len = 0;
+        try {
+          len = el.getTotalLength();
+        } catch (e) {
+          len = 0;
+        }
+        if (!(len > 0)) len = fallback;
+        len = Math.ceil(len * 1.02);
+        el.style.strokeDasharray = len + " " + len;
+        el.style.strokeDashoffset = len;
+        return len;
+      };
+
+      var cam = byId("cam");
+      var shake = byId("shake");
+      var hails = byCls("hail");
+      var crys = byCls("crystal");
+      var plus = byCls("plus");
+      var minus = byCls("minus");
+      var fill = byId("fill");
+      var flash = byId("flash");
+      var boltG = byId("bolt-g");
+      var boltMain = byId("bolt-main");
+      var boltB1 = byId("bolt-b1");
+      var boltB2 = byId("bolt-b2");
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ── Macro camera: slow push into the top of the cloud, settles before the strike
+      tl.fromTo(
+        cam,
+        { scale: 1, transformOrigin: "540px 1000px" },
+        { scale: 1.04, transformOrigin: "540px 1000px", duration: 4.6, ease: "sine.inOut" },
+        0,
+      );
+
+      // ── Scene 1 (0.0–2.9s): cloud interior, kicker, hailstones, crystals, collisions
+      tl.fromTo(
+        byId("rule"),
+        { scaleX: 0, transformOrigin: "left center" },
+        { scaleX: 1, transformOrigin: "left center", duration: 0.5, ease: "power3.out" },
+        0.1,
+      );
+      tl.fromTo(
+        byId("kicker"),
+        { opacity: 0, x: -24 },
+        { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" },
+        0.15,
+      );
+      tl.fromTo(
+        byId("ground"),
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.9, ease: "power3.out" },
+        0.25,
+      );
+      // "grêlons" (0.64s)
+      tl.fromTo(
+        hails,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out", stagger: 0.045 },
+        0.6,
+      );
+      // "cristaux" (1.11s)
+      tl.fromTo(
+        crys,
+        { scale: 0, opacity: 0, rotation: -60 },
+        { scale: 1, opacity: 1, rotation: 0, duration: 0.5, ease: "power3.out", stagger: 0.045 },
+        1.1,
+      );
+      // "s'entrechoquent" (1.94s): each hail/crystal pair knocks together, then rebounds apart
+      DATA.forEach(function (d, i) {
+        var t = 1.94 + i * 0.055;
+        tl.fromTo(
+          hails[i],
+          { x: 0, y: 0 },
+          { x: d.ha[0], y: d.ha[1], duration: 0.14, ease: "power2.in" },
+          t,
+        );
+        tl.fromTo(
+          crys[i],
+          { x: 0, y: 0 },
+          { x: -d.ha[0], y: -d.ha[1], duration: 0.14, ease: "power2.in" },
+          t,
+        );
+        tl.to(hails[i], { x: d.hb[0], y: d.hb[1], duration: 0.5, ease: "power3.out" }, t + 0.14);
+        tl.to(
+          crys[i],
+          { x: -d.hb[0], y: -d.hb[1], rotation: d.rot, duration: 0.5, ease: "power3.out" },
+          t + 0.14,
+        );
+      });
+
+      // ── Scene 2 (2.9–4.5s): "sépare les charges" — particles fall back, + rise, – sink
+      tl.to(
+        hails.concat(crys),
+        { opacity: 0.2, duration: 0.5, ease: "power2.out", stagger: 0.015 },
+        2.92,
+      );
+      tl.fromTo(
+        byId("tension"),
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        2.92,
+      );
+      // tension fill builds left→right as the VO climbs to "électriques…"
+      tl.fromTo(fill, { scaleX: 0 }, { scaleX: 1, duration: 1.56, ease: "power1.in" }, 2.98);
+      plus.forEach(function (el, i) {
+        var d = DATA[i];
+        tl.fromTo(
+          el,
+          { x: d.ps[0], y: d.ps[1], opacity: 0, scale: 0.4 },
+          { x: 0, y: 0, opacity: 1, scale: 1, duration: 0.95, ease: "power3.out" },
+          3.0 + i * 0.065,
+        );
+      });
+      minus.forEach(function (el, i) {
+        var d = DATA[i];
+        tl.fromTo(
+          el,
+          { x: d.ms[0], y: d.ms[1], opacity: 0, scale: 0.4 },
+          { x: 0, y: 0, opacity: 1, scale: 1, duration: 0.95, ease: "power3.out" },
+          3.04 + i * 0.065,
+        );
+      });
+      // charges tremble as tension peaks — finite, index-based, returns to rest
+      var JX = [3, -3, 2, -2, 0];
+      var JY = [-2, 2, -1, 1, 0];
+      plus.concat(minus).forEach(function (el, i) {
+        var j = el.firstElementChild;
+        var s = i % 2 === 0 ? 1 : -1;
+        for (var k = 0; k < JX.length; k++) {
+          tl.to(j, { x: JX[k] * s, y: JY[k] * s, duration: 0.07, ease: "none" }, 4.2 + k * 0.07);
+        }
+      });
+
+      // ── Scene 3 (4.5–5.0s): "boum" — bolt strikes from the – band to the ground
+      var lm = prepDash(boltMain, polyLen(BOLT));
+      var l1 = prepDash(boltB1, polyLen(B1));
+      var l2 = prepDash(boltB2, polyLen(B2));
+      var T_BOLT = 4.6;
+      var D_BOLT = 0.12;
+      var total = polyLen(BOLT);
+      var tFork1 = T_BOLT + D_BOLT * (polyLen(BOLT.slice(0, 3)) / total);
+      var tFork2 = T_BOLT + D_BOLT * (polyLen(BOLT.slice(0, 5)) / total);
+      tl.fromTo(
+        boltMain,
+        { strokeDashoffset: lm },
+        { strokeDashoffset: 0, duration: D_BOLT, ease: "none" },
+        T_BOLT,
+      );
+      tl.fromTo(
+        boltB1,
+        { strokeDashoffset: l1 },
+        { strokeDashoffset: 0, duration: 0.09, ease: "none" },
+        tFork1,
+      );
+      tl.fromTo(
+        boltB2,
+        { strokeDashoffset: l2 },
+        { strokeDashoffset: 0, duration: 0.07, ease: "none" },
+        tFork2,
+      );
+      // contact with the ground → one-shot flash (with a single flicker) that decays
+      var T_HIT = T_BOLT + D_BOLT;
+      tl.fromTo(flash, { opacity: 0 }, { opacity: 0.92, duration: 0.03, ease: "none" }, T_HIT - 0.02);
+      tl.to(flash, { opacity: 0.2, duration: 0.06, ease: "power1.out" }, T_HIT + 0.01);
+      tl.to(flash, { opacity: 0.6, duration: 0.04, ease: "none" }, T_HIT + 0.07);
+      tl.to(flash, { opacity: 0, duration: 0.55, ease: "power2.out" }, T_HIT + 0.11);
+      tl.fromTo(
+        boltG,
+        { opacity: 1 },
+        { opacity: 0.4, duration: 0.04, ease: "none" },
+        T_HIT + 0.06,
+      );
+      tl.to(boltG, { opacity: 1, duration: 0.08, ease: "power1.out" }, T_HIT + 0.1);
+      tl.fromTo(
+        byId("impact"),
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.35, ease: "expo.out" },
+        T_HIT,
+      );
+      // one decaying shake of the whole frame
+      var SH = [
+        [-16, 9],
+        [13, -7],
+        [-9, 5],
+        [6, -3],
+        [-3, 2],
+        [0, 0],
+      ];
+      SH.forEach(function (p, k) {
+        tl.to(
+          shake,
+          { x: p[0], y: p[1], duration: 0.05, ease: k === SH.length - 1 ? "power2.out" : "none" },
+          T_HIT + k * 0.05,
+        );
+      });
+      // discharge: tension drains, charges and particles step back so the strike owns the frame
+      tl.to(fill, { scaleX: 0, duration: 0.7, ease: "expo.out" }, T_HIT);
+      tl.to(byId("charges"), { opacity: 0.4, duration: 0.5, ease: "power2.out" }, T_HIT + 0.1);
+      tl.to(byId("particles"), { opacity: 0.5, duration: 0.5, ease: "power2.out" }, T_HIT + 0.1);
+
+      // ── Scene 4 (5.0–6.77s): "L'éclair" → h1; "tonnerre" → sound arcs + label, hold
+      tl.fromTo(
+        byId("h1"),
+        { yPercent: 115 },
+        { yPercent: 0, duration: 0.75, ease: "expo.out" },
+        5.04,
+      );
+      byCls("arc").forEach(function (g, k) {
+        var t = 5.96 + k * 0.1;
+        var op = parseFloat(g.getAttribute("data-op"));
+        tl.fromTo(
+          g,
+          { scale: 0.55, opacity: 0, svgOrigin: GX + " " + GY },
+          {
+            scale: 1,
+            opacity: op,
+            svgOrigin: GX + " " + GY,
+            duration: 0.55,
+            ease: "power3.out",
+          },
+          t,
+        );
+        Array.prototype.forEach.call(g.querySelectorAll("path"), function (p) {
+          var r = parseFloat(p.getAttribute("data-r"));
+          var L = prepDash(p, (Math.PI * r) / 2);
+          tl.fromTo(
+            p,
+            { strokeDashoffset: L },
+            { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" },
+            t,
+          );
+        });
+      });
+      tl.fromTo(
+        byId("thunder-label"),
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        6.04,
+      );
+
+      window.__timelines["05-eclair"] = tl;
+    })();
+  </script>
+</template>

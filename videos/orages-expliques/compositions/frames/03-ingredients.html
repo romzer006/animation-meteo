@@ -1,0 +1,470 @@
+<template>
+  <style>
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-800.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-900.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: block; }
+    @font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: block; }
+
+    /* Frame root — styled by #root only (never a class on the composition element). No ground here: the ground is the bg clip. */
+    #root {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Barlow";
+      color: #F0ECE5;
+    }
+
+    /* Full-bleed ground — DARK register, ink-black + faint hairline grid (background, dimmed) */
+    [class~="03-ingredients-bg"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      background: #111111;
+      overflow: hidden;
+      z-index: 0;
+    }
+    [class~="03-ingredients-grid"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 2040px;
+      opacity: 0.5;
+    }
+
+    [class~="03-ingredients-stage"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      z-index: 1;
+    }
+
+    /* Kicker — IBM Plex Mono label, uppercase 0.14em, fire-orange on dark */
+    [class~="03-ingredients-kicker"] {
+      position: absolute;
+      left: 60px;
+      top: 170px;
+      margin: 0;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #E85D26;
+      white-space: nowrap;
+    }
+
+    /* h1 — Barlow lowercase 800, negative tracking; the "3" is the display moment in fire-orange */
+    [class~="03-ingredients-h1"] {
+      position: absolute;
+      left: 60px;
+      top: 211px;
+      margin: 0;
+      display: flex;
+      align-items: baseline;
+      gap: 26px;
+      font-family: "Barlow";
+      font-weight: 800;
+      font-size: 140px;
+      line-height: 0.84;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+    [class~="03-ingredients-three"] {
+      display: block;
+      font-size: 240px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #E85D26;
+    }
+    [class~="03-ingredients-word"] {
+      display: block;
+    }
+
+    /* Card slots — Broadside stat-card: top-border-only, 1px hairline, no other borders */
+    [class~="03-ingredients-slot"] {
+      position: absolute;
+      left: 60px;
+      width: 960px;
+    }
+    [class~="03-ingredients-slot1"] { top: 560px; height: 260px; }
+    [class~="03-ingredients-slot2"] { top: 860px; height: 260px; }
+    [class~="03-ingredients-slot3"] { top: 1160px; height: 340px; }
+
+    [class~="03-ingredients-rule"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 960px;
+      height: 1px;
+      background: #282826;
+    }
+    [class~="03-ingredients-num"] {
+      position: absolute;
+      left: 0;
+      top: 24px;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      color: #505048;
+      white-space: nowrap;
+    }
+
+    /* Card name — h2, Barlow lowercase 800, right column */
+    [class~="03-ingredients-h2"] {
+      position: absolute;
+      left: 240px;
+      margin: 0;
+      font-family: "Barlow";
+      font-weight: 800;
+      font-size: 120px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+    [class~="03-ingredients-h2-1"] { top: 90px; }
+    [class~="03-ingredients-h2-2"] { top: 85px; }
+    [class~="03-ingredients-h2-3"] { top: 60px; }
+
+    /* Card 01 — orange drop */
+    [class~="03-ingredients-drop"] {
+      position: absolute;
+      left: 0;
+      top: 86px;
+      width: 104px;
+      height: 136px;
+      overflow: visible;
+    }
+
+    /* Card 02 — cream down-arrow (FROID, top) over orange up-arrow (CHAUD, bottom) */
+    [class~="03-ingredients-arrow"] {
+      position: absolute;
+      left: 0;
+      width: 56px;
+      height: 68px;
+      overflow: visible;
+    }
+    [class~="03-ingredients-arrow-froid"] { top: 70px; }
+    [class~="03-ingredients-arrow-chaud"] { top: 162px; }
+    [class~="03-ingredients-tag"] {
+      position: absolute;
+      left: 74px;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888880;
+      white-space: nowrap;
+    }
+    [class~="03-ingredients-tag-froid"] { top: 92px; }
+    [class~="03-ingredients-tag-chaud"] { top: 184px; }
+
+    /* Card 03 — three trigger chips (sharp rectangles, hairline border, mono label + tiny flat icon) */
+    [class~="03-ingredients-chips"] {
+      position: absolute;
+      left: 0;
+      top: 210px;
+      width: 960px;
+      height: 92px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    [class~="03-ingredients-chip"] {
+      position: relative;
+      box-sizing: border-box;
+      height: 92px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 26px;
+      border: 1px solid #282826;
+      background: #1A1A18;
+    }
+    [class~="03-ingredients-chip-label"] {
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+    [class~="03-ingredients-ico"] {
+      display: block;
+      flex: 0 0 auto;
+      overflow: visible;
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-ingredients" data-start="0" data-duration="7.24" data-width="1080" data-height="1920">
+    <!-- Ground: full-duration clip on the lowest track -->
+    <div class="clip 03-ingredients-bg" data-start="0" data-duration="7.24" data-track-index="0">
+      <svg class="03-ingredients-grid" width="1080" height="2040" viewBox="0 0 1080 2040" aria-hidden="true">
+        <path
+          fill="none"
+          stroke="#282826"
+          stroke-width="1"
+          d="M60.5 0V2040M180.5 0V2040M300.5 0V2040M420.5 0V2040M540.5 0V2040M660.5 0V2040M780.5 0V2040M900.5 0V2040M1020.5 0V2040M0 50.5H1080M0 170.5H1080M0 290.5H1080M0 410.5H1080M0 530.5H1080M0 650.5H1080M0 770.5H1080M0 890.5H1080M0 1010.5H1080M0 1130.5H1080M0 1250.5H1080M0 1370.5H1080M0 1490.5H1080M0 1610.5H1080M0 1730.5H1080M0 1850.5H1080M0 1970.5H1080"
+        />
+      </svg>
+    </div>
+
+    <div class="03-ingredients-stage">
+      <div class="03-ingredients-kicker">La recette</div>
+      <h1 class="03-ingredients-h1"><span class="03-ingredients-three">3</span><span class="03-ingredients-word">ingrédients</span></h1>
+
+      <!-- 01 · humidité -->
+      <div class="03-ingredients-slot 03-ingredients-slot1">
+        <div class="03-ingredients-rule 03-ingredients-rule1"></div>
+        <div class="03-ingredients-num 03-ingredients-num1">01</div>
+        <svg class="03-ingredients-drop" width="104" height="136" viewBox="0 0 104 136" aria-hidden="true">
+          <path fill="#E85D26" d="M52 0C52 0 8 58 8 92A44 44 0 0 0 96 92C96 58 52 0 52 0Z" />
+        </svg>
+        <h2 class="03-ingredients-h2 03-ingredients-h2-1">humidité</h2>
+      </div>
+
+      <!-- 02 · instabilité -->
+      <div class="03-ingredients-slot 03-ingredients-slot2">
+        <div class="03-ingredients-rule 03-ingredients-rule2"></div>
+        <div class="03-ingredients-num 03-ingredients-num2">02</div>
+        <svg class="03-ingredients-arrow 03-ingredients-arrow-froid" width="56" height="68" viewBox="0 0 56 68" aria-hidden="true">
+          <polygon fill="#F0ECE5" points="28,68 56,38 38,38 38,0 18,0 18,38 0,38" />
+        </svg>
+        <div class="03-ingredients-tag 03-ingredients-tag-froid">Froid</div>
+        <svg class="03-ingredients-arrow 03-ingredients-arrow-chaud" width="56" height="68" viewBox="0 0 56 68" aria-hidden="true">
+          <polygon fill="#E85D26" points="28,0 56,30 38,30 38,68 18,68 18,30 0,30" />
+        </svg>
+        <div class="03-ingredients-tag 03-ingredients-tag-chaud">Chaud</div>
+        <h2 class="03-ingredients-h2 03-ingredients-h2-2">instabilité</h2>
+      </div>
+
+      <!-- 03 · déclencheur -->
+      <div class="03-ingredients-slot 03-ingredients-slot3">
+        <div class="03-ingredients-rule 03-ingredients-rule3"></div>
+        <div class="03-ingredients-num 03-ingredients-num3">03</div>
+        <h2 class="03-ingredients-h2 03-ingredients-h2-3">déclencheur</h2>
+        <div class="03-ingredients-chips">
+          <div class="03-ingredients-chip 03-ingredients-chip-relief">
+            <svg class="03-ingredients-ico 03-ingredients-ico-relief" width="40" height="32" viewBox="0 0 40 32" aria-hidden="true">
+              <polygon fill="#E85D26" points="20,0 40,32 0,32" />
+            </svg>
+            <span class="03-ingredients-chip-label">Relief</span>
+          </div>
+          <div class="03-ingredients-chip 03-ingredients-chip-front">
+            <svg class="03-ingredients-ico 03-ingredients-ico-front" width="46" height="32" viewBox="0 0 46 32" aria-hidden="true">
+              <rect class="03-ingredients-front-line" fill="#E85D26" x="0" y="23" width="46" height="2" />
+              <polygon class="03-ingredients-front-tooth" fill="#E85D26" points="3,23 13,23 8,13" />
+              <polygon class="03-ingredients-front-tooth" fill="#E85D26" points="18,23 28,23 23,13" />
+              <polygon class="03-ingredients-front-tooth" fill="#E85D26" points="33,23 43,23 38,13" />
+            </svg>
+            <span class="03-ingredients-chip-label">Front</span>
+          </div>
+          <div class="03-ingredients-chip 03-ingredients-chip-soleil">
+            <svg class="03-ingredients-ico 03-ingredients-ico-soleil" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+              <circle fill="#E85D26" cx="17" cy="17" r="16" />
+            </svg>
+            <span class="03-ingredients-chip-label">Soleil</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      // Every authored class carries the frame_id prefix; a leading digit is not a valid CSS
+      // identifier, so targets are resolved with [class~="..."] attribute selectors.
+      function S(name) {
+        return '[class~="03-ingredients-' + name + '"]';
+      }
+
+      var DURATION = 7.24;
+      var tl = gsap.timeline({ paused: true });
+
+      // ── Ambient: the faint hairline grid drifts up a few px under the whole shot (background only).
+      tl.fromTo(S("grid"), { y: 0 }, { y: -24, duration: DURATION, ease: "none" }, 0);
+
+      // ── Scene 1 (0.0–1.4s) · kicker + per-word h1 — dynamic-content-sequencing.
+      // Content-aware cadence: each entry earns BASE + chars × SEC_PER_CHAR + hold; absolute starts
+      // are pre-computed ONCE at build (lands "3" on "trois" ≈0.33s, "ingrédients" ≈0.63s).
+      var HEAD_START = 0.08;
+      var BASE_DURATION = 0.15;
+      var SEC_PER_CHAR = 0.01;
+      var HEAD = [
+        { key: "kicker", text: "LA RECETTE", hold: 0 },
+        { key: "three", text: "3", hold: 0.14 },
+        { key: "word", text: "ingrédients", hold: 0.2 },
+      ];
+      var cumulative = HEAD_START;
+      var HEAD_TIMELINE = HEAD.map(function (entry) {
+        var dur = BASE_DURATION + entry.text.length * SEC_PER_CHAR + entry.hold;
+        var start = cumulative;
+        cumulative += dur;
+        return { key: entry.key, start: start, end: cumulative };
+      });
+      var headAt = {};
+      HEAD_TIMELINE.forEach(function (entry) {
+        headAt[entry.key] = entry.start;
+      });
+
+      tl.fromTo(
+        S("kicker"),
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        headAt.kicker,
+      );
+      tl.fromTo(
+        S("three"),
+        { opacity: 0, y: 90, scale: 0.88, transformOrigin: "0% 100%" },
+        { opacity: 1, y: 0, scale: 1, transformOrigin: "0% 100%", duration: 0.8, ease: "expo.out" },
+        headAt.three,
+      );
+      tl.fromTo(
+        S("word"),
+        { opacity: 0, y: 60 },
+        { opacity: 1, y: 0, duration: 0.75, ease: "power3.out" },
+        headAt.word,
+      );
+
+      // Frame-then-fill: the three empty slots (hairline + mono number) assemble in a cascade
+      // while "ingrédients" is spoken — the recipe's frame, waiting to be filled.
+      [1, 2, 3].forEach(function (i, k) {
+        var t = 0.86 + k * 0.1;
+        tl.fromTo(
+          S("rule" + i),
+          { scaleX: 0, transformOrigin: "0% 50%" },
+          { scaleX: 1, transformOrigin: "0% 50%", duration: 0.9, ease: "expo.out" },
+          t,
+        );
+        tl.fromTo(
+          S("num" + i),
+          { opacity: 0, x: -10 },
+          { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
+          t + 0.05,
+        );
+      });
+
+      // A slot fills: its number lights fire-orange and its name slides up into place.
+      function fillSlot(i, t) {
+        tl.fromTo(
+          S("num" + i),
+          { color: "#505048" },
+          { color: "#E85D26", duration: 0.35, ease: "power2.out" },
+          t,
+        );
+        tl.fromTo(
+          S("h2-" + i),
+          { opacity: 0, y: 60 },
+          { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+          t + 0.02,
+        );
+      }
+
+      // ── Scene 2 (1.4–2.2s) · card 01 "humidité" — the drop falls into its slot.
+      fillSlot(1, 1.4);
+      tl.fromTo(
+        S("drop"),
+        { opacity: 0, y: -80 },
+        { opacity: 1, y: 0, duration: 0.65, ease: "power3.out" },
+        1.42,
+      );
+
+      // ── Scene 3 (2.2–4.2s) · card 02 "instabilité" — warm rises from below on "chaud" (2.5s),
+      // cold sinks from above on "froid" (3.45s).
+      fillSlot(2, 2.22);
+      tl.fromTo(
+        S("arrow-chaud"),
+        { opacity: 0, y: 60 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+        2.5,
+      );
+      tl.fromTo(
+        S("tag-chaud"),
+        { opacity: 0, x: -12 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" },
+        2.58,
+      );
+      tl.fromTo(
+        S("arrow-froid"),
+        { opacity: 0, y: -60 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+        3.43,
+      );
+      tl.fromTo(
+        S("tag-froid"),
+        { opacity: 0, x: -12 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" },
+        3.5,
+      );
+
+      // ── Scene 4 (4.3–7.24s) · card 03 "déclencheur" on "coup de pouce"; chips land on their words.
+      fillSlot(3, 4.3);
+
+      function chipIn(name, t) {
+        tl.fromTo(
+          S("chip-" + name),
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+          t,
+        );
+      }
+
+      // "relief" (5.19s) — the mountain triangle rises from its base.
+      chipIn("relief", 5.17);
+      tl.fromTo(
+        S("ico-relief"),
+        { scaleY: 0, transformOrigin: "50% 100%" },
+        { scaleY: 1, transformOrigin: "50% 100%", duration: 0.5, ease: "expo.out" },
+        5.25,
+      );
+
+      // "front" (5.8s) — the hairline draws, then its teeth pop up along it.
+      chipIn("front", 5.78);
+      tl.fromTo(
+        S("front-line"),
+        { scaleX: 0, transformOrigin: "0% 50%" },
+        { scaleX: 1, transformOrigin: "0% 50%", duration: 0.45, ease: "expo.out" },
+        5.84,
+      );
+      tl.fromTo(
+        S("front-tooth"),
+        { scale: 0, transformOrigin: "50% 100%" },
+        { scale: 1, transformOrigin: "50% 100%", duration: 0.35, ease: "power3.out", stagger: 0.06 },
+        5.94,
+      );
+
+      // "soleil" (6.52s) — the sun disc grows from its centre, then the frame holds still.
+      chipIn("soleil", 6.48);
+      tl.fromTo(
+        S("ico-soleil"),
+        { scale: 0, transformOrigin: "50% 50%" },
+        { scale: 1, transformOrigin: "50% 50%", duration: 0.6, ease: "expo.out" },
+        6.54,
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["03-ingredients"] = tl;
+    })();
+  </script>
+</template>

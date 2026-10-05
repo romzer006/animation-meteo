@@ -1,0 +1,505 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-400.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-600.woff2") format("woff2");
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-700.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-800.woff2") format("woff2");
+      font-weight: 800;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "Barlow";
+      src: url("assets/fonts/Barlow-900.woff2") format("woff2");
+      font-weight: 900;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+
+    /* Frame root — styled by #root only (never a class on the composition root). */
+    #root {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Barlow";
+      color: #f0ece5;
+    }
+
+    /* Ids / classes start with the frame id (a digit), so they are matched with
+       attribute selectors — valid CSS without escapes. */
+    [class~="08-ligne-de-grains-abs"] {
+      position: absolute;
+    }
+    [class~="08-ligne-de-grains-mono"] {
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* Listicle chrome — identical spot in Frames 6–9. */
+    [id="08-ligne-de-grains-dots"] {
+      position: absolute;
+      left: 64px;
+      top: 170px;
+      display: flex;
+      gap: 14px;
+    }
+    [class~="08-ligne-de-grains-dot"] {
+      position: relative;
+      display: block;
+      width: 16px;
+      height: 16px;
+      box-sizing: border-box;
+      border: 1px solid #f0ece5;
+      border-radius: 50%;
+    }
+    [id="08-ligne-de-grains-dot-fill"] {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #e85d26;
+    }
+
+    /* h1 hero */
+    [id="08-ligne-de-grains-h1"] {
+      position: absolute;
+      left: 64px;
+      top: 272px;
+      margin: 0;
+      font-family: "Barlow";
+      font-weight: 800;
+      font-size: 12.6cqw; /* 136px on the 1080 canvas — block ≈ 822px ≤ 78cqw */
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      white-space: nowrap;
+      color: #f0ece5;
+    }
+    [class~="08-ligne-de-grains-word"] {
+      display: inline-block;
+    }
+
+    /* Radar stage (background panel + storm line + measures). */
+    [id="08-ligne-de-grains-stage"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      transform-origin: 540px 1036px;
+    }
+    [id="08-ligne-de-grains-radar"] {
+      position: absolute;
+      left: 64px;
+      top: 560px;
+      width: 952px;
+      height: 952px;
+      box-sizing: border-box;
+      border: 1px solid #282826;
+      overflow: hidden;
+    }
+    [id="08-ligne-de-grains-rings"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+    }
+    [id="08-ligne-de-grains-sweep"] {
+      position: absolute;
+      left: 475px;
+      top: 475px;
+      width: 475px;
+      height: 1px;
+      background: #f0ece5;
+      opacity: 0.26;
+      transform-origin: 0 50%;
+    }
+
+    /* Squall line: cream cells, orange cores on a layer above. */
+    [id="08-ligne-de-grains-line"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+    [class~="08-ligne-de-grains-disc"] {
+      position: absolute;
+      border-radius: 50%;
+      background: #f0ece5;
+    }
+    [class~="08-ligne-de-grains-core"] {
+      position: absolute;
+      border-radius: 50%;
+      background: #e85d26;
+    }
+
+    /* Ruler hairline + measure label. */
+    [id="08-ligne-de-grains-ruler"] {
+      position: absolute;
+      left: 352px;
+      top: 611px;
+      width: 1px;
+      height: 858px;
+      background: #f0ece5;
+      transform-origin: 50% 50%;
+    }
+    [class~="08-ligne-de-grains-tick"] {
+      position: absolute;
+      left: 338px;
+      width: 29px;
+      height: 1px;
+      background: #f0ece5;
+      transform-origin: 50% 50%;
+    }
+    [id="08-ligne-de-grains-km"] {
+      position: absolute;
+      right: 750px;
+      top: 994px;
+      padding: 10px 0 10px 14px;
+      background: #111111;
+      text-align: right;
+      color: #f0ece5;
+      font-size: 28px;
+    }
+    [class~="08-ligne-de-grains-mask"] {
+      display: block;
+      overflow: hidden;
+      padding: 2px 0;
+      margin-right: -0.14em; /* optically cancel the trailing tracking on a right-aligned line */
+    }
+    [class~="08-ligne-de-grains-mask-in"] {
+      display: block;
+      line-height: 1.2;
+    }
+
+    /* Gust chevrons (rafales). */
+    [class~="08-ligne-de-grains-gust"] {
+      position: absolute;
+    }
+    [class~="08-ligne-de-grains-gust"] svg {
+      display: block;
+      overflow: visible;
+    }
+    [id="08-ligne-de-grains-rafales"] {
+      position: absolute;
+      left: 712px;
+      top: 1352px;
+      color: #e85d26;
+      font-size: 28px;
+    }
+  </style>
+
+  <div id="root" data-composition-id="08-ligne-de-grains" data-width="1080" data-height="1920">
+    <!-- Full-bleed ink-black ground: its own full-duration clip on the lowest track. -->
+    <div
+      id="08-ligne-de-grains-bg"
+      class="clip"
+      data-start="0"
+      data-duration="5.939"
+      data-track-index="0"
+      style="position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #111111"
+    ></div>
+
+    <!-- Listicle chrome (supporting) — same spot as Frames 6–9, dot 3 filled. -->
+    <div
+      id="08-ligne-de-grains-kicker"
+      class="08-ligne-de-grains-abs 08-ligne-de-grains-mono"
+      style="left: 64px; top: 120px; font-size: 26px; color: #f0ece5"
+    >
+      TYPE 3 / 4
+    </div>
+    <div id="08-ligne-de-grains-dots" aria-hidden="true">
+      <span class="08-ligne-de-grains-dot"></span>
+      <span class="08-ligne-de-grains-dot"></span>
+      <span class="08-ligne-de-grains-dot"><span id="08-ligne-de-grains-dot-fill"></span></span>
+      <span class="08-ligne-de-grains-dot"></span>
+    </div>
+
+    <!-- h1 hero (foreground subject), revealed per word. -->
+    <h1 id="08-ligne-de-grains-h1">
+      <span id="08-ligne-de-grains-w0" class="08-ligne-de-grains-word">ligne</span>
+      <span id="08-ligne-de-grains-w1" class="08-ligne-de-grains-word">de</span>
+      <span id="08-ligne-de-grains-w2" class="08-ligne-de-grains-word">grains</span>
+    </h1>
+
+    <!-- Radar stage: one wrapper so the slow macro push carries the whole map. -->
+    <div id="08-ligne-de-grains-stage">
+      <!-- Background: dim radar panel (rings + crosshair + one slow sweep). -->
+      <div id="08-ligne-de-grains-radar" aria-hidden="true">
+        <svg
+          id="08-ligne-de-grains-rings"
+          width="950"
+          height="950"
+          viewBox="0 0 950 950"
+          fill="none"
+          stroke="#505048"
+          stroke-width="1"
+        >
+          <circle cx="475.5" cy="475.5" r="119" />
+          <circle cx="475.5" cy="475.5" r="238" />
+          <circle cx="475.5" cy="475.5" r="357" />
+          <circle cx="475.5" cy="475.5" r="474" />
+          <line x1="0" y1="475.5" x2="950" y2="475.5" />
+          <line x1="475.5" y1="0" x2="475.5" y2="950" />
+          <line x1="118.5" y1="469" x2="118.5" y2="482" />
+          <line x1="237.5" y1="469" x2="237.5" y2="482" />
+          <line x1="356.5" y1="469" x2="356.5" y2="482" />
+          <line x1="594.5" y1="469" x2="594.5" y2="482" />
+          <line x1="713.5" y1="469" x2="713.5" y2="482" />
+          <line x1="832.5" y1="469" x2="832.5" y2="482" />
+          <line x1="469" y1="118.5" x2="482" y2="118.5" />
+          <line x1="469" y1="237.5" x2="482" y2="237.5" />
+          <line x1="469" y1="356.5" x2="482" y2="356.5" />
+          <line x1="469" y1="594.5" x2="482" y2="594.5" />
+          <line x1="469" y1="713.5" x2="482" y2="713.5" />
+          <line x1="469" y1="832.5" x2="482" y2="832.5" />
+        </svg>
+        <div id="08-ligne-de-grains-sweep"></div>
+      </div>
+
+      <!-- Supporting: ruler hairline spanning the whole line + "CENTAINES DE KM". -->
+      <div id="08-ligne-de-grains-ruler" aria-hidden="true"></div>
+      <div id="08-ligne-de-grains-tick-a" class="08-ligne-de-grains-tick" style="top: 611px" aria-hidden="true"></div>
+      <div id="08-ligne-de-grains-tick-b" class="08-ligne-de-grains-tick" style="top: 1468px" aria-hidden="true"></div>
+      <div id="08-ligne-de-grains-km" class="08-ligne-de-grains-mono">
+        <span class="08-ligne-de-grains-mask"><span id="08-ligne-de-grains-km-0" class="08-ligne-de-grains-mask-in">CENTAINES</span></span>
+        <span class="08-ligne-de-grains-mask"><span id="08-ligne-de-grains-km-1" class="08-ligne-de-grains-mask-in">DE KM</span></span>
+      </div>
+
+      <!-- Foreground subject: the bowed squall line, ~14 cells (cream) with orange cores. -->
+      <div id="08-ligne-de-grains-line" aria-hidden="true">
+        <div id="08-ligne-de-grains-disc-0" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 371px; top: 611px; width: 58px; height: 58px"></div>
+        <div id="08-ligne-de-grains-disc-1" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 394.8px; top: 668px; width: 75px; height: 75px"></div>
+        <div id="08-ligne-de-grains-disc-2" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 442.4px; top: 723.1px; width: 74px; height: 74px"></div>
+        <div id="08-ligne-de-grains-disc-3" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 455.6px; top: 782.1px; width: 95px; height: 95px"></div>
+        <div id="08-ligne-de-grains-disc-4" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 492.7px; top: 838.2px; width: 92px; height: 92px"></div>
+        <div id="08-ligne-de-grains-disc-5" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 493.6px; top: 898.7px; width: 104px; height: 104px"></div>
+        <div id="08-ligne-de-grains-disc-6" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 508.3px; top: 952.7px; width: 105px; height: 105px"></div>
+        <div id="08-ligne-de-grains-disc-7" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 515.3px; top: 1023.3px; width: 99px; height: 99px"></div>
+        <div id="08-ligne-de-grains-disc-8" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 492.1px; top: 1084.8px; width: 105px; height: 105px"></div>
+        <div id="08-ligne-de-grains-disc-9" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 490.2px; top: 1146.3px; width: 89px; height: 89px"></div>
+        <div id="08-ligne-de-grains-disc-10" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 454.6px; top: 1211.9px; width: 91px; height: 91px"></div>
+        <div id="08-ligne-de-grains-disc-11" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 440.4px; top: 1273.9px; width: 76px; height: 76px"></div>
+        <div id="08-ligne-de-grains-disc-12" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 398.3px; top: 1344.5px; width: 74px; height: 74px"></div>
+        <div id="08-ligne-de-grains-disc-13" class="08-ligne-de-grains-disc" data-layout-allow-overlap style="left: 371px; top: 1411px; width: 58px; height: 58px"></div>
+
+        <div id="08-ligne-de-grains-core-0" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 395px; top: 628px; width: 24px; height: 24px"></div>
+        <div id="08-ligne-de-grains-core-1" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 425.7px; top: 690px; width: 31px; height: 31px"></div>
+        <div id="08-ligne-de-grains-core-2" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 472.8px; top: 744.6px; width: 31px; height: 31px"></div>
+        <div id="08-ligne-de-grains-core-3" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 494.5px; top: 809.6px; width: 40px; height: 40px"></div>
+        <div id="08-ligne-de-grains-core-4" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 530.2px; top: 864.7px; width: 39px; height: 39px"></div>
+        <div id="08-ligne-de-grains-core-5" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 536.1px; top: 928.7px; width: 44px; height: 44px"></div>
+        <div id="08-ligne-de-grains-core-6" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 551.4px; top: 983.2px; width: 44px; height: 44px"></div>
+        <div id="08-ligne-de-grains-core-7" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 556.2px; top: 1052.3px; width: 41px; height: 41px"></div>
+        <div id="08-ligne-de-grains-core-8" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 535.2px; top: 1115.3px; width: 44px; height: 44px"></div>
+        <div id="08-ligne-de-grains-core-9" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 526.9px; top: 1172.3px; width: 37px; height: 37px"></div>
+        <div id="08-ligne-de-grains-core-10" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 492px; top: 1238.4px; width: 38px; height: 38px"></div>
+        <div id="08-ligne-de-grains-core-11" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 471.5px; top: 1295.9px; width: 32px; height: 32px"></div>
+        <div id="08-ligne-de-grains-core-12" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 428.6px; top: 1366px; width: 31px; height: 31px"></div>
+        <div id="08-ligne-de-grains-core-13" class="08-ligne-de-grains-core" data-layout-allow-overlap style="left: 395px; top: 1428px; width: 24px; height: 24px"></div>
+      </div>
+
+      <!-- Supporting: five orange chevrons shot ahead of the line (motion-blur-streak, path A). -->
+      <div id="08-ligne-de-grains-gust-0" class="08-ligne-de-grains-gust" data-layout-allow-overlap aria-hidden="true" style="left: 712px; top: 767.6px; width: 70.2px; height: 64.8px">
+        <svg width="70.2" height="64.8" viewBox="0 0 78 72" overflow="visible">
+          <defs>
+            <filter id="08-ligne-de-grains-streak-0" x="-150%" y="-10%" width="400%" height="120%" color-interpolation-filters="sRGB">
+              <feGaussianBlur id="08-ligne-de-grains-streak-blur-0" in="SourceGraphic" stdDeviation="20 0" />
+            </filter>
+          </defs>
+          <g filter="url(#08-ligne-de-grains-streak-0)" fill="#E85D26">
+            <polygon points="0,0 20,0 44,36 20,72 0,72 24,36" />
+            <polygon points="34,0 54,0 78,36 54,72 34,72 58,36" />
+          </g>
+        </svg>
+      </div>
+      <div id="08-ligne-de-grains-gust-1" class="08-ligne-de-grains-gust" data-layout-allow-overlap aria-hidden="true" style="left: 767px; top: 880.4px; width: 85.8px; height: 79.2px">
+        <svg width="85.8" height="79.2" viewBox="0 0 78 72" overflow="visible">
+          <defs>
+            <filter id="08-ligne-de-grains-streak-1" x="-150%" y="-10%" width="400%" height="120%" color-interpolation-filters="sRGB">
+              <feGaussianBlur id="08-ligne-de-grains-streak-blur-1" in="SourceGraphic" stdDeviation="20 0" />
+            </filter>
+          </defs>
+          <g filter="url(#08-ligne-de-grains-streak-1)" fill="#E85D26">
+            <polygon points="0,0 20,0 44,36 20,72 0,72 24,36" />
+            <polygon points="34,0 54,0 78,36 54,72 34,72 58,36" />
+          </g>
+        </svg>
+      </div>
+      <div id="08-ligne-de-grains-gust-2" class="08-ligne-de-grains-gust" data-layout-allow-overlap aria-hidden="true" style="left: 787px; top: 993.2px; width: 101.4px; height: 93.6px">
+        <svg width="101.4" height="93.6" viewBox="0 0 78 72" overflow="visible">
+          <defs>
+            <filter id="08-ligne-de-grains-streak-2" x="-150%" y="-10%" width="400%" height="120%" color-interpolation-filters="sRGB">
+              <feGaussianBlur id="08-ligne-de-grains-streak-blur-2" in="SourceGraphic" stdDeviation="20 0" />
+            </filter>
+          </defs>
+          <g filter="url(#08-ligne-de-grains-streak-2)" fill="#E85D26">
+            <polygon points="0,0 20,0 44,36 20,72 0,72 24,36" />
+            <polygon points="34,0 54,0 78,36 54,72 34,72 58,36" />
+          </g>
+        </svg>
+      </div>
+      <div id="08-ligne-de-grains-gust-3" class="08-ligne-de-grains-gust" data-layout-allow-overlap aria-hidden="true" style="left: 767px; top: 1120.4px; width: 85.8px; height: 79.2px">
+        <svg width="85.8" height="79.2" viewBox="0 0 78 72" overflow="visible">
+          <defs>
+            <filter id="08-ligne-de-grains-streak-3" x="-150%" y="-10%" width="400%" height="120%" color-interpolation-filters="sRGB">
+              <feGaussianBlur id="08-ligne-de-grains-streak-blur-3" in="SourceGraphic" stdDeviation="20 0" />
+            </filter>
+          </defs>
+          <g filter="url(#08-ligne-de-grains-streak-3)" fill="#E85D26">
+            <polygon points="0,0 20,0 44,36 20,72 0,72 24,36" />
+            <polygon points="34,0 54,0 78,36 54,72 34,72 58,36" />
+          </g>
+        </svg>
+      </div>
+      <div id="08-ligne-de-grains-gust-4" class="08-ligne-de-grains-gust" data-layout-allow-overlap aria-hidden="true" style="left: 712px; top: 1247.6px; width: 70.2px; height: 64.8px">
+        <svg width="70.2" height="64.8" viewBox="0 0 78 72" overflow="visible">
+          <defs>
+            <filter id="08-ligne-de-grains-streak-4" x="-150%" y="-10%" width="400%" height="120%" color-interpolation-filters="sRGB">
+              <feGaussianBlur id="08-ligne-de-grains-streak-blur-4" in="SourceGraphic" stdDeviation="20 0" />
+            </filter>
+          </defs>
+          <g filter="url(#08-ligne-de-grains-streak-4)" fill="#E85D26">
+            <polygon points="0,0 20,0 44,36 20,72 0,72 24,36" />
+            <polygon points="34,0 54,0 78,36 54,72 34,72 58,36" />
+          </g>
+        </svg>
+      </div>
+
+      <div id="08-ligne-de-grains-rafales" class="08-ligne-de-grains-mono">
+        <span class="08-ligne-de-grains-mask"><span id="08-ligne-de-grains-rafales-in" class="08-ligne-de-grains-mask-in">RAFALES</span></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var ID = "08-ligne-de-grains";
+      var P = ID + "-";
+      var DUR = 5.939;
+      function el(name) {
+        return document.getElementById(P + name);
+      }
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // ── Macro move underneath everything: slow push into the radar map. ──
+      tl.fromTo(el("stage"), { scale: 1 }, { scale: 1.03, duration: DUR, ease: "none" }, 0);
+
+      // ── Scene 1 (0.0–1.5s): chrome holds its spot; dot 3 fills on "Trois". ──
+      tl.fromTo(el("dot-fill"), { scale: 0 }, { scale: 1, duration: 0.3, ease: "power3.out" }, 0.12);
+
+      // Radar panel fades up behind; rings settle in; one slow sweep for the whole shot.
+      tl.fromTo(el("radar"), { opacity: 0 }, { opacity: 1, duration: 0.7, ease: "power2.out" }, 0.08);
+      tl.fromTo(el("rings"), { scale: 0.9 }, { scale: 1, duration: 1.0, ease: "power3.out" }, 0.08);
+      tl.fromTo(el("sweep"), { rotation: -90 }, { rotation: 210, duration: DUR - 0.15, ease: "none" }, 0.15);
+
+      // h1 "ligne de grains" — per word on the voice ("ligne" 0.54, "de" 0.88, "grains" 0.97):
+      // binary opacity, whip up from below on power4.out; heavy words travel further.
+      var words = [
+        { id: "w0", at: 0.46, y: 80, d: 0.2 },
+        { id: "w1", at: 0.84, y: 44, d: 0.13 },
+        { id: "w2", at: 0.95, y: 84, d: 0.22 },
+      ];
+      words.forEach(function (w) {
+        var e = el(w.id);
+        tl.fromTo(e, { opacity: 0 }, { opacity: 1, duration: 0.02, ease: "none" }, w.at);
+        tl.fromTo(e, { y: w.y }, { y: 0, duration: w.d, ease: "power4.out" }, w.at);
+      });
+
+      // ── Scene 2 (1.5–4.0s): "orages alignés" — waterfall-entry of 14 cells, top → bottom. ──
+      // Gaps SHRINK across the cascade (accelerating wave); bigger cells travel further / settle longer.
+      var SIZES = [58, 75, 74, 95, 92, 104, 105, 99, 105, 89, 91, 76, 74, 58];
+      var at = 1.52;
+      var gap = 0.085;
+      for (var i = 0; i < SIZES.length; i++) {
+        var cell = [el("disc-" + i), el("core-" + i)];
+        var yOff = Math.round(30 + 0.4 * SIZES[i]);
+        var dur = 0.12 + 0.0008 * SIZES[i];
+        tl.fromTo(cell, { opacity: 0 }, { opacity: 1, duration: 0.02, ease: "none" }, at);
+        tl.fromTo(cell, { y: yOff, scale: 0.6 }, { y: 0, scale: 1, duration: dur, ease: "power4.out" }, at);
+        at += gap;
+        gap -= 0.0035;
+      }
+
+      // The whole line advances right ~120px — one smooth move.
+      tl.fromTo(el("line"), { x: 0 }, { x: 120, duration: 1.2, ease: "power2.inOut" }, 2.4);
+
+      // "centaines de kilomètres" (2.72s): ruler hairline spans the line, end ticks, mono label.
+      tl.fromTo(el("ruler"), { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power3.out" }, 2.7);
+      tl.fromTo([el("tick-a"), el("tick-b")], { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power3.out" }, 3.0);
+      tl.fromTo(el("km"), { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" }, 2.82);
+      tl.fromTo(el("km-0"), { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "power3.out" }, 2.84);
+      tl.fromTo(el("km-1"), { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "power3.out" }, 2.92);
+
+      // ── Scene 3 (4.0–5.94s): "rafales" — five chevrons streak out ahead of the line. ──
+      // motion-blur-streak, path A: directional feGaussianBlur ("X 0") tweened via a proxy on the
+      // SAME window + ease as the position, so peak blur = peak speed and each lands razor-sharp.
+      var PEAK_BLUR = 20;
+      var MOVE_DUR = 0.5;
+      var ORDER = [2, 1, 3, 0, 4]; // bow apex first, then outward
+      ORDER.forEach(function (k, n) {
+        var start = 4.12 + n * 0.07;
+        var gust = el("gust-" + k);
+        var blurNode = el("streak-blur-" + k);
+        var proxy = { v: PEAK_BLUR };
+        var writeBlur = function () {
+          blurNode.setAttribute("stdDeviation", proxy.v + " 0");
+        };
+        writeBlur(); // seed: a seek before the move shows the streaked start
+        tl.fromTo(gust, { x: -170, opacity: 0 }, { x: 0, opacity: 1, duration: MOVE_DUR, ease: "power4.out" }, start);
+        tl.fromTo(
+          proxy,
+          { v: PEAK_BLUR },
+          { v: 0, duration: MOVE_DUR, ease: "power4.out", onUpdate: writeBlur },
+          start,
+        );
+      });
+
+      // "RAFALES" lands at 4.8s, then hold.
+      tl.fromTo(el("rafales-in"), { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "power3.out" }, 4.8);
+
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

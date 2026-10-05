@@ -1,0 +1,577 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-800.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: block; }
+    @font-face { font-family: "Barlow"; src: url("assets/fonts/Barlow-900.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: block; }
+    @font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: block; }
+
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Barlow";
+      color: #F0ECE5;
+    }
+
+    /* full-bleed ink-black ground (dark register) */
+    [id="06-monocellulaire-bg"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      background: #111111;
+    }
+    [id="06-monocellulaire-stage"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+
+    /* ── listicle chrome (shared by frames 6–9) ── */
+    [id="06-monocellulaire-chrome"] {
+      position: absolute;
+      left: 64px;
+      top: 120px;
+      margin: 0;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+    [id="06-monocellulaire-dots"] {
+      position: absolute;
+      left: 64px;
+      top: 170px;
+      height: 16px;
+      display: flex;
+      gap: 14px;
+    }
+    [class~="06-monocellulaire-dot"] {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border: 1px solid #F0ECE5;
+      background: transparent;
+    }
+    [class~="06-monocellulaire-dot-on"] {
+      border-color: #E85D26;
+      background: #E85D26;
+    }
+
+    /* ── h1 hero ── */
+    [id="06-monocellulaire-h1"] {
+      position: absolute;
+      left: 64px;
+      top: 262px;
+      margin: 0;
+      font-family: "Barlow";
+      font-weight: 900;
+      font-size: 132px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    [class~="06-monocellulaire-mask"] {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0.06em 0 0.04em 0;
+      clip-path: inset(-0.12em -0.3em 0 -0.3em);
+    }
+    [class~="06-monocellulaire-chunk"] {
+      display: inline-block;
+    }
+    [id="06-monocellulaire-h1-mono"] { color: #E85D26; }
+    [id="06-monocellulaire-h1-cell"] { color: #F0ECE5; }
+
+    /* ── ground hairline (stage floor) ── */
+    [id="06-monocellulaire-ground"] {
+      position: absolute;
+      left: 64px;
+      top: 1480px;
+      width: 952px;
+      height: 1px;
+      background: #888880;
+      transform-origin: 0% 50%;
+    }
+
+    /* ── illustration layer (slow macro push anchored on the ground) ── */
+    [id="06-monocellulaire-scene"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      transform-origin: 540px 1480px;
+    }
+
+    /* cell width dimension line + label */
+    [id="06-monocellulaire-dim"] {
+      position: absolute;
+      left: 240px;
+      top: 662px;
+      width: 470px;
+      height: 1px;
+      background: #888880;
+      transform-origin: 50% 50%;
+    }
+    [class~="06-monocellulaire-tick"] {
+      position: absolute;
+      top: -8px;
+      width: 1px;
+      height: 17px;
+      background: #888880;
+    }
+    [id="06-monocellulaire-dim-label"] {
+      position: absolute;
+      left: 240px;
+      top: 614px;
+      width: 470px;
+      margin: 0;
+      text-align: center;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+
+    /* rain shaft under the cloud base, clipped at the ground */
+    [id="06-monocellulaire-rain"] {
+      position: absolute;
+      left: 360px;
+      top: 1128px;
+      width: 220px;
+      height: 352px;
+      overflow: hidden;
+    }
+    [id="06-monocellulaire-rain-layer"] {
+      position: absolute;
+      left: 0;
+      top: -2592px;
+      width: 220px;
+      height: 2592px;
+    }
+    [id="06-monocellulaire-rain-svg"] {
+      display: block;
+      width: 220px;
+      height: 100%;
+    }
+    [id="06-monocellulaire-rain-svg"] line {
+      stroke: #F0ECE5;
+      stroke-width: 3;
+      stroke-opacity: 0.62;
+      stroke-linecap: butt;
+    }
+
+    /* the single storm cell — flat cream silhouette */
+    [id="06-monocellulaire-cloud"] {
+      position: absolute;
+      left: 230px;
+      top: 700px;
+      width: 480px;
+      height: 440px;
+      transform-origin: 50% 100%;
+    }
+    [id="06-monocellulaire-cloud-svg"] {
+      display: block;
+      width: 480px;
+      height: 440px;
+      overflow: visible;
+    }
+    [id="06-monocellulaire-cloud-svg"] circle,
+    [id="06-monocellulaire-cloud-svg"] rect,
+    [id="06-monocellulaire-cloud-svg"] polygon {
+      fill: #F0ECE5;
+    }
+
+    /* stopwatch ring + stat */
+    [id="06-monocellulaire-clock"] {
+      position: absolute;
+      left: 768px;
+      top: 758px;
+      width: 200px;
+      height: 220px;
+      transform-origin: 50% 54.5%;
+    }
+    [id="06-monocellulaire-clock-svg"] {
+      display: block;
+      width: 200px;
+      height: 220px;
+      overflow: visible;
+    }
+    [id="06-monocellulaire-clock-track"] {
+      fill: none;
+      stroke: #888880;
+      stroke-width: 1;
+    }
+    [id="06-monocellulaire-clock-arc"] {
+      fill: none;
+      stroke: #E85D26;
+      stroke-width: 8;
+      stroke-linecap: butt;
+    }
+    [id="06-monocellulaire-clock-hand"] {
+      stroke: #F0ECE5;
+      stroke-width: 4;
+      stroke-linecap: butt;
+    }
+    [class~="06-monocellulaire-orange"] {
+      fill: #E85D26;
+    }
+    [id="06-monocellulaire-stat"] {
+      position: absolute;
+      left: 738px;
+      top: 994px;
+      width: 260px;
+      margin: 0;
+      text-align: center;
+      font-family: "Barlow";
+      font-weight: 900;
+      font-size: 96px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #E85D26;
+      white-space: nowrap;
+    }
+
+    /* tag row: orange sun + mono tag */
+    [id="06-monocellulaire-tagrow"] {
+      position: absolute;
+      right: 64px;
+      top: 1270px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    [id="06-monocellulaire-sun"] {
+      display: block;
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
+      transform-origin: 50% 50%;
+    }
+    [id="06-monocellulaire-sun"] circle {
+      fill: #E85D26;
+    }
+    [id="06-monocellulaire-sun"] line {
+      stroke: #E85D26;
+      stroke-width: 3.5;
+      stroke-linecap: butt;
+    }
+    [id="06-monocellulaire-tag"] {
+      margin: 0;
+      padding: 11px 9px 11px 12px;
+      border: 1px solid #888880;
+      font-family: "IBM Plex Mono";
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #F0ECE5;
+      white-space: nowrap;
+    }
+  </style>
+
+  <div id="root" data-composition-id="06-monocellulaire" data-width="1080" data-height="1920" data-duration="6.152">
+    <div id="06-monocellulaire-bg" class="clip" data-start="0" data-duration="6.152" data-track-index="0"></div>
+
+    <div id="06-monocellulaire-stage" class="clip" data-start="0" data-duration="6.152" data-track-index="1">
+      <!-- listicle chrome: hard cut-in -->
+      <p id="06-monocellulaire-chrome">TYPE 1 / 4</p>
+      <div id="06-monocellulaire-dots">
+        <div class="06-monocellulaire-dot 06-monocellulaire-dot-on"></div>
+        <div class="06-monocellulaire-dot"></div>
+        <div class="06-monocellulaire-dot"></div>
+        <div class="06-monocellulaire-dot"></div>
+      </div>
+
+      <!-- h1 hero, revealed by chunks -->
+      <h1 id="06-monocellulaire-h1"><span class="06-monocellulaire-mask"><span id="06-monocellulaire-h1-mono" class="06-monocellulaire-chunk">mono</span></span><span class="06-monocellulaire-mask"><span id="06-monocellulaire-h1-cell" class="06-monocellulaire-chunk">cellulaire</span></span></h1>
+
+      <!-- illustration layer -->
+      <div id="06-monocellulaire-scene">
+        <div id="06-monocellulaire-dim">
+          <div class="06-monocellulaire-tick" style="left: 0px"></div>
+          <div class="06-monocellulaire-tick" style="right: 0px"></div>
+        </div>
+        <p id="06-monocellulaire-dim-label">1 CELLULE</p>
+
+        <div id="06-monocellulaire-rain">
+          <div id="06-monocellulaire-rain-layer">
+            <svg id="06-monocellulaire-rain-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+
+        <div id="06-monocellulaire-cloud">
+          <svg id="06-monocellulaire-cloud-svg" viewBox="0 0 480 440" xmlns="http://www.w3.org/2000/svg">
+            <g id="06-monocellulaire-cloud-lower">
+              <circle cx="145" cy="250" r="76" />
+              <circle cx="335" cy="246" r="78" />
+              <circle cx="240" cy="290" r="112" />
+              <circle cx="100" cy="372" r="68" />
+              <circle cx="380" cy="372" r="68" />
+              <rect x="100" y="330" width="280" height="110" />
+            </g>
+            <g id="06-monocellulaire-cloud-upper">
+              <circle cx="200" cy="140" r="72" />
+              <circle cx="290" cy="135" r="74" />
+              <circle cx="245" cy="100" r="64" />
+            </g>
+            <g id="06-monocellulaire-cloud-anvil">
+              <polygon points="10,28 60,0 440,0 480,22 360,66 140,66" />
+            </g>
+          </svg>
+        </div>
+
+        <div id="06-monocellulaire-clock">
+          <svg id="06-monocellulaire-clock-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+            <rect class="06-monocellulaire-orange" x="88" y="10" width="24" height="12" />
+            <rect class="06-monocellulaire-orange" x="96" y="22" width="8" height="8" />
+            <circle id="06-monocellulaire-clock-track" cx="100" cy="120" r="86" />
+            <path id="06-monocellulaire-clock-arc" d="M 100 34 A 86 86 0 1 1 25.52 77" />
+            <line id="06-monocellulaire-clock-hand" x1="100" y1="120" x2="100" y2="52" />
+            <circle class="06-monocellulaire-orange" cx="100" cy="120" r="7" />
+          </svg>
+        </div>
+        <p id="06-monocellulaire-stat"><span class="06-monocellulaire-mask"><span id="06-monocellulaire-stat-inner" class="06-monocellulaire-chunk">&lt;&nbsp;1&nbsp;h</span></span></p>
+
+        <div id="06-monocellulaire-tagrow">
+          <svg id="06-monocellulaire-sun" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="15" />
+            <line x1="32" y1="11" x2="32" y2="3" />
+            <line x1="46.85" y1="17.15" x2="52.51" y2="11.49" />
+            <line x1="53" y1="32" x2="61" y2="32" />
+            <line x1="46.85" y1="46.85" x2="52.51" y2="52.51" />
+            <line x1="32" y1="53" x2="32" y2="61" />
+            <line x1="17.15" y1="46.85" x2="11.49" y2="52.51" />
+            <line x1="11" y1="32" x2="3" y2="32" />
+            <line x1="17.15" y1="17.15" x2="11.49" y2="11.49" />
+          </svg>
+          <p id="06-monocellulaire-tag">ORAGE DE CHALEUR</p>
+        </div>
+      </div>
+
+      <!-- stage floor -->
+      <div id="06-monocellulaire-ground"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var FID = "06-monocellulaire";
+      var DUR = 6.152;
+      function el(name) {
+        return document.getElementById(FID + "-" + name);
+      }
+
+      /* ── rain sheet: deterministic streak field (seeded PRNG, no Math.random) ──
+         The sheet falls linearly from the cloud base; streak density tapers toward
+         its tail so the shower thins out as the cell dies. */
+      var RAIN_W = 220;
+      var RAIN_H = 352;
+      var RAIN_T0 = 3.2;
+      var RAIN_TRAVEL = 2240;
+      var RAIN_L = RAIN_TRAVEL + RAIN_H;
+      var rainLayer = el("rain-layer");
+      var rainSvg = el("rain-svg");
+      rainLayer.style.top = -RAIN_L + "px";
+      rainLayer.style.height = RAIN_L + "px";
+      rainSvg.setAttribute("viewBox", "0 0 " + RAIN_W + " " + RAIN_L);
+      rainSvg.setAttribute("width", String(RAIN_W));
+      rainSvg.setAttribute("height", String(RAIN_L));
+
+      var seed = 20260705;
+      function rnd() {
+        seed = (seed * 16807) % 2147483647;
+        return seed / 2147483647;
+      }
+      function density(u) {
+        var front = Math.min(1, 0.45 + (0.55 * (RAIN_L - u)) / 160);
+        var tail = u >= 1350 ? 1 : Math.max(0.28, 0.28 + (0.72 * (u - 350)) / 1000);
+        return Math.min(front, tail);
+      }
+      var SVG_NS = "http://www.w3.org/2000/svg";
+      var SLOTS = 4;
+      var ROW = 28;
+      var slotW = RAIN_W / SLOTS;
+      for (var u = RAIN_L - 8; u > 0; u -= ROW) {
+        var d = density(u);
+        for (var k = 0; k < SLOTS; k++) {
+          var pick = rnd();
+          var jx = rnd();
+          var jy = rnd();
+          var jl = rnd();
+          if (pick > d) continue;
+          var x = Math.round((k + 0.12 + jx * 0.76) * slotW);
+          var y2 = u - Math.round(jy * 12);
+          var y1 = y2 - (24 + Math.round(jl * 18));
+          var ln = document.createElementNS(SVG_NS, "line");
+          ln.setAttribute("x1", String(x));
+          ln.setAttribute("y1", String(y1));
+          ln.setAttribute("x2", String(x));
+          ln.setAttribute("y2", String(y2));
+          rainSvg.appendChild(ln);
+        }
+      }
+
+      /* ── stopwatch arc: measured length for the self-draw ── */
+      var arc = el("clock-arc");
+      var arcLen = 0;
+      try {
+        arcLen = arc.getTotalLength();
+      } catch (e) {
+        arcLen = 0;
+      }
+      if (!arcLen || !isFinite(arcLen)) arcLen = 86 * ((300 * Math.PI) / 180);
+      arcLen = arcLen * 1.02;
+      arc.style.strokeDasharray = String(arcLen);
+      arc.style.strokeDashoffset = String(arcLen);
+
+      var tl = gsap.timeline({ paused: true });
+
+      /* Scene 1 (0.0–2.2s) — stage floor draws, h1 reveals by chunks */
+      tl.fromTo(el("ground"), { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "expo.out" }, 0.05);
+
+      /* dynamic-content-sequencing: pre-computed flat TIMELINE from content length */
+      var SEQ_START = 0.45;
+      var BASE_DURATION = 0.34;
+      var SEC_PER_CHAR = 0.02;
+      var ENTER = 0.7;
+      var H1_CONTENT = [
+        { key: "mono", node: el("h1-mono"), hold: 0 },
+        { key: "cellulaire", node: el("h1-cell"), hold: 0 },
+      ];
+      var cumulative = SEQ_START;
+      var H1_TIMELINE = H1_CONTENT.map(function (entry) {
+        var dur = BASE_DURATION + entry.key.length * SEC_PER_CHAR + entry.hold;
+        var start = cumulative;
+        cumulative += dur;
+        return { key: entry.key, node: entry.node, start: start, end: cumulative };
+      });
+      H1_TIMELINE.forEach(function (entry) {
+        tl.fromTo(
+          entry.node,
+          { yPercent: 108 },
+          { yPercent: 0, duration: ENTER, ease: "expo.out" },
+          entry.start
+        );
+      });
+
+      /* slow macro push under the illustration, anchored on the ground line */
+      tl.fromTo(el("scene"), { scale: 1 }, { scale: 1.03, duration: DUR, ease: "none" }, 0);
+
+      /* Scene 2 (2.2–3.0s) — "une seule cellule": the cell grows from its base */
+      tl.fromTo(
+        el("cloud"),
+        { scaleY: 0, scaleX: 0.7 },
+        { scaleY: 1, scaleX: 1, duration: 0.85, ease: "power3.out" },
+        2.2
+      );
+      tl.fromTo(
+        el("cloud-anvil"),
+        { scaleX: 0.25 },
+        { scaleX: 1, svgOrigin: "250 66", duration: 0.65, ease: "power3.out" },
+        2.48
+      );
+      tl.fromTo(el("dim"), { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: "power3.out" }, 2.5);
+      tl.fromTo(
+        el("dim-label"),
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+        2.62
+      );
+
+      /* Scene 3 (3.0–4.2s) — "moins d'une heure": stopwatch ring self-draws, rain falls */
+      tl.fromTo(
+        el("clock"),
+        { opacity: 0, scale: 0.92 },
+        { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" },
+        2.98
+      );
+      tl.fromTo(
+        arc,
+        { strokeDashoffset: arcLen },
+        { strokeDashoffset: 0, duration: 0.75, ease: "power2.out" },
+        3.05
+      );
+      tl.fromTo(
+        el("clock-hand"),
+        { rotation: 0 },
+        { rotation: 300, svgOrigin: "100 120", duration: 0.75, ease: "power2.out" },
+        3.05
+      );
+      tl.fromTo(
+        el("rain-layer"),
+        { y: 0 },
+        { y: RAIN_TRAVEL, duration: DUR - RAIN_T0, ease: "none" },
+        RAIN_T0
+      );
+      tl.fromTo(
+        el("stat-inner"),
+        { yPercent: 108 },
+        { yPercent: 0, duration: 0.65, ease: "expo.out" },
+        3.38
+      );
+
+      /* Scene 4 (4.2–6.15s) — "orage de chaleur": sun + tag slide in; "soirs d'été": the cell deflates */
+      tl.fromTo(
+        el("sun"),
+        { x: 70, opacity: 0, rotation: -90 },
+        { x: 0, opacity: 1, rotation: 0, duration: 0.7, ease: "power3.out" },
+        4.25
+      );
+      tl.fromTo(
+        el("tag"),
+        { x: 70, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+        4.6
+      );
+      tl.fromTo(
+        el("cloud-anvil"),
+        { scaleX: 1, scaleY: 1, y: 0 },
+        {
+          scaleX: 1.12,
+          scaleY: 0.62,
+          y: 42,
+          svgOrigin: "250 66",
+          duration: 0.9,
+          ease: "power3.out",
+          immediateRender: false,
+        },
+        5.2
+      );
+      tl.fromTo(
+        el("cloud-upper"),
+        { scale: 1 },
+        { scale: 0.86, svgOrigin: "240 250", duration: 0.9, ease: "power3.out", immediateRender: false },
+        5.2
+      );
+      tl.fromTo(
+        el("cloud"),
+        { opacity: 1 },
+        { opacity: 0.8, duration: 0.9, ease: "power1.out", immediateRender: false },
+        5.2
+      );
+
+      window.__timelines["06-monocellulaire"] = tl;
+    })();
+  </script>
+</template>
