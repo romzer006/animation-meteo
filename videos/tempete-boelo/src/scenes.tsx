@@ -704,7 +704,7 @@ export const SceneVigilance: React.FC<SceneProps> = ({start, dur}) => {
           })
         }
       />
-      <Stamp text="MISE À JOUR 18H01" at={tUp} x={735} y={505} rotate={-7} size={40} color={C.red} sub="20 DÉPARTEMENTS" />
+      <Stamp text="MISE À JOUR 18H01" at={tUp} x={700} y={505} rotate={-7} size={36} color={C.red} sub="20 DÉPARTEMENTS" />
     </Scene>
   );
 };

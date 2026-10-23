@@ -53,6 +53,7 @@ export const BoeloVideo: React.FC = () => (
     })}
     <Header />
     <Captions />
-    <Audio src={staticFile('vo.m4a')} />
+    {/* Voix off masterisée (-15 LUFS, blancs rendus muets) — l'enregistrement d'origine est public/vo.m4a */}
+    <Audio src={staticFile('vo-master.m4a')} />
   </AbsoluteFill>
 );

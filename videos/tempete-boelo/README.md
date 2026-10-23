@@ -20,6 +20,13 @@ Motion design codé, 1080×1920, 30 i/s, avec la voix off de Monsieur.meteo (`pu
 | 59,9 – 63,1 s (« Dimanche, le ciel devra se dégager… ») | Carte de dimanche : éclaircies à l'ouest, bande de pluie qui part vers l'est |
 | 71,5 – 73,7 s (« …comme pour la tempête Austen ») | Rappel Austen : Bretagne, rafale de 161 km/h à la pointe du Raz |
 
+## Audio
+
+- `public/vo.m4a` : l'enregistrement d'origine, intact (-31 LUFS).
+- `public/vo-master.m4a` : la piste utilisée dans la vidéo. Les blancs sont rendus muets, notamment les murmures « je refais » vers 35-40 s et 61 s. Chaîne appliquée : passe-haut 70 Hz, réduction de souffle légère, gate, compression douce, gain fixe et limiteur. Résultat : -15 LUFS, crête -1 dBTP.
+
+Pour retrouver le son d'origine, remettre `vo.m4a` dans `src/Video.tsx`.
+
 ## Rendu
 
 ```bash
