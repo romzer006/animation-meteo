@@ -10,6 +10,7 @@ Motion design codé, 1080×1920, 30 i/s, avec la voix off de Monsieur.meteo (`pu
 - `src/scenes.tsx` : les 14 scènes. `src/components/` : composants réutilisables (cartes Europe et départements, cyclone, jauge, barres de rafales, double calendrier, carte de presse + tampon, compteur géant, checklist, sous-titres karaoké, bandeau).
 - `scripts/build-geo.mjs` : prépare les fonds de carte (départements gregoiredavid/france-geojson, pays Natural Earth via world-atlas).
 - `DESCRIPTION.md` : texte de description TikTok + hashtags.
+- La vidéo finale est dans `Vidéo Météo Claude/2026-10-23 Tempête Boelo.mp4` (racine du dépôt). `renders/` ne garde que les planches de contrôle.
 
 ## Les blancs de la voix off
 
@@ -31,7 +32,7 @@ Pour retrouver le son d'origine, remettre `vo.m4a` dans `src/Video.tsx`.
 
 ```bash
 npm install
-npx remotion render Boelo renders/tempete-boelo.mp4
+npm run render   # écrit la vidéo dans « Vidéo Météo Claude/ » à la racine du dépôt
 # dans un conteneur sans Chrome téléchargeable :
 #   --browser-executable=/chemin/vers/chrome-headless-shell
 node scripts/stills.mjs <dossier> 60 520 1440   # images de contrôle

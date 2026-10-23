@@ -5,7 +5,7 @@
   "description": "Monsieur.meteo — tempête Boelo, motion design Remotion 1080x1920",
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render Boelo renders/tempete-boelo.mp4",
+    "render": "remotion render Boelo \"../../Vidéo Météo Claude/2026-10-23 Tempête Boelo.mp4\"",
     "still": "remotion still Boelo"
   },
   "dependencies": {
