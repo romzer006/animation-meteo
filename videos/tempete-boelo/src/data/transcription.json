@@ -1,0 +1,1112 @@
+[
+ {
+  "mot": "6",
+  "début": 3.78,
+  "fin": 3.98,
+  "cle": true
+ },
+ {
+  "mot": "pays",
+  "début": 3.98,
+  "fin": 4.2,
+  "cle": true
+ },
+ {
+  "mot": "en",
+  "début": 4.2,
+  "fin": 4.42,
+  "cle": false
+ },
+ {
+  "mot": "alerte,",
+  "début": 4.42,
+  "fin": 4.92,
+  "cle": true
+ },
+ {
+  "mot": "une",
+  "début": 4.92,
+  "fin": 5.2,
+  "cle": false
+ },
+ {
+  "mot": "seule",
+  "début": 5.2,
+  "fin": 5.44,
+  "cle": false
+ },
+ {
+  "mot": "tempête,",
+  "début": 5.44,
+  "fin": 5.94,
+  "cle": false
+ },
+ {
+  "mot": "Boelo.",
+  "début": 6.0,
+  "fin": 6.5,
+  "cle": true
+ },
+ {
+  "mot": "Une",
+  "début": 6.66,
+  "fin": 7.18,
+  "cle": false
+ },
+ {
+  "mot": "bombe",
+  "début": 7.18,
+  "fin": 7.46,
+  "cle": true
+ },
+ {
+  "mot": "météorologique,",
+  "début": 7.46,
+  "fin": 8.14,
+  "cle": false
+ },
+ {
+  "mot": "sa",
+  "début": 8.32,
+  "fin": 8.48,
+  "cle": false
+ },
+ {
+  "mot": "pression",
+  "début": 8.48,
+  "fin": 8.96,
+  "cle": false
+ },
+ {
+  "mot": "plonge",
+  "début": 8.96,
+  "fin": 9.22,
+  "cle": false
+ },
+ {
+  "mot": "jusqu'à",
+  "début": 9.22,
+  "fin": 9.58,
+  "cle": false
+ },
+ {
+  "mot": "946",
+  "début": 9.58,
+  "fin": 10.14,
+  "cle": true
+ },
+ {
+  "mot": "hectopascals.",
+  "début": 10.14,
+  "fin": 11.0,
+  "cle": true
+ },
+ {
+  "mot": "Samedi,",
+  "début": 11.64,
+  "fin": 12.2,
+  "cle": true
+ },
+ {
+  "mot": "elle",
+  "début": 12.22,
+  "fin": 12.56,
+  "cle": false
+ },
+ {
+  "mot": "va",
+  "début": 12.56,
+  "fin": 12.7,
+  "cle": false
+ },
+ {
+  "mot": "frapper",
+  "début": 12.7,
+  "fin": 13.02,
+  "cle": false
+ },
+ {
+  "mot": "l'Irlande.",
+  "début": 13.02,
+  "fin": 13.64,
+  "cle": true
+ },
+ {
+  "mot": "6",
+  "début": 13.68,
+  "fin": 14.14,
+  "cle": true
+ },
+ {
+  "mot": "comtés",
+  "début": 14.14,
+  "fin": 14.46,
+  "cle": true
+ },
+ {
+  "mot": "en",
+  "début": 14.46,
+  "fin": 14.62,
+  "cle": false
+ },
+ {
+  "mot": "vigilance",
+  "début": 14.62,
+  "fin": 14.98,
+  "cle": false
+ },
+ {
+  "mot": "orange,",
+  "début": 14.98,
+  "fin": 15.18,
+  "cle": true
+ },
+ {
+  "mot": "les",
+  "début": 15.42,
+  "fin": 15.74,
+  "cle": false
+ },
+ {
+  "mot": "courses",
+  "début": 15.74,
+  "fin": 16.02,
+  "cle": false
+ },
+ {
+  "mot": "de",
+  "début": 16.02,
+  "fin": 16.16,
+  "cle": false
+ },
+ {
+  "mot": "Galway",
+  "début": 16.16,
+  "fin": 16.46,
+  "cle": true
+ },
+ {
+  "mot": "reportées.",
+  "début": 16.46,
+  "fin": 17.06,
+  "cle": false
+ },
+ {
+  "mot": "Samedi",
+  "début": 17.18,
+  "fin": 17.68,
+  "cle": true
+ },
+ {
+  "mot": "soir,",
+  "début": 17.68,
+  "fin": 17.88,
+  "cle": false
+ },
+ {
+  "mot": "alerte",
+  "début": 18.04,
+  "fin": 18.62,
+  "cle": true
+ },
+ {
+  "mot": "ambre",
+  "début": 18.62,
+  "fin": 19.04,
+  "cle": true
+ },
+ {
+  "mot": "en",
+  "début": 19.04,
+  "fin": 19.28,
+  "cle": false
+ },
+ {
+  "mot": "Écosse,",
+  "début": 19.28,
+  "fin": 19.78,
+  "cle": true
+ },
+ {
+  "mot": "rafales",
+  "début": 19.78,
+  "fin": 20.4,
+  "cle": false
+ },
+ {
+  "mot": "jusqu'à",
+  "début": 20.4,
+  "fin": 20.7,
+  "cle": false
+ },
+ {
+  "mot": "130",
+  "début": 20.7,
+  "fin": 21.02,
+  "cle": true
+ },
+ {
+  "mot": "km/h.",
+  "début": 21.02,
+  "fin": 21.86,
+  "cle": true
+ },
+ {
+  "mot": "Puis,",
+  "début": 21.98,
+  "fin": 22.48,
+  "cle": false
+ },
+ {
+  "mot": "Boelo",
+  "début": 22.6,
+  "fin": 23.08,
+  "cle": true
+ },
+ {
+  "mot": "file",
+  "début": 23.08,
+  "fin": 23.28,
+  "cle": false
+ },
+ {
+  "mot": "vers",
+  "début": 23.28,
+  "fin": 23.48,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 23.48,
+  "fin": 23.6,
+  "cle": false
+ },
+ {
+  "mot": "Norvège,",
+  "début": 23.6,
+  "fin": 23.96,
+  "cle": true
+ },
+ {
+  "mot": "rafales",
+  "début": 24.1,
+  "fin": 24.52,
+  "cle": false
+ },
+ {
+  "mot": "jusqu'à",
+  "début": 24.52,
+  "fin": 24.82,
+  "cle": false
+ },
+ {
+  "mot": "133",
+  "début": 24.82,
+  "fin": 25.06,
+  "cle": true
+ },
+ {
+  "mot": "km/h",
+  "début": 25.06,
+  "fin": 25.72,
+  "cle": true
+ },
+ {
+  "mot": "attendues",
+  "début": 25.72,
+  "fin": 26.06,
+  "cle": false
+ },
+ {
+  "mot": "sur",
+  "début": 26.06,
+  "fin": 26.18,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 26.18,
+  "fin": 26.3,
+  "cle": false
+ },
+ {
+  "mot": "côte.",
+  "début": 26.3,
+  "fin": 26.6,
+  "cle": false
+ },
+ {
+  "mot": "Dimanche,",
+  "début": 26.7,
+  "fin": 27.34,
+  "cle": true
+ },
+ {
+  "mot": "le",
+  "début": 27.34,
+  "fin": 27.48,
+  "cle": false
+ },
+ {
+  "mot": "Danemark",
+  "début": 27.48,
+  "fin": 27.92,
+  "cle": true
+ },
+ {
+  "mot": "aussi",
+  "début": 27.92,
+  "fin": 28.36,
+  "cle": false
+ },
+ {
+  "mot": "va",
+  "début": 28.36,
+  "fin": 28.84,
+  "cle": false
+ },
+ {
+  "mot": "prendre",
+  "début": 28.84,
+  "fin": 29.06,
+  "cle": false
+ },
+ {
+  "mot": "les",
+  "début": 29.06,
+  "fin": 29.22,
+  "cle": false
+ },
+ {
+  "mot": "rafales",
+  "début": 29.22,
+  "fin": 29.46,
+  "cle": false
+ },
+ {
+  "mot": "de",
+  "début": 29.46,
+  "fin": 29.58,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 29.58,
+  "fin": 29.62,
+  "cle": false
+ },
+ {
+  "mot": "tempête.",
+  "début": 29.62,
+  "fin": 29.98,
+  "cle": false
+ },
+ {
+  "mot": "Les",
+  "début": 31.04,
+  "fin": 31.48,
+  "cle": false
+ },
+ {
+  "mot": "Pays-Bas",
+  "début": 31.48,
+  "fin": 31.92,
+  "cle": true
+ },
+ {
+  "mot": "et",
+  "début": 31.92,
+  "fin": 32.06,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 32.06,
+  "fin": 32.14,
+  "cle": false
+ },
+ {
+  "mot": "Belgique",
+  "début": 32.14,
+  "fin": 32.56,
+  "cle": true
+ },
+ {
+  "mot": "sont",
+  "début": 32.56,
+  "fin": 32.74,
+  "cle": false
+ },
+ {
+  "mot": "en",
+  "début": 32.74,
+  "fin": 32.9,
+  "cle": false
+ },
+ {
+  "mot": "alerte",
+  "début": 32.9,
+  "fin": 33.22,
+  "cle": true
+ },
+ {
+  "mot": "jaune.",
+  "début": 33.22,
+  "fin": 33.54,
+  "cle": true
+ },
+ {
+  "mot": "Et",
+  "début": 33.56,
+  "fin": 33.9,
+  "cle": false
+ },
+ {
+  "mot": "chez",
+  "début": 33.9,
+  "fin": 34.06,
+  "cle": false
+ },
+ {
+  "mot": "nous,",
+  "début": 34.06,
+  "fin": 34.22,
+  "cle": false
+ },
+ {
+  "mot": "en",
+  "début": 34.3,
+  "fin": 34.68,
+  "cle": false
+ },
+ {
+  "mot": "France ?",
+  "début": 34.68,
+  "fin": 35.1,
+  "cle": true
+ },
+ {
+  "mot": "Et",
+  "début": 40.16,
+  "fin": 40.28,
+  "cle": false
+ },
+ {
+  "mot": "chez",
+  "début": 40.28,
+  "fin": 40.42,
+  "cle": false
+ },
+ {
+  "mot": "nous,",
+  "début": 40.42,
+  "fin": 40.62,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 41.08,
+  "fin": 41.22,
+  "cle": false
+ },
+ {
+  "mot": "France",
+  "début": 41.22,
+  "fin": 41.4,
+  "cle": true
+ },
+ {
+  "mot": "est",
+  "début": 41.4,
+  "fin": 41.54,
+  "cle": false
+ },
+ {
+  "mot": "en",
+  "début": 41.54,
+  "fin": 41.66,
+  "cle": false
+ },
+ {
+  "mot": "bordure,",
+  "début": 41.66,
+  "fin": 42.1,
+  "cle": false
+ },
+ {
+  "mot": "mais",
+  "début": 42.1,
+  "fin": 42.42,
+  "cle": false
+ },
+ {
+  "mot": "pas",
+  "début": 42.42,
+  "fin": 42.6,
+  "cle": false
+ },
+ {
+  "mot": "épargnée.",
+  "début": 42.6,
+  "fin": 43.06,
+  "cle": false
+ },
+ {
+  "mot": "Samedi",
+  "début": 43.3,
+  "fin": 43.74,
+  "cle": true
+ },
+ {
+  "mot": "midi,",
+  "début": 43.74,
+  "fin": 44.04,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 44.06,
+  "fin": 44.26,
+  "cle": false
+ },
+ {
+  "mot": "pluie",
+  "début": 44.26,
+  "fin": 44.5,
+  "cle": false
+ },
+ {
+  "mot": "arrive",
+  "début": 44.5,
+  "fin": 44.78,
+  "cle": false
+ },
+ {
+  "mot": "en",
+  "début": 44.78,
+  "fin": 44.96,
+  "cle": false
+ },
+ {
+  "mot": "Bretagne.",
+  "début": 44.96,
+  "fin": 45.32,
+  "cle": true
+ },
+ {
+  "mot": "Samedi",
+  "début": 45.54,
+  "fin": 45.98,
+  "cle": true
+ },
+ {
+  "mot": "soir,",
+  "début": 45.98,
+  "fin": 46.18,
+  "cle": false
+ },
+ {
+  "mot": "les",
+  "début": 46.28,
+  "fin": 46.4,
+  "cle": false
+ },
+ {
+  "mot": "rafales",
+  "début": 46.4,
+  "fin": 46.66,
+  "cle": false
+ },
+ {
+  "mot": "de",
+  "début": 46.66,
+  "fin": 46.76,
+  "cle": false
+ },
+ {
+  "mot": "80",
+  "début": 46.76,
+  "fin": 46.98,
+  "cle": true
+ },
+ {
+  "mot": "à",
+  "début": 46.98,
+  "fin": 47.3,
+  "cle": false
+ },
+ {
+  "mot": "100",
+  "début": 47.3,
+  "fin": 47.52,
+  "cle": true
+ },
+ {
+  "mot": "km/h",
+  "début": 47.52,
+  "fin": 48.04,
+  "cle": true
+ },
+ {
+  "mot": "sur",
+  "début": 48.04,
+  "fin": 48.38,
+  "cle": false
+ },
+ {
+  "mot": "les",
+  "début": 48.38,
+  "fin": 48.56,
+  "cle": false
+ },
+ {
+  "mot": "côtes",
+  "début": 48.56,
+  "fin": 48.74,
+  "cle": false
+ },
+ {
+  "mot": "de",
+  "début": 48.74,
+  "fin": 48.82,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 48.82,
+  "fin": 48.88,
+  "cle": false
+ },
+ {
+  "mot": "Manche.",
+  "début": 48.88,
+  "fin": 49.16,
+  "cle": true
+ },
+ {
+  "mot": "Dans",
+  "début": 49.34,
+  "fin": 49.78,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 49.78,
+  "fin": 49.84,
+  "cle": false
+ },
+ {
+  "mot": "nuit,",
+  "début": 49.84,
+  "fin": 50.1,
+  "cle": false
+ },
+ {
+  "mot": "le",
+  "début": 50.14,
+  "fin": 50.52,
+  "cle": false
+ },
+ {
+  "mot": "front",
+  "début": 50.52,
+  "fin": 50.72,
+  "cle": false
+ },
+ {
+  "mot": "froid",
+  "début": 50.72,
+  "fin": 50.94,
+  "cle": false
+ },
+ {
+  "mot": "balaie",
+  "début": 50.94,
+  "fin": 51.22,
+  "cle": false
+ },
+ {
+  "mot": "le",
+  "début": 51.22,
+  "fin": 51.38,
+  "cle": false
+ },
+ {
+  "mot": "Nord :",
+  "début": 51.38,
+  "fin": 51.6,
+  "cle": true
+ },
+ {
+  "mot": "20",
+  "début": 51.74,
+  "fin": 52.04,
+  "cle": true
+ },
+ {
+  "mot": "à",
+  "début": 52.04,
+  "fin": 52.26,
+  "cle": false
+ },
+ {
+  "mot": "40",
+  "début": 52.26,
+  "fin": 52.56,
+  "cle": true
+ },
+ {
+  "mot": "mm",
+  "début": 52.56,
+  "fin": 52.9,
+  "cle": true
+ },
+ {
+  "mot": "de",
+  "début": 52.9,
+  "fin": 53.18,
+  "cle": false
+ },
+ {
+  "mot": "pluie.",
+  "début": 53.18,
+  "fin": 53.4,
+  "cle": false
+ },
+ {
+  "mot": "Météo-France",
+  "début": 53.76,
+  "fin": 54.42,
+  "cle": false
+ },
+ {
+  "mot": "place",
+  "début": 54.42,
+  "fin": 54.68,
+  "cle": false
+ },
+ {
+  "mot": "8",
+  "début": 54.68,
+  "fin": 54.9,
+  "cle": true
+ },
+ {
+  "mot": "départements",
+  "début": 54.9,
+  "fin": 55.42,
+  "cle": false
+ },
+ {
+  "mot": "en",
+  "début": 55.42,
+  "fin": 55.62,
+  "cle": false
+ },
+ {
+  "mot": "vigilance",
+  "début": 55.62,
+  "fin": 55.8,
+  "cle": false
+ },
+ {
+  "mot": "jaune,",
+  "début": 55.8,
+  "fin": 56.24,
+  "cle": true
+ },
+ {
+  "mot": "du",
+  "début": 56.6,
+  "fin": 56.68,
+  "cle": false
+ },
+ {
+  "mot": "Finistère",
+  "début": 56.68,
+  "fin": 57.1,
+  "cle": true
+ },
+ {
+  "mot": "au",
+  "début": 57.1,
+  "fin": 57.44,
+  "cle": false
+ },
+ {
+  "mot": "Nord.",
+  "début": 57.44,
+  "fin": 57.66,
+  "cle": true
+ },
+ {
+  "mot": "Dimanche,",
+  "début": 58.0,
+  "fin": 58.6,
+  "cle": true
+ },
+ {
+  "mot": "le",
+  "début": 58.62,
+  "fin": 58.86,
+  "cle": false
+ },
+ {
+  "mot": "ciel",
+  "début": 58.86,
+  "fin": 59.08,
+  "cle": false
+ },
+ {
+  "mot": "devra",
+  "début": 59.08,
+  "fin": 59.3,
+  "cle": false
+ },
+ {
+  "mot": "se",
+  "début": 59.3,
+  "fin": 59.42,
+  "cle": false
+ },
+ {
+  "mot": "dégager…",
+  "début": 59.42,
+  "fin": 59.9,
+  "cle": false
+ },
+ {
+  "mot": "Dimanche,",
+  "début": 63.06,
+  "fin": 63.44,
+  "cle": true
+ },
+ {
+  "mot": "le",
+  "début": 63.48,
+  "fin": 63.7,
+  "cle": false
+ },
+ {
+  "mot": "ciel",
+  "début": 63.7,
+  "fin": 63.92,
+  "cle": false
+ },
+ {
+  "mot": "devrait",
+  "début": 63.92,
+  "fin": 64.12,
+  "cle": false
+ },
+ {
+  "mot": "se",
+  "début": 64.12,
+  "fin": 64.26,
+  "cle": false
+ },
+ {
+  "mot": "dégager",
+  "début": 64.26,
+  "fin": 64.66,
+  "cle": false
+ },
+ {
+  "mot": "à",
+  "début": 64.66,
+  "fin": 64.74,
+  "cle": false
+ },
+ {
+  "mot": "l'ouest",
+  "début": 64.74,
+  "fin": 65.0,
+  "cle": true
+ },
+ {
+  "mot": "et",
+  "début": 65.0,
+  "fin": 65.4,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 65.4,
+  "fin": 65.5,
+  "cle": false
+ },
+ {
+  "mot": "pluie",
+  "début": 65.5,
+  "fin": 65.74,
+  "cle": false
+ },
+ {
+  "mot": "filera",
+  "début": 65.74,
+  "fin": 66.0,
+  "cle": false
+ },
+ {
+  "mot": "vers",
+  "début": 66.0,
+  "fin": 66.24,
+  "cle": false
+ },
+ {
+  "mot": "l'est.",
+  "début": 66.24,
+  "fin": 66.5,
+  "cle": true
+ },
+ {
+  "mot": "3",
+  "début": 66.85,
+  "fin": 67.24,
+  "cle": true
+ },
+ {
+  "mot": "réflexes.",
+  "début": 67.24,
+  "fin": 67.78,
+  "cle": true
+ },
+ {
+  "mot": "Range",
+  "début": 67.8,
+  "fin": 68.24,
+  "cle": false
+ },
+ {
+  "mot": "ce",
+  "début": 68.24,
+  "fin": 68.4,
+  "cle": false
+ },
+ {
+  "mot": "qui",
+  "début": 68.4,
+  "fin": 68.48,
+  "cle": false
+ },
+ {
+  "mot": "peut",
+  "début": 68.48,
+  "fin": 68.64,
+  "cle": false
+ },
+ {
+  "mot": "s'envoler,",
+  "début": 68.64,
+  "fin": 69.08,
+  "cle": true
+ },
+ {
+  "mot": "comme",
+  "début": 69.08,
+  "fin": 69.32,
+  "cle": false
+ },
+ {
+  "mot": "pour",
+  "début": 69.32,
+  "fin": 69.46,
+  "cle": false
+ },
+ {
+  "mot": "la",
+  "début": 69.46,
+  "fin": 69.58,
+  "cle": false
+ },
+ {
+  "mot": "tempête…",
+  "début": 69.58,
+  "fin": 70.1,
+  "cle": false
+ },
+ {
+  "mot": "Austen.",
+  "début": 71.05,
+  "fin": 71.5,
+  "cle": true
+ },
+ {
+  "mot": "Évite",
+  "début": 73.68,
+  "fin": 74.0,
+  "cle": false
+ },
+ {
+  "mot": "les",
+  "début": 74.0,
+  "fin": 74.08,
+  "cle": false
+ },
+ {
+  "mot": "forêts",
+  "début": 74.08,
+  "fin": 74.42,
+  "cle": true
+ },
+ {
+  "mot": "et",
+  "début": 74.42,
+  "fin": 74.56,
+  "cle": false
+ },
+ {
+  "mot": "les",
+  "début": 74.56,
+  "fin": 74.66,
+  "cle": false
+ },
+ {
+  "mot": "bords",
+  "début": 74.66,
+  "fin": 74.82,
+  "cle": false
+ },
+ {
+  "mot": "de",
+  "début": 74.82,
+  "fin": 74.92,
+  "cle": false
+ },
+ {
+  "mot": "mer.",
+  "début": 74.92,
+  "fin": 75.08,
+  "cle": true
+ },
+ {
+  "mot": "Une",
+  "début": 75.38,
+  "fin": 75.82,
+  "cle": false
+ },
+ {
+  "mot": "route",
+  "début": 75.82,
+  "fin": 76.02,
+  "cle": false
+ },
+ {
+  "mot": "inondée ?",
+  "début": 76.02,
+  "fin": 76.4,
+  "cle": true
+ },
+ {
+  "mot": "Fais",
+  "début": 76.4,
+  "fin": 76.94,
+  "cle": false
+ },
+ {
+  "mot": "demi-tour.",
+  "début": 76.94,
+  "fin": 77.46,
+  "cle": true
+ }
+]

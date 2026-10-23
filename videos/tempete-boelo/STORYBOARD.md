@@ -35,3 +35,25 @@ Chaque scène démarre sur le **mot déclencheur** (en gras), calé sur la trans
 - **Conversions :** 80 mph ≈ 129 km/h, arrondi à 130 · 37 m/s ≈ 133 km/h · 28,5 m/s ≈ 103 km/h.
 - **Mouvement :** rien de figé plus de 2 s (lignes de vent en fond, zooms lents de 1,00 à 1,04, cyclone en rotation continue).
 - **Zones de sécurité TikTok :** rien d'important dans les 250 px du bas ni dans les 150 px de droite. Le contenu utile tient dans x ∈ [60, 930], y ∈ [0, 1670].
+
+## Rendu final (voix off reçue le 23/10/2026)
+
+Audio : 78,7 s. La vidéo dure 82,3 s, car l'écran final « T'ES DANS LA ZONE ? » est tenu 3,6 s après la fin de la voix : l'appel à l'action n'est pas dans l'enregistrement.
+
+| Début | Mot déclencheur | Scène |
+|---|---|---|
+| 0,00 s | (blanc) | Carte Europe, Boelo arrive de l'Atlantique |
+| 3,78 s | « 6 » | Les 6 pays s'allument un par un |
+| 6,66 s | « Une (bombe) » | Cyclone + compteur 980 → 946 hPa, tampon « BOMBE MÉTÉO » |
+| 11,64 s | « Samedi » | Article The Irish Times + tampon « VIGILANCE ORANGE », carte des 6 comtés |
+| 17,18 s | « Samedi (soir) » | Jauge 0 → 130 km/h, Écosse en alerte ambre |
+| 21,98 s | « Puis » | Cyclone sur sa trajectoire vers la Norvège, 133 km/h |
+| 26,70 s | « Dimanche » | Barres de rafales prévues sur la carte |
+| 33,56 s | « Et (chez nous) » | Zoom Europe → France pendant le blanc, tampons « EN BORDURE » et « MAIS PAS ÉPARGNÉE » |
+| 43,30 s | « Samedi (midi) » | Double calendrier + pluie sur la Bretagne |
+| 45,54 s | « Samedi (soir) » | Jauge 80–100 km/h + mini-carte des côtes de la Manche |
+| 49,34 s | « Dans » | Front froid qui balaie la France + compteur 20 → 40 mm |
+| 53,76 s | « Météo-France » | 8 départements en jaune, puis mise à jour de 18h01 : 20 départements |
+| 58,00 s | « Dimanche » | Calendrier sur dimanche, puis carte « éclaircies / pluie vers l'est » pendant le blanc |
+| 66,85 s | « 3 » | Checklist, avec le rappel Austen (161 km/h, pointe du Raz) pendant le blanc |
+| 77,71 s | fin de « demi-tour » | Écran final + sources |

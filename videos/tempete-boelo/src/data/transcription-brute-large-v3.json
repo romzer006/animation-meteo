@@ -1,0 +1,1142 @@
+[
+ {
+  "mot": "6",
+  "debut": 3.36,
+  "fin": 3.92,
+  "proba": 0.814
+ },
+ {
+  "mot": "pays",
+  "debut": 3.92,
+  "fin": 4.2,
+  "proba": 0.995
+ },
+ {
+  "mot": "en",
+  "debut": 4.2,
+  "fin": 4.42,
+  "proba": 1.0
+ },
+ {
+  "mot": "alerte,",
+  "debut": 4.42,
+  "fin": 4.92,
+  "proba": 0.999
+ },
+ {
+  "mot": "une",
+  "debut": 4.92,
+  "fin": 5.2,
+  "proba": 0.915
+ },
+ {
+  "mot": "seule",
+  "debut": 5.2,
+  "fin": 5.44,
+  "proba": 1.0
+ },
+ {
+  "mot": "tempête,",
+  "debut": 5.44,
+  "fin": 5.94,
+  "proba": 1.0
+ },
+ {
+  "mot": "Boelo.",
+  "debut": 6.0,
+  "fin": 6.5,
+  "proba": 0.03
+ },
+ {
+  "mot": "Une",
+  "debut": 6.66,
+  "fin": 7.18,
+  "proba": 0.999
+ },
+ {
+  "mot": "bombe",
+  "debut": 7.18,
+  "fin": 7.46,
+  "proba": 1.0
+ },
+ {
+  "mot": "météorologique,",
+  "debut": 7.46,
+  "fin": 8.14,
+  "proba": 0.998
+ },
+ {
+  "mot": "sa",
+  "debut": 8.32,
+  "fin": 8.48,
+  "proba": 1.0
+ },
+ {
+  "mot": "pression",
+  "debut": 8.48,
+  "fin": 8.96,
+  "proba": 1.0
+ },
+ {
+  "mot": "plonge",
+  "debut": 8.96,
+  "fin": 9.22,
+  "proba": 1.0
+ },
+ {
+  "mot": "jusqu",
+  "debut": 9.22,
+  "fin": 9.44,
+  "proba": 1.0
+ },
+ {
+  "mot": "'à",
+  "debut": 9.44,
+  "fin": 9.58,
+  "proba": 1.0
+ },
+ {
+  "mot": "947",
+  "debut": 9.58,
+  "fin": 10.14,
+  "proba": 1.0
+ },
+ {
+  "mot": "hectopascals.",
+  "debut": 10.14,
+  "fin": 11.28,
+  "proba": 0.672
+ },
+ {
+  "mot": "Samedi,",
+  "debut": 11.64,
+  "fin": 12.2,
+  "proba": 0.997
+ },
+ {
+  "mot": "elle",
+  "debut": 12.22,
+  "fin": 12.56,
+  "proba": 1.0
+ },
+ {
+  "mot": "va",
+  "debut": 12.56,
+  "fin": 12.7,
+  "proba": 1.0
+ },
+ {
+  "mot": "frapper",
+  "debut": 12.7,
+  "fin": 13.02,
+  "proba": 1.0
+ },
+ {
+  "mot": "l",
+  "debut": 13.02,
+  "fin": 13.18,
+  "proba": 0.998
+ },
+ {
+  "mot": "'Irlande.",
+  "debut": 13.18,
+  "fin": 13.64,
+  "proba": 1.0
+ },
+ {
+  "mot": "6",
+  "debut": 13.68,
+  "fin": 14.14,
+  "proba": 0.904
+ },
+ {
+  "mot": "comtés",
+  "debut": 14.14,
+  "fin": 14.46,
+  "proba": 0.989
+ },
+ {
+  "mot": "en",
+  "debut": 14.46,
+  "fin": 14.62,
+  "proba": 1.0
+ },
+ {
+  "mot": "vigilance",
+  "debut": 14.62,
+  "fin": 14.98,
+  "proba": 0.986
+ },
+ {
+  "mot": "orange,",
+  "debut": 14.98,
+  "fin": 15.18,
+  "proba": 0.999
+ },
+ {
+  "mot": "les",
+  "debut": 15.42,
+  "fin": 15.74,
+  "proba": 1.0
+ },
+ {
+  "mot": "courses",
+  "debut": 15.74,
+  "fin": 16.02,
+  "proba": 0.994
+ },
+ {
+  "mot": "de",
+  "debut": 16.02,
+  "fin": 16.16,
+  "proba": 1.0
+ },
+ {
+  "mot": "Galway",
+  "debut": 16.16,
+  "fin": 16.46,
+  "proba": 0.967
+ },
+ {
+  "mot": "reportées.",
+  "debut": 16.46,
+  "fin": 17.06,
+  "proba": 0.994
+ },
+ {
+  "mot": "Samedi",
+  "debut": 17.18,
+  "fin": 17.68,
+  "proba": 0.998
+ },
+ {
+  "mot": "soir,",
+  "debut": 17.68,
+  "fin": 17.88,
+  "proba": 1.0
+ },
+ {
+  "mot": "alerte",
+  "debut": 18.04,
+  "fin": 18.62,
+  "proba": 0.999
+ },
+ {
+  "mot": "ambre",
+  "debut": 18.62,
+  "fin": 19.04,
+  "proba": 0.748
+ },
+ {
+  "mot": "en",
+  "debut": 19.04,
+  "fin": 19.28,
+  "proba": 1.0
+ },
+ {
+  "mot": "Écosse,",
+  "debut": 19.28,
+  "fin": 19.78,
+  "proba": 0.866
+ },
+ {
+  "mot": "rafale",
+  "debut": 19.78,
+  "fin": 20.4,
+  "proba": 0.991
+ },
+ {
+  "mot": "jusqu",
+  "debut": 20.4,
+  "fin": 20.5,
+  "proba": 1.0
+ },
+ {
+  "mot": "'à",
+  "debut": 20.5,
+  "fin": 20.7,
+  "proba": 1.0
+ },
+ {
+  "mot": "130",
+  "debut": 20.7,
+  "fin": 21.02,
+  "proba": 1.0
+ },
+ {
+  "mot": "km",
+  "debut": 21.02,
+  "fin": 21.44,
+  "proba": 0.985
+ },
+ {
+  "mot": "heure.",
+  "debut": 21.44,
+  "fin": 21.86,
+  "proba": 0.573
+ },
+ {
+  "mot": "Puis,",
+  "debut": 21.98,
+  "fin": 22.48,
+  "proba": 1.0
+ },
+ {
+  "mot": "Boelo",
+  "debut": 22.6,
+  "fin": 23.08,
+  "proba": 0.999
+ },
+ {
+  "mot": "file",
+  "debut": 23.08,
+  "fin": 23.28,
+  "proba": 0.997
+ },
+ {
+  "mot": "vers",
+  "debut": 23.28,
+  "fin": 23.48,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 23.48,
+  "fin": 23.6,
+  "proba": 1.0
+ },
+ {
+  "mot": "Norvège,",
+  "debut": 23.6,
+  "fin": 23.96,
+  "proba": 0.999
+ },
+ {
+  "mot": "rafale",
+  "debut": 24.1,
+  "fin": 24.52,
+  "proba": 1.0
+ },
+ {
+  "mot": "jusqu",
+  "debut": 24.52,
+  "fin": 24.66,
+  "proba": 1.0
+ },
+ {
+  "mot": "'à",
+  "debut": 24.66,
+  "fin": 24.82,
+  "proba": 1.0
+ },
+ {
+  "mot": "130",
+  "debut": 24.82,
+  "fin": 25.06,
+  "proba": 1.0
+ },
+ {
+  "mot": "km",
+  "debut": 25.06,
+  "fin": 25.4,
+  "proba": 1.0
+ },
+ {
+  "mot": "heure",
+  "debut": 25.4,
+  "fin": 25.72,
+  "proba": 0.997
+ },
+ {
+  "mot": "attendue",
+  "debut": 25.72,
+  "fin": 26.06,
+  "proba": 0.933
+ },
+ {
+  "mot": "sur",
+  "debut": 26.06,
+  "fin": 26.18,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 26.18,
+  "fin": 26.3,
+  "proba": 1.0
+ },
+ {
+  "mot": "côte.",
+  "debut": 26.3,
+  "fin": 26.6,
+  "proba": 1.0
+ },
+ {
+  "mot": "Dimanche,",
+  "debut": 26.6,
+  "fin": 27.34,
+  "proba": 0.948
+ },
+ {
+  "mot": "le",
+  "debut": 27.34,
+  "fin": 27.48,
+  "proba": 0.999
+ },
+ {
+  "mot": "Danemark",
+  "debut": 27.48,
+  "fin": 27.92,
+  "proba": 0.999
+ },
+ {
+  "mot": "aussi",
+  "debut": 27.92,
+  "fin": 28.36,
+  "proba": 0.981
+ },
+ {
+  "mot": "va",
+  "debut": 28.36,
+  "fin": 28.84,
+  "proba": 0.994
+ },
+ {
+  "mot": "prendre",
+  "debut": 28.84,
+  "fin": 29.06,
+  "proba": 1.0
+ },
+ {
+  "mot": "les",
+  "debut": 29.06,
+  "fin": 29.22,
+  "proba": 0.96
+ },
+ {
+  "mot": "rafales",
+  "debut": 29.22,
+  "fin": 29.46,
+  "proba": 0.992
+ },
+ {
+  "mot": "de",
+  "debut": 29.46,
+  "fin": 29.58,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 29.58,
+  "fin": 29.62,
+  "proba": 0.998
+ },
+ {
+  "mot": "tempête.",
+  "debut": 29.62,
+  "fin": 29.98,
+  "proba": 1.0
+ },
+ {
+  "mot": "Les",
+  "debut": 31.04,
+  "fin": 31.48,
+  "proba": 0.998
+ },
+ {
+  "mot": "Pays",
+  "debut": 31.48,
+  "fin": 31.76,
+  "proba": 1.0
+ },
+ {
+  "mot": "-Bas",
+  "debut": 31.76,
+  "fin": 31.92,
+  "proba": 1.0
+ },
+ {
+  "mot": "et",
+  "debut": 31.92,
+  "fin": 32.06,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 32.06,
+  "fin": 32.14,
+  "proba": 1.0
+ },
+ {
+  "mot": "Belgique",
+  "debut": 32.14,
+  "fin": 32.56,
+  "proba": 1.0
+ },
+ {
+  "mot": "sont",
+  "debut": 32.56,
+  "fin": 32.74,
+  "proba": 1.0
+ },
+ {
+  "mot": "en",
+  "debut": 32.74,
+  "fin": 32.9,
+  "proba": 1.0
+ },
+ {
+  "mot": "alerte",
+  "debut": 32.9,
+  "fin": 33.22,
+  "proba": 0.999
+ },
+ {
+  "mot": "jaune.",
+  "debut": 33.22,
+  "fin": 33.54,
+  "proba": 0.998
+ },
+ {
+  "mot": "Et",
+  "debut": 33.56,
+  "fin": 33.94,
+  "proba": 0.992
+ },
+ {
+  "mot": "chez",
+  "debut": 33.94,
+  "fin": 34.06,
+  "proba": 0.999
+ },
+ {
+  "mot": "nous,",
+  "debut": 34.06,
+  "fin": 34.24,
+  "proba": 0.999
+ },
+ {
+  "mot": "en",
+  "debut": 34.3,
+  "fin": 34.68,
+  "proba": 0.962
+ },
+ {
+  "mot": "France,",
+  "debut": 34.68,
+  "fin": 35.0,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 35.16,
+  "fin": 35.9,
+  "proba": 0.351
+ },
+ {
+  "mot": "France",
+  "debut": 35.9,
+  "fin": 41.38,
+  "proba": 0.998
+ },
+ {
+  "mot": "est",
+  "debut": 41.38,
+  "fin": 41.54,
+  "proba": 0.999
+ },
+ {
+  "mot": "en",
+  "debut": 41.54,
+  "fin": 41.66,
+  "proba": 1.0
+ },
+ {
+  "mot": "bordure,",
+  "debut": 41.66,
+  "fin": 42.14,
+  "proba": 0.995
+ },
+ {
+  "mot": "mais",
+  "debut": 42.16,
+  "fin": 42.42,
+  "proba": 1.0
+ },
+ {
+  "mot": "pas",
+  "debut": 42.42,
+  "fin": 42.6,
+  "proba": 1.0
+ },
+ {
+  "mot": "épargnée.",
+  "debut": 42.6,
+  "fin": 43.02,
+  "proba": 0.999
+ },
+ {
+  "mot": "Samedi",
+  "debut": 43.3,
+  "fin": 43.74,
+  "proba": 0.998
+ },
+ {
+  "mot": "midi,",
+  "debut": 43.74,
+  "fin": 44.04,
+  "proba": 0.996
+ },
+ {
+  "mot": "la",
+  "debut": 44.06,
+  "fin": 44.26,
+  "proba": 1.0
+ },
+ {
+  "mot": "pluie",
+  "debut": 44.26,
+  "fin": 44.5,
+  "proba": 1.0
+ },
+ {
+  "mot": "arrive",
+  "debut": 44.5,
+  "fin": 44.78,
+  "proba": 1.0
+ },
+ {
+  "mot": "en",
+  "debut": 44.78,
+  "fin": 44.96,
+  "proba": 1.0
+ },
+ {
+  "mot": "Bretagne.",
+  "debut": 44.96,
+  "fin": 45.32,
+  "proba": 1.0
+ },
+ {
+  "mot": "Samedi",
+  "debut": 45.54,
+  "fin": 45.98,
+  "proba": 0.999
+ },
+ {
+  "mot": "soir,",
+  "debut": 45.98,
+  "fin": 46.18,
+  "proba": 1.0
+ },
+ {
+  "mot": "les",
+  "debut": 46.28,
+  "fin": 46.4,
+  "proba": 0.998
+ },
+ {
+  "mot": "rafales",
+  "debut": 46.4,
+  "fin": 46.66,
+  "proba": 1.0
+ },
+ {
+  "mot": "de",
+  "debut": 46.66,
+  "fin": 46.76,
+  "proba": 1.0
+ },
+ {
+  "mot": "80",
+  "debut": 46.76,
+  "fin": 46.98,
+  "proba": 0.999
+ },
+ {
+  "mot": "à",
+  "debut": 46.98,
+  "fin": 47.3,
+  "proba": 0.991
+ },
+ {
+  "mot": "100",
+  "debut": 47.3,
+  "fin": 47.52,
+  "proba": 1.0
+ },
+ {
+  "mot": "km",
+  "debut": 47.52,
+  "fin": 47.78,
+  "proba": 0.996
+ },
+ {
+  "mot": "heure",
+  "debut": 47.78,
+  "fin": 48.04,
+  "proba": 0.465
+ },
+ {
+  "mot": "sur",
+  "debut": 48.04,
+  "fin": 48.38,
+  "proba": 0.999
+ },
+ {
+  "mot": "les",
+  "debut": 48.38,
+  "fin": 48.56,
+  "proba": 1.0
+ },
+ {
+  "mot": "côtes",
+  "debut": 48.56,
+  "fin": 48.74,
+  "proba": 1.0
+ },
+ {
+  "mot": "de",
+  "debut": 48.74,
+  "fin": 48.82,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 48.82,
+  "fin": 48.88,
+  "proba": 1.0
+ },
+ {
+  "mot": "Manche.",
+  "debut": 48.88,
+  "fin": 49.16,
+  "proba": 0.999
+ },
+ {
+  "mot": "Dans",
+  "debut": 49.34,
+  "fin": 49.78,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 49.78,
+  "fin": 49.84,
+  "proba": 1.0
+ },
+ {
+  "mot": "nuit,",
+  "debut": 49.84,
+  "fin": 50.1,
+  "proba": 1.0
+ },
+ {
+  "mot": "le",
+  "debut": 50.14,
+  "fin": 50.52,
+  "proba": 1.0
+ },
+ {
+  "mot": "front",
+  "debut": 50.52,
+  "fin": 50.72,
+  "proba": 0.984
+ },
+ {
+  "mot": "froid",
+  "debut": 50.72,
+  "fin": 50.94,
+  "proba": 0.994
+ },
+ {
+  "mot": "balaye",
+  "debut": 50.94,
+  "fin": 51.22,
+  "proba": 0.805
+ },
+ {
+  "mot": "le",
+  "debut": 51.22,
+  "fin": 51.38,
+  "proba": 0.9
+ },
+ {
+  "mot": "nord,",
+  "debut": 51.38,
+  "fin": 51.6,
+  "proba": 0.966
+ },
+ {
+  "mot": "20",
+  "debut": 51.74,
+  "fin": 52.04,
+  "proba": 0.998
+ },
+ {
+  "mot": "à",
+  "debut": 52.04,
+  "fin": 52.26,
+  "proba": 1.0
+ },
+ {
+  "mot": "40",
+  "debut": 52.26,
+  "fin": 52.56,
+  "proba": 1.0
+ },
+ {
+  "mot": "mm",
+  "debut": 52.56,
+  "fin": 52.9,
+  "proba": 0.991
+ },
+ {
+  "mot": "de",
+  "debut": 52.9,
+  "fin": 53.18,
+  "proba": 1.0
+ },
+ {
+  "mot": "pluie.",
+  "debut": 53.18,
+  "fin": 53.4,
+  "proba": 1.0
+ },
+ {
+  "mot": "Météo",
+  "debut": 53.76,
+  "fin": 54.2,
+  "proba": 0.995
+ },
+ {
+  "mot": "-France",
+  "debut": 54.2,
+  "fin": 54.42,
+  "proba": 0.677
+ },
+ {
+  "mot": "place",
+  "debut": 54.42,
+  "fin": 54.68,
+  "proba": 0.856
+ },
+ {
+  "mot": "8",
+  "debut": 54.68,
+  "fin": 54.9,
+  "proba": 0.904
+ },
+ {
+  "mot": "départements",
+  "debut": 54.9,
+  "fin": 55.42,
+  "proba": 1.0
+ },
+ {
+  "mot": "en",
+  "debut": 55.42,
+  "fin": 55.62,
+  "proba": 0.997
+ },
+ {
+  "mot": "vision",
+  "debut": 55.62,
+  "fin": 55.8,
+  "proba": 0.988
+ },
+ {
+  "mot": "jaune.",
+  "debut": 55.8,
+  "fin": 56.24,
+  "proba": 1.0
+ },
+ {
+  "mot": "Du",
+  "debut": 56.6,
+  "fin": 56.68,
+  "proba": 0.138
+ },
+ {
+  "mot": "Finistère",
+  "debut": 56.68,
+  "fin": 57.1,
+  "proba": 0.989
+ },
+ {
+  "mot": "au",
+  "debut": 57.1,
+  "fin": 57.44,
+  "proba": 0.977
+ },
+ {
+  "mot": "nord.",
+  "debut": 57.44,
+  "fin": 57.66,
+  "proba": 0.783
+ },
+ {
+  "mot": "Dimanche,",
+  "debut": 58.16,
+  "fin": 58.6,
+  "proba": 0.999
+ },
+ {
+  "mot": "le",
+  "debut": 58.62,
+  "fin": 58.86,
+  "proba": 0.999
+ },
+ {
+  "mot": "ciel",
+  "debut": 58.86,
+  "fin": 59.08,
+  "proba": 1.0
+ },
+ {
+  "mot": "devra",
+  "debut": 59.08,
+  "fin": 59.3,
+  "proba": 0.942
+ },
+ {
+  "mot": "se",
+  "debut": 59.3,
+  "fin": 59.42,
+  "proba": 1.0
+ },
+ {
+  "mot": "dégager",
+  "debut": 59.42,
+  "fin": 59.82,
+  "proba": 1.0
+ },
+ {
+  "mot": "à",
+  "debut": 59.82,
+  "fin": 61.12,
+  "proba": 0.345
+ },
+ {
+  "mot": "l",
+  "debut": 61.12,
+  "fin": 64.84,
+  "proba": 1.0
+ },
+ {
+  "mot": "'ouest",
+  "debut": 64.84,
+  "fin": 64.94,
+  "proba": 0.997
+ },
+ {
+  "mot": "et",
+  "debut": 64.94,
+  "fin": 65.3,
+  "proba": 0.535
+ },
+ {
+  "mot": "la",
+  "debut": 65.3,
+  "fin": 65.52,
+  "proba": 0.999
+ },
+ {
+  "mot": "pluie",
+  "debut": 65.52,
+  "fin": 65.72,
+  "proba": 1.0
+ },
+ {
+  "mot": "filera",
+  "debut": 65.72,
+  "fin": 65.98,
+  "proba": 0.975
+ },
+ {
+  "mot": "vers",
+  "debut": 65.98,
+  "fin": 66.26,
+  "proba": 1.0
+ },
+ {
+  "mot": "l",
+  "debut": 66.26,
+  "fin": 66.36,
+  "proba": 1.0
+ },
+ {
+  "mot": "'est.",
+  "debut": 66.36,
+  "fin": 66.48,
+  "proba": 0.997
+ },
+ {
+  "mot": "3",
+  "debut": 66.82,
+  "fin": 67.26,
+  "proba": 0.259
+ },
+ {
+  "mot": "réflexes.",
+  "debut": 67.26,
+  "fin": 67.78,
+  "proba": 0.963
+ },
+ {
+  "mot": "Range",
+  "debut": 67.8,
+  "fin": 68.24,
+  "proba": 0.803
+ },
+ {
+  "mot": "ce",
+  "debut": 68.24,
+  "fin": 68.38,
+  "proba": 0.99
+ },
+ {
+  "mot": "qui",
+  "debut": 68.38,
+  "fin": 68.46,
+  "proba": 1.0
+ },
+ {
+  "mot": "peut",
+  "debut": 68.46,
+  "fin": 68.64,
+  "proba": 1.0
+ },
+ {
+  "mot": "s",
+  "debut": 68.64,
+  "fin": 68.74,
+  "proba": 1.0
+ },
+ {
+  "mot": "'envoler,",
+  "debut": 68.74,
+  "fin": 69.1,
+  "proba": 1.0
+ },
+ {
+  "mot": "comme",
+  "debut": 69.1,
+  "fin": 69.34,
+  "proba": 1.0
+ },
+ {
+  "mot": "pour",
+  "debut": 69.34,
+  "fin": 69.46,
+  "proba": 1.0
+ },
+ {
+  "mot": "la",
+  "debut": 69.46,
+  "fin": 69.58,
+  "proba": 1.0
+ },
+ {
+  "mot": "tempête,",
+  "debut": 69.58,
+  "fin": 70.08,
+  "proba": 1.0
+ },
+ {
+  "mot": "au",
+  "debut": 70.1,
+  "fin": 71.14,
+  "proba": 0.481
+ },
+ {
+  "mot": "Sten.",
+  "debut": 71.14,
+  "fin": 71.4,
+  "proba": 0.743
+ },
+ {
+  "mot": "Évite",
+  "debut": 73.56,
+  "fin": 74.0,
+  "proba": 0.949
+ },
+ {
+  "mot": "les",
+  "debut": 74.0,
+  "fin": 74.08,
+  "proba": 1.0
+ },
+ {
+  "mot": "forêts",
+  "debut": 74.08,
+  "fin": 74.42,
+  "proba": 1.0
+ },
+ {
+  "mot": "et",
+  "debut": 74.42,
+  "fin": 74.56,
+  "proba": 1.0
+ },
+ {
+  "mot": "les",
+  "debut": 74.56,
+  "fin": 74.66,
+  "proba": 1.0
+ },
+ {
+  "mot": "bords",
+  "debut": 74.66,
+  "fin": 74.82,
+  "proba": 0.999
+ },
+ {
+  "mot": "de",
+  "debut": 74.82,
+  "fin": 74.92,
+  "proba": 1.0
+ },
+ {
+  "mot": "mer.",
+  "debut": 74.92,
+  "fin": 75.08,
+  "proba": 1.0
+ },
+ {
+  "mot": "Une",
+  "debut": 75.38,
+  "fin": 75.82,
+  "proba": 0.997
+ },
+ {
+  "mot": "route",
+  "debut": 75.82,
+  "fin": 76.02,
+  "proba": 0.998
+ },
+ {
+  "mot": "inondée",
+  "debut": 76.02,
+  "fin": 76.4,
+  "proba": 1.0
+ },
+ {
+  "mot": "fait",
+  "debut": 76.4,
+  "fin": 76.94,
+  "proba": 0.87
+ },
+ {
+  "mot": "demi",
+  "debut": 76.94,
+  "fin": 77.18,
+  "proba": 1.0
+ },
+ {
+  "mot": "-tour.",
+  "debut": 77.18,
+  "fin": 77.46,
+  "proba": 0.999
+ }
+]

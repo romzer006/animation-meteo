@@ -27,6 +27,7 @@ Une info non confirmée par une source fiable et datée n'est **pas** utilisée 
 | # | Donnée | Valeur | Source | Date |
 |---|--------|--------|--------|------|
 | F1 | Vigilance samedi 24/10 : **8 départements en jaune**, aucun en orange ni en rouge | Haute-Corse (2B) vent · Côtes-d'Armor (22) vent · Finistère (29) vent · Manche (50) vent, pluie-inondation · Nord (59) vent · Pas-de-Calais (62) vent, pluie-inondation, crues, vagues-submersion · Seine-Maritime (76) pluie-inondation, vagues-submersion · Somme (80) vent, pluie-inondation, vagues-submersion | Météo-France, vigilance.meteofrance.fr | diffusion 23/10/2026 14h01 (toujours en vigueur à 15h53) |
+| F1b | **Mise à jour** vigilance samedi 24/10 : **20 départements en jaune**, toujours aucun orange. 12 départements s'ajoutent aux 8 : Aisne (02), Calvados (14, vent), Eure (27), Oise (60), Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94) et Val-d'Oise (95), en pluie-inondation sauf mention | 20 départements | Météo-France, vigilance.meteofrance.fr | diffusion 23/10/2026 18h01 (vérifiée à 19h15) |
 | F2 | Front chaud sur la Bretagne **dès samedi midi** | — | Meteored / tameteo.com (A. Kaczmarek) | 23/10/2026 14h19 |
 | F3 | Rafales sur les côtes de la Manche | 80 à 100 km/h | Météo-Contact | MAJ 22/10/2026 20h39 |
 | F4 | Front froid sur les côtes de la Manche **entre minuit et 2 h** (nuit sam. → dim.), puis vers le sud et l'est | — | Meteored / tameteo.com | 23/10/2026 14h19 |
@@ -50,10 +51,11 @@ Une info non confirmée par une source fiable et datée n'est **pas** utilisée 
 - **Alerte officielle au Danemark** : DMI annonce des rafales de force tempête, mais le niveau d'alerte n'est pas confirmé. Le Danemark n'est donc pas compté dans les « six pays en alerte ».
 - **Alerte orange dans l'extrême nord de la Norvège** : mentionnée seulement dans une vidéo (NTB), non vérifiée. Non utilisée.
 
-## À revérifier avant le rendu (phase 2)
+## Vérifications avant le rendu (23/10/2026, 19h15)
 
-- Carte de vigilance Météo-France la plus récente (samedi + dimanche).
-- Niveaux d'alerte Met Éireann, Met Office, MET Norway, KNMI et IRM (ils peuvent monter ou baisser).
+- Météo-France : bulletin de 18h01, **8 → 20 départements en jaune** pour samedi, aucun orange. La vidéo affiche la mise à jour (tampon « MISE À JOUR 18H01 »).
+- Met Éireann (page Warnings, samedi) : inchangé, orange vent dans 5 comtés + orange pluie dans le Kerry. L'Irlande du Nord (Met Office) a aussi une alerte ambre pour Antrim et Derry.
+- Rappel Austen (scène des réflexes) : rafale de 161 km/h à la pointe du Raz, relevé Météo-France cité par franceinfo (23/10/2026 14h51).
 
 ## URLs
 
